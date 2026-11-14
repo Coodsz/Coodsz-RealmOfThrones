@@ -1,0 +1,130 @@
+Paste each part as its own Discord message. A line that starts with # is a big heading.
+
+# I made these tools so hosting and playing Realm of Thrones with friends in Bannerlord Coop is easier. They are early, so read the "Not finished yet" part before you start.
+
+PART 1, players
+
+# Coodsz Realm of Thrones
+
+Tools version **v0.1.0** (Client Launcher and Server Tool) for **Realm of Thrones 8.1.2** (modules 8.1.8, map 8.1.8.2) on Bannerlord **1.4.8** on Steam for Windows. You need the **War Sails** DLC (NavalDLC) too.
+
+The tools never contain Realm of Thrones. You get it yourself from Nexus Mods (mods/2907).
+
+Everyone needs the same set. That is Realm of Thrones, Realm of Thrones Coop Compat **0.1.0** (it comes with the tools), Harmony, ButterLib and UIExtenderEx from the Steam Workshop, and MCM from Nexus Mods.
+
+The tools carry an unofficial Realm of Thrones build of Coop. It is not the Coop from the Steam Workshop. The host and every player must use this same build, and the tools check it for you.
+
+The tools carry their own .NET, so you do not need to install anything else for them.
+
+# Download
+https://github.com/Coodsz/Coodsz-RealmOfThrones/releases/latest
+
+1. Download the Realm of Thrones tools zip from the link above. It holds both programs, the Client Launcher and the Server Tool. Unzip it before you open anything, and give each Coodsz zip its own folder.
+2. Download Realm of Thrones from Nexus Mods and put its modules in the game's Modules folder.
+https://www.nexusmods.com/mountandblade2bannerlord/mods/2907
+3. Make sure War Sails is installed in Steam.
+
+# If Windows warns you
+
+If SmartScreen says "Unknown publisher", choose **More info**, then **Run anyway**. If Windows Defender flags a file from the zip, delete it and message me (Coodsz) on Discord.
+
+# Do this
+1. Close Bannerlord.
+2. Open `Coodsz Realm of Thrones Client Launcher.exe` in the Coodsz Realm of Thrones Tools folder.
+3. Ask the host for their mod list. The host makes it with **Share mod list**. On the **Mods** page, click **Import mod list** and pick that file. The launcher needs it before **Connect** can compare your PC with the host.
+4. On **Play**, click **Check mods**. **Connect** gets Harmony, ButterLib and UIExtenderEx from the Steam Workshop when one is missing. MCM comes from Nexus Mods, so you get that yourself. The Realm of Thrones core is not downloaded for you either.
+5. Pick the same setup as the host. **Plain Realm of Thrones** is the locked setup with only Realm of Thrones and its helper mods. A custom setup adds extra mods, and the host must load the same ones.
+6. **Direct** is the host's IP and UDP port `4200`. **Steam lobby** only works if the host turned on Steam. Use the host's Steam profile name, with Steam running on both PCs.
+7. Click **Connect**. The launcher puts its Realm of Thrones build of Coop into the game's Modules folder as `Modules\Coop`. If you had another Coop there, it asks first, sets it aside in the game folder and puts it back when you close the launcher. Nothing of yours is deleted.
+8. Keep the launcher open while you play. When Bannerlord closes, close the launcher. It takes its Coop out and puts yours back.
+
+# Your first join takes a long time
+
+Realm of Thrones changes the mod list, so the game rebuilds its shaders and prepares the map. That takes several minutes the first time. The game can look frozen. Wait for it and do not close it.
+
+# Story events
+
+Realm of Thrones asks questions during its story, like the sieges. When one comes up, every player sees it with a timer. The first player to answer decides for everyone. If nobody answers in 60 seconds, the default goes ahead.
+
+# Encyclopedia
+
+The **Encyclopedia** page opens the Realm of Thrones wiki and the tables of troops, armor, shields, weapons, cultures, wanderers, kingdoms and clans in your browser. The community made those pages, not me. Some were written for older versions of the mod, so details can differ in 8.1.
+
+# If something goes wrong
+- On **Logs and help**, click **Open client logs** to find the log files. Sending logs from the tool is not set up yet for Realm of Thrones.
+- If the game crashes on start, try **Safe mode** on **Logs and help**. If that works, **Find the crashing mod** finds the extra mod that crashes it.
+- Graphics look wrong? Close Bannerlord, open **Settings** and click **Clear shader cache**. It does not touch mods or saves.
+
+# Do not
+- Do not put your own Coop in `Modules\Coop` by hand while you use the launcher. It handles Coop for you.
+- Do not click Connect while Bannerlord is open.
+
+# Not finished yet
+- Sieges are still being tested. In some tests the siege menu showed only **Leave**, with no way to start the assault, and one big battle at Casterly Rock stopped near the end.
+- In a Coop game the White Walker start is not offered in character creation.
+- Enlisting in a lord's party, changing the storyline wars and sending ravens are off in Coop. The game says so when you try.
+- A few Realm of Thrones details, like militia sizes, may show the old state on a player's PC until Coop sends them.
+
+
+PART 2, host
+
+# Coodsz Realm of Thrones Server Tool
+
+Do the player steps first, so Bannerlord has Realm of Thrones and War Sails. The server copies the War Sails files it needs from your own game, so keep the game installed on this PC. The Server Tool is in the same zip as the Client Launcher.
+
+You also need the Coop dedicated server from the Steam Workshop. Stay subscribed to it. The tool only reads it and never changes it.
+
+# Do this
+1. Open `Coodsz Realm of Thrones Server Tool.exe` in the Coodsz Realm of Thrones Tools folder.
+2. On **Saves**, if the tool does not find the Coop server by itself, click **Choose Coop server** and pick its folder.
+3. Click **Prepare server**. It builds a server in this folder from the Workshop Coop server, War Sails from your game and the Realm of Thrones build of Coop.
+`C:\RotServer`
+The first time copies a few GB and takes a few minutes. Keep the tool open. It never deletes your campaigns. Run **Prepare server** again after a mod or Coop update.
+4. Type a name and click **New campaign**. The server makes a fresh Realm of Thrones world under that name, so you don't need a single player save. To host a campaign you already have, pick it below instead. If it says Single player copy, click **Name server copy** first. A save without Realm of Thrones does not load.
+5. On the **Dashboard**, click **Start server**. The first time, it shows the Coop server terms. Read them and click **I accept**, or the server will not start.
+6. Windows Firewall will ask whether to allow the server the first time it starts from `C:\RotServer`. Click **Allow** and tick private networks. If you don't, your friends can't join. The prompt may name .NET Host.
+7. Wait until the status says **Server online**. The first start of a new campaign builds the world and can take a long time. Do not stop the server then.
+8. Click **Share mod list** (under **More** on the **Mods** page) and send the file to your players. They need it to join.
+9. Give players your IP address with the port forwarded and UDP `4200`. That is the recommended way. **Open the port on my router automatically** and **Allow through firewall** help when friends cannot reach you.
+10. Steam lobby is optional. Tick **Advertise through Steam** on **Settings** before you click **Start server**, keep Steam running, and give friends your Steam profile name.
+
+# Setups
+
+**Plain Realm of Thrones** is the locked setup. It is exactly Realm of Thrones and its helper mods, in a fixed order. To add mods, click **New setup** or **Copy** on the **Mods** page. Every player must load the same extra mods, even interface mods.
+
+# While the server runs
+- On the **Dashboard**, **Start server** turns into **Stop server** while the server runs. **Save game** keeps the server up and players connected. **Stop server** and **Restart** save first.
+- **Last good save** puts back the newest save from before your hero lost their party and starts again.
+- Online players, **Kick player**, **Ban player** and **Unban player** are on the **Dashboard**.
+- Story event questions are answered by the first player to click. If nobody answers in 60 seconds, the default goes ahead. The world waits for the answer.
+- The first join of a player is slow because of shaders. The server waits longer than normal for a joining player, so do not kick them.
+- The **Encyclopedia** page has the same links as the Client Launcher.
+- **Open server logs** is on the **Logs** page. Sending logs from the tool is not set up yet for Realm of Thrones.
+
+# Password
+
+Type a password in the Server Tool if you want one, and give players that same password. An empty password is fine.
+
+# Do not
+- Do not start the dedicated server yourself while also using this tool.
+- Do not give friends any port other than `4200`.
+- Do not pick a server folder inside the Steam Workshop folder.
+
+# Not finished yet
+- Sieges are still being tested. In some tests the siege menu showed only **Leave**, and one big battle at Casterly Rock stopped near the end.
+- Sending logs from the tools is not set up yet.
+
+I will try my best to keep these updated and working. Any bugs, challenges, feature ideas, or if you need help in any way, please message me (Coodsz) on Discord.
+
+
+PART 3, already have the tools
+
+# Update the tools
+
+When a newer release is out, the tool shows a line and an **Install update** button. Click it. When it is done, the tool closes and opens again on the new copy. Your saved paths, password and settings stay.
+
+Get new releases here.
+https://github.com/Coodsz/Coodsz-RealmOfThrones/releases/latest
+
+# License
+The tools are free to use. Copyright (c) 2026 Coodsz, all rights reserved. Without written permission from Coodsz you may not make money with them, use them on a paid server or in streams or videos that earn money, decompile them, reupload them anywhere other than the official GitHub releases, or share modified copies. To ask, contact Coodsz on Discord (Coodsz) or on GitHub (github.com/Coodsz). The full text is LICENSE.txt on the release page. Each tool shows it once at the first start, and you press **I agree** to use the tools.
