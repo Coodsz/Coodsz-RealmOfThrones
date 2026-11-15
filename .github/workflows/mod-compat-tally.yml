@@ -1,12 +1,13 @@
-# The Realm of Thrones community list tally, for the Coodsz/Coodsz-RealmOfThrones repository
+# The Realm of Thrones community list tally, for the Coodsz/Coodsz-RealmOfThrones repository (its
+# source is kept in the launcher repository under rot-compat/, see docs/rot-modlist-publish.md).
 # In the launcher repository it does not run; only files under .github/workflows run.
 #
 # Counts the approved Realm of Thrones mod reports (.github/scripts/tally-taom-compat.mjs --list rot)
 # into the count fields of compat/rot-mod-compat.json (works, broken, clientOnly, lastReport) and
 # writes MODS.md. The hand checked fields (tag, note and the rest) are never changed.
 #
-# The tools do not send one click reports yet. Once they do, they come through server/mod-reports-worker
-# with the labels mod-compat, mod-report, pending and rot. They count
+# The one click reports the Coodsz Realm of Thrones Client Launcher and Server Tool send through
+# server/mod-reports-worker arrive with the labels mod-compat, mod-report, pending and rot. They count
 # once "pending" is removed, by Coodsz (that unlabel runs this workflow) or by the hourly auto
 # approval (auto-approve-reports.yml, the same file as in Coodsz-Coop-and-Friends, which calls this
 # workflow by this file name). Reports from the issue form count right away. A report with "invalid"

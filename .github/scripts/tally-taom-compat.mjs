@@ -23,9 +23,8 @@
 // An entry with no counted report has none of them. Reported mods that are not on the list go
 // into a separate "community" array next to "mods" with the same count fields, so the tools,
 // which read only "mods", never show a badge Coodsz did not give. The TAOM tools skip fields
-// they do not know (System.Text.Json), so schemaVersion stays 2, and the BE tools read the BE file
-// the same way. No tool reads the AD1259 file yet, and the Realm of Thrones tools do not read the
-// Realm of Thrones file yet.
+// they do not know (System.Text.Json), so schemaVersion stays 2, and the BE and RoT tools read their
+// files the same way. No tool reads the AD1259 file yet.
 //
 // Every run counts all reports again; running twice on the same input gives the same files.
 //
@@ -314,7 +313,7 @@ export const LISTS = {
     file: 'compat/rot-mod-compat.json',
     // Every report in the RoT repository is a RoT one, so TAOM, AD1259 and BE reports are left out.
     leaveOut: [TAOM_LABEL, AD1259_LABEL, BE_LABEL],
-    // The same tags as the TAOM list.
+    // The same tags as the TAOM list, which the RoT tools read the same way.
     statuses: STATUS,
     keepOrder: false,
     intro: doc => {
@@ -323,8 +322,8 @@ export const LISTS = {
         '# Realm of Thrones mod list',
         '',
         `Which mods work with Realm of Thrones in Coop${versions ? ` (${versions})` : ''}. This page is made from`,
-        '[compat/rot-mod-compat.json](compat/rot-mod-compat.json) and is written again on its own whenever a player',
-        'report is counted. The Coodsz Realm of Thrones tools do not read this list yet.',
+        '[compat/rot-mod-compat.json](compat/rot-mod-compat.json), the list the Coodsz Realm of Thrones tools show,',
+        'and is written again on its own whenever a player report is counted.',
         '',
         '## What the statuses mean',
         '',
@@ -332,7 +331,7 @@ export const LISTS = {
         '',
         '- **Works**: tested in Coop by Coodsz, a Realm of Thrones server with a player joining.',
         '- **Everyone needs it**: works, but the host and every player need the same version.',
-        '- **Loads**: the server loaded it. Joining was not tested.',
+        '- **Loads**: passed the automatic server load test of the Realm of Thrones server tool. Joining was not tested.',
         '- **Reported working**: reported working in Realm of Thrones singleplayer, not tested in Coop yet.',
         '- **Risky**: can work, but it changes campaign logic or battles, or is not tested with Realm of Thrones yet. The note says why.',
         '- **Broken**: known to break Realm of Thrones or Coop. Leave it off.',
@@ -343,8 +342,9 @@ export const LISTS = {
         '',
         '## How to report a mod',
         '',
-        `Use the [report form](${ROT_REPORT_FORM_URL}) on GitHub and say whether the mod works or is broken. A report counts here about a`,
-        'day later.',
+        'Click **Report** next to a mod on the Mods page of the Coodsz Realm of Thrones Client Launcher or Server Tool',
+        'and pick Works or Broken. No GitHub account is needed. A report counts here about a day later.',
+        `With a GitHub account you can also use the [report form](${ROT_REPORT_FORM_URL}).`,
       ];
     },
     header: '| Mod | Status | Players | Checked by Coodsz | Note |',

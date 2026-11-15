@@ -11,7 +11,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Please only report what you really tested with Realm of Thrones.
+        Please only report what you really tested with Realm of Thrones. Without a GitHub account, use **Report** next to the mod in the Coodsz Realm of Thrones Client Launcher instead.
         Your report shows as a player count next to this mod on the [Realm of Thrones mod list](https://github.com/Coodsz/Coodsz-RealmOfThrones/blob/main/MODS.md). The status stays what Coodsz checked.
   - type: input
     id: mod_id

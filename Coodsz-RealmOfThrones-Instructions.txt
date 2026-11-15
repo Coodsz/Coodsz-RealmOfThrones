@@ -51,7 +51,7 @@ Realm of Thrones asks questions during its story, like the sieges. When one come
 The **Encyclopedia** page opens the Realm of Thrones wiki and the tables of troops, armor, shields, weapons, cultures, wanderers, kingdoms and clans in your browser. The community made those pages, not me. Some were written for older versions of the mod, so details can differ in 8.1.
 
 # If something goes wrong
-- On **Logs and help**, click **Open client logs** to find the log files. Sending logs from the tool is not set up yet for Realm of Thrones.
+- Click **Send my logs** on **Logs and help**, or **Something went wrong? Send your logs** on **Play**. You see every file first, then you get a short code like CR-7KQ2M. Post only that code on Discord. Saves are left out, and passwords, addresses and Steam IDs are taken out of the text logs. A crash dump, if you send one, is raw game memory and is not cleaned. **Open client logs** on **Logs and help** shows the log files.
 - If the game crashes on start, try **Safe mode** on **Logs and help**. If that works, **Find the crashing mod** finds the extra mod that crashes it.
 - Graphics look wrong? Close Bannerlord, open **Settings** and click **Clear shader cache**. It does not touch mods or saves.
 
@@ -63,6 +63,8 @@ The **Encyclopedia** page opens the Realm of Thrones wiki and the tables of troo
 - Sieges are still being tested. In some tests the siege menu showed only **Leave**, with no way to start the assault, and one big battle at Casterly Rock stopped near the end.
 - In a Coop game the White Walker start is not offered in character creation.
 - Enlisting in a lord's party, changing the storyline wars and sending ravens are off in Coop. The game says so when you try.
+- Duels are off in Coop.
+- Dragons are not tested in Coop yet.
 - A few Realm of Thrones details, like militia sizes, may show the old state on a player's PC until Coop sends them.
 
 
@@ -99,7 +101,7 @@ The first time copies a few GB and takes a few minutes. Keep the tool open. It n
 - Story event questions are answered by the first player to click. If nobody answers in 60 seconds, the default goes ahead. The world waits for the answer.
 - The first join of a player is slow because of shaders. The server waits longer than normal for a joining player, so do not kick them.
 - The **Encyclopedia** page has the same links as the Client Launcher.
-- **Open server logs** is on the **Logs** page. Sending logs from the tool is not set up yet for Realm of Thrones.
+- **Send my logs** (in the sidebar and on the **Logs** page) packs the server logs without the password and gives you a short code to post on Discord. You see every file first. Saves are left out. **Open server logs** is on the **Logs** page too.
 
 # Password
 
@@ -112,7 +114,6 @@ Type a password in the Server Tool if you want one, and give players that same p
 
 # Not finished yet
 - Sieges are still being tested. In some tests the siege menu showed only **Leave**, and one big battle at Casterly Rock stopped near the end.
-- Sending logs from the tools is not set up yet.
 
 I will try my best to keep these updated and working. Any bugs, challenges, feature ideas, or if you need help in any way, please message me (Coodsz) on Discord.
 

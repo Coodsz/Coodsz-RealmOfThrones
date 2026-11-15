@@ -114,3 +114,20 @@ Nothing was taken from his TAOM folder.
 ```
 Required Notice: Copyright PlueRyvius (https://github.com/PlueRyvius/ModderLords)
 ```
+
+## Bannerlord.UIExtenderEx 2.13.3 (Coodsz Burning Empires Server Tool only)
+
+- Project: https://github.com/BUTR/Bannerlord.UIExtenderEx
+- Copyright: BUTR (Bannerlord's Unofficial Tools & Resources)
+- License: GNU Lesser General Public License v3.0, https://www.gnu.org/licenses/lgpl-3.0.html
+
+Coodsz Burning Empires Server Tool carries the unchanged official `Bannerlord.UIExtenderEx.dll`
+2.13.3 from https://github.com/BUTR/Bannerlord.UIExtenderEx/releases/tag/v2.13.3 inside the exe and
+writes it out to `%LOCALAPPDATA%\Coodsz\BurningEmpires\payload\<version>\ServerAddOns\UIExtenderEx-2.13.3`,
+next to the LGPL v3 text (`LICENSE-UIExtenderEx.txt`), the GPL v3
+text it refers to (`GPL-3.0.txt`) and a link to the source (`SOURCE.txt`). The source code is at
+https://github.com/BUTR/Bannerlord.UIExtenderEx/tree/v2.13.3. The tool does not link to it; it only
+copies the file into the dedicated server's `Modules\BurningEmpires\bin\Win64_Shipping_Server`, because
+Burning Empires 2.0.2 is built against that version. You may put your own build of the same version
+from that source in its place. The repository copy is in
+`compat/BurningEmpiresCoopCompat/server-extra/UIExtenderEx-2.13.3`.
