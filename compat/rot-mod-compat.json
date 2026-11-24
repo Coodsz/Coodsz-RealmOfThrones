@@ -5,6 +5,7 @@
   "game": "v1.4.8",
   "coop": "v0.1.8",
   "updated": "2026-11-15",
+  "stackNote": "Use the Realm of Thrones tools and the matching Bannerlord 1.4.8 stack. The Realm of Thrones build of Coop v0.1.8 is separate from the official Bannerlord 1.5.7 release.",
   "mods": [
     { "id": "Bannerlord.Harmony", "name": "Harmony", "workshopId": "2859188632", "tag": "safe", "source": "coodsz-notes", "checked": "2026-11-15", "note": "A library mod Realm of Thrones needs. It is part of the core and always loads first." },
     { "id": "Bannerlord.ButterLib", "name": "ButterLib", "workshopId": "2859232415", "tag": "safe", "source": "coodsz-notes", "checked": "2026-11-15", "note": "A library mod Realm of Thrones needs. It is part of the core and always loads." },
