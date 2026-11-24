@@ -4,6 +4,8 @@ Which mods work with Realm of Thrones in Coop (Realm of Thrones 8.1.2, Bannerlor
 [compat/rot-mod-compat.json](compat/rot-mod-compat.json), the list the Coodsz Realm of Thrones tools show,
 and is written again on its own whenever a player report is counted.
 
+Use the Realm of Thrones tools and the matching Bannerlord 1.4.8 stack. The Realm of Thrones build of Coop v0.1.8 is separate from the official Bannerlord 1.5.7 release.
+
 ## What the statuses mean
 
 The status is set by hand by Coodsz. Player reports never change it; they show in the Players column.
