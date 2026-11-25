@@ -51,8 +51,8 @@ With a GitHub account you can also use the [report form](https://github.com/Cood
 | [Banner Editor](https://www.nexusmods.com/mountandblade2bannerlord/mods/4944) | Reported working |  |  | On a Realm of Thrones singleplayer mod list from the Realm of Thrones Discord (modules 8.1.7). Not tested in Coop yet. Banner looks only. |
 | [Banner Fix](https://www.nexusmods.com/mountandblade2bannerlord/mods/4600) | Reported working |  |  | On a Realm of Thrones singleplayer mod list from the Realm of Thrones Discord (modules 8.1.7). Not tested in Coop yet. Banner looks only. Load it before Raise your Banner. |
 | Blood of the Dragon | Reported working |  |  | On a Realm of Thrones singleplayer mod list from the Realm of Thrones Discord (modules 8.1.7). Not tested in Coop yet. Made for Realm of Thrones. |
-| [Character Reload](https://www.nexusmods.com/mountandblade2bannerlord/mods/2134) | Reported working |  |  | On a Realm of Thrones singleplayer mod list from the Realm of Thrones Discord (modules 8.1.7). Not tested in Coop yet. |
-| [Dismemberment Plus](https://steamcommunity.com/sharedfiles/filedetails/?id=2875093027) | Reported working |  |  | On a Realm of Thrones singleplayer mod list from the Realm of Thrones Discord (modules 8.1.7). Not tested in Coop yet. In normal Coop the host and every player need the same version. |
+| [Character Reload](https://www.nexusmods.com/mountandblade2bannerlord/mods/2134) | Reported working | 1 works, 0 broken |  | On a Realm of Thrones singleplayer mod list from the Realm of Thrones Discord (modules 8.1.7). Not tested in Coop yet. |
+| [Dismemberment Plus](https://steamcommunity.com/sharedfiles/filedetails/?id=2875093027) | Reported working | 1 works, 0 broken |  | On a Realm of Thrones singleplayer mod list from the Realm of Thrones Discord (modules 8.1.7). Not tested in Coop yet. In normal Coop the host and every player need the same version. |
 | Fantasy Forge Armour 2 | Reported working |  |  | On a Realm of Thrones singleplayer mod list from the Realm of Thrones Discord (modules 8.1.7). Not tested in Coop yet. Adds items, so the host and every player need the same version. |
 | Homesteads AI Aware | Reported working |  |  | On a Realm of Thrones singleplayer mod list from the Realm of Thrones Discord (modules 8.1.7). Not tested in Coop yet. Needs Homesteads Reloaded and AI Influence. |
 | Homesteads Reloaded | Reported working |  |  | On a Realm of Thrones singleplayer mod list from the Realm of Thrones Discord (modules 8.1.7). Not tested in Coop yet. Changes campaign logic. |
@@ -62,10 +62,10 @@ With a GitHub account you can also use the [report form](https://github.com/Cood
 | [Improved Economy For AI Lords](https://www.nexusmods.com/mountandblade2bannerlord/mods/8698) | Reported working |  |  | On a Realm of Thrones singleplayer mod list from the Realm of Thrones Discord (modules 8.1.7). Not tested in Coop yet. Changes campaign logic. |
 | [Improved Garrisons](https://steamcommunity.com/sharedfiles/filedetails/?id=2859265386) | Reported working |  |  | On a Realm of Thrones singleplayer mod list from the Realm of Thrones Discord (modules 8.1.7). Not tested in Coop yet. In normal Coop it needs CoopModPatch, which the Realm of Thrones tools do not carry. |
 | [Marry Anyone](https://steamcommunity.com/sharedfiles/filedetails/?id=3035615782) | Reported working |  |  | On a Realm of Thrones singleplayer mod list from the Realm of Thrones Discord (modules 8.1.7). Not tested in Coop yet. Changes campaign logic. |
-| [Perfect Fire Arrows](https://www.nexusmods.com/mountandblade2bannerlord/mods/3303) | Reported working |  |  | On a Realm of Thrones singleplayer mod list from the Realm of Thrones Discord (modules 8.1.7). Not tested in Coop yet. In normal Coop the host and every player need the same version. |
+| [Perfect Fire Arrows](https://www.nexusmods.com/mountandblade2bannerlord/mods/3303) | Reported working | 1 works, 0 broken |  | On a Realm of Thrones singleplayer mod list from the Realm of Thrones Discord (modules 8.1.7). Not tested in Coop yet. In normal Coop the host and every player need the same version. |
 | Raise your Banner | Reported working |  |  | On a Realm of Thrones singleplayer mod list from the Realm of Thrones Discord (modules 8.1.7). Not tested in Coop yet. Load Banner Fix before it. |
 | Raise your Torch | Reported working |  |  | On a Realm of Thrones singleplayer mod list from the Realm of Thrones Discord (modules 8.1.7). Not tested in Coop yet. Battle looks only. |
-| [Realistic Combat Sounds](https://www.nexusmods.com/mountandblade2bannerlord/mods/3765) | Reported working |  |  | On a Realm of Thrones singleplayer mod list from the Realm of Thrones Discord (modules 8.1.7). Not tested in Coop yet. Sound only. |
+| [Realistic Combat Sounds](https://www.nexusmods.com/mountandblade2bannerlord/mods/3765) | Reported working | 1 works, 0 broken |  | On a Realm of Thrones singleplayer mod list from the Realm of Thrones Discord (modules 8.1.7). Not tested in Coop yet. Sound only. |
 | [Realistic Weather](https://steamcommunity.com/sharedfiles/filedetails/?id=2862531759) | Reported working |  |  | On a Realm of Thrones singleplayer mod list from the Realm of Thrones Discord (modules 8.1.7). Not tested in Coop yet. |
 | Realm of Thrones House of the Dragon | Reported working |  |  | On a Realm of Thrones singleplayer mod list from the Realm of Thrones Discord (modules 8.1.7). Not tested in Coop yet. Made for Realm of Thrones. |
 | [Reinforcement System](https://www.nexusmods.com/mountandblade2bannerlord/mods/6501) | Reported working |  |  | On a Realm of Thrones singleplayer mod list from the Realm of Thrones Discord (modules 8.1.7). Not tested in Coop yet. Changes battles. |
@@ -110,5 +110,10 @@ With a GitHub account you can also use the [report form](https://github.com/Cood
 | [The Old Realms - Environment](https://steamcommunity.com/sharedfiles/filedetails/?id=3025579210) | Broken |  |  | Another big overhaul. It does not work together with Realm of Thrones, and big overhauls do not work in Coop on their own. |
 | [TheLandOfSika](https://steamcommunity.com/sharedfiles/filedetails/?id=2875157034) | Broken |  |  | Another big overhaul. It does not work together with Realm of Thrones, and big overhauls do not work in Coop on their own. |
 | [Wheel of Time Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=3251984526) | Broken |  |  | Another big overhaul. It does not work together with Realm of Thrones, and big overhauls do not work in Coop on their own. |
+| Days of Food | Not checked yet | 1 works, 0 broken |  |  |
+| DLX Hair Layers | Not checked yet | 1 works, 0 broken |  |  |
+| DLX Hair Layers - Hairstyles by zeroas136977 | Not checked yet | 1 works, 0 broken |  |  |
+| Hide Helmet Toggle | Not checked yet | 1 works, 0 broken |  |  |
+| Voice Acting Patch (FishAudio) | Not checked yet | 1 works, 0 broken |  |  |
 
-81 mods. List updated 2026-11-15.
+86 mods. List updated 2026-11-15.
