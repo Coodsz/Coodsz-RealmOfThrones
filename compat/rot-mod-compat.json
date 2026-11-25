@@ -91,7 +91,6 @@
   ],
   "community": [
     { "id": "DaysOfFood", "name": "Days of Food", "works": 1, "broken": 0, "lastReport": "2026-11-24" },
-    { "id": "HairAddons", "name": "DLX Hair Layers", "works": 1, "broken": 0, "lastReport": "2026-11-24" },
     { "id": "New_Hair", "name": "DLX Hair Layers - Hairstyles by zeroas136977", "works": 1, "broken": 0, "lastReport": "2026-11-24" },
     { "id": "HideHelmetToggle", "name": "Hide Helmet Toggle", "works": 1, "broken": 0, "lastReport": "2026-11-24" },
     { "id": "VoiceActingPatch", "name": "Voice Acting Patch (FishAudio)", "works": 1, "broken": 0, "lastReport": "2026-11-24" }

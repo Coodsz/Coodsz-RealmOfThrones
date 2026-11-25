@@ -111,9 +111,8 @@ With a GitHub account you can also use the [report form](https://github.com/Cood
 | [TheLandOfSika](https://steamcommunity.com/sharedfiles/filedetails/?id=2875157034) | Broken |  |  | Another big overhaul. It does not work together with Realm of Thrones, and big overhauls do not work in Coop on their own. |
 | [Wheel of Time Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=3251984526) | Broken |  |  | Another big overhaul. It does not work together with Realm of Thrones, and big overhauls do not work in Coop on their own. |
 | Days of Food | Not checked yet | 1 works, 0 broken |  |  |
-| DLX Hair Layers | Not checked yet | 1 works, 0 broken |  |  |
 | DLX Hair Layers - Hairstyles by zeroas136977 | Not checked yet | 1 works, 0 broken |  |  |
 | Hide Helmet Toggle | Not checked yet | 1 works, 0 broken |  |  |
 | Voice Acting Patch (FishAudio) | Not checked yet | 1 works, 0 broken |  |  |
 
-86 mods. List updated 2026-11-15.
+85 mods. List updated 2026-11-15.
