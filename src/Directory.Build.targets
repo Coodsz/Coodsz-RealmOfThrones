@@ -1,0 +1,5 @@
+<Project>
+  <Target Name="ContributorBuildOnly" BeforeTargets="PrepareForPublish">
+    <Error Text="This source tree builds the contributor tools. Official player packages are available from the Realm of Thrones releases page." />
+  </Target>
+</Project>

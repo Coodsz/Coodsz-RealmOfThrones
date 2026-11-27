@@ -1,0 +1,47 @@
+{
+  "id": "getting-started",
+  "title": "Getting started",
+  "summary": "Host your first Realm of Thrones Coop server.",
+  "sections": [
+    {
+      "heading": "What you need",
+      "steps": [
+        "Bannerlord 1.4.8 on Steam for Windows, with the War Sails DLC.",
+        "Realm of Thrones 8.1.2 from Nexus Mods in the game's Modules folder. The tools never contain it.",
+        "Harmony, ButterLib and UIExtenderEx from the Steam Workshop, and MCM from Nexus Mods.",
+        "The Coop dedicated server from the Steam Workshop. Stay subscribed to it. The tool only reads it and never changes it.",
+        "Realm of Thrones Coop Compat and the Realm of Thrones build of Coop come with the tool."
+      ],
+      "tip": "Official Coop 0.1.8 for Bannerlord 1.5.7 is currently available only on GitHub. The RoT tools include the Coop build for Bannerlord 1.4.8."
+    },
+    {
+      "heading": "Make the server",
+      "steps": [
+        "On the Saves page, click Prepare server.",
+        "It builds a server in C:\\RotServer from the Workshop Coop server, War Sails from your game and the Realm of Thrones build of Coop.",
+        "The first time copies a few GB and takes a few minutes. Keep the tool open.",
+        "If it says something is missing, follow that line.",
+        "Click Prepare server again after a mod or Coop update. It never deletes your campaigns."
+      ],
+      "tip": "Keep Bannerlord installed on this PC. The server copies the War Sails files it needs from your own game."
+    },
+    {
+      "heading": "Make a campaign",
+      "steps": [
+        "Type a name and click New campaign. The server makes a fresh Realm of Thrones world under that name.",
+        "To host a campaign you already have, pick it instead. If it says Single player copy, click Name server copy first.",
+        "A save without Realm of Thrones does not load."
+      ]
+    },
+    {
+      "heading": "Start the server",
+      "steps": [
+        "On the Dashboard, click Start server.",
+        "The first time, read the Coop server terms and click I accept, or the server will not start.",
+        "The first time, Windows Firewall asks about the server. Click Allow and tick private networks, or friends cannot join.",
+        "Wait until the status says Server online."
+      ],
+      "tip": "The first start of a new campaign builds the world and can take a long time. Do not stop the server while it does."
+    }
+  ]
+}

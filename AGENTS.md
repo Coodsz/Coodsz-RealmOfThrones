@@ -6,9 +6,9 @@ Read this first if you are an AI coding agent (Claude Code, Codex, Cursor, Devin
 
 - Releases: the tool zips, the guide and the license are on the [release page](https://github.com/Coodsz/Coodsz-RealmOfThrones/releases/latest). Only Coodsz makes releases and tags.
 - The player guide: Coodsz-RealmOfThrones-Instructions.txt.
-- The mod compatibility list: `compat/rot-mod-compat.json` and `MODS.md`, kept by a bot from player reports. The tools do not read it yet.
-- Issues: mod compatibility reports from the report form. The tools do not send reports here yet.
-- The tool source code is not here. It is private. To change how a tool works, open an issue or ask Coodsz.
+- The mod compatibility list: `compat/rot-mod-compat.json` and `MODS.md`, kept by a bot from player reports. The tools read the compatibility JSON.
+- Issues: mod compatibility reports from the report form. Private crash bundles go through the released tool.
+- Fork this repository for changes to the tools and tests. Follow [CONTRIBUTING.md](CONTRIBUTING.md) to build the unsigned projects.
 
 ## Do not edit by hand
 
@@ -24,6 +24,15 @@ A GitHub Actions bot writes these. Hand edits get overwritten on the next run or
 2. Keep the change small and about one thing.
 3. Open a pull request that says what changed and why, and how you checked it.
 4. Coodsz reviews and merges.
+
+## Independent review
+
+Claude reviews Codex-authored changes. Codex reviews Claude-authored changes and uses High reasoning effort or higher for substantive work. A maintainer assigns an independent reviewer for other contributions.
+
+1. Verify the exact PR head and base and read the full diff and surrounding code.
+2. Walk the house rules below and the build and test checklist in [CONTRIBUTING.md](CONTRIBUTING.md). Verify each finding against the code and cite its file and line.
+3. Report the commands, results and any gaps in verification. Recheck blocking findings against the updated head.
+4. Maintainers approve GitHub actions such as posting reviews, merging changes and publishing releases. Keep private evidence out of PRs and reviews.
 
 ## House rules
 

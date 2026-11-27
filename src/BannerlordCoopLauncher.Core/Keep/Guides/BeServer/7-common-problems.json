@@ -1,0 +1,48 @@
+{
+  "id": "common-problems",
+  "title": "Common problems",
+  "summary": "Quick fixes for the usual hosting troubles.",
+  "sections": [
+    {
+      "heading": "The server crashes or stops on start",
+      "steps": [
+        "Open the Logs page. The tool writes what happened and what to do.",
+        "If it says the server cannot load a DLL, click the red Unblock DLLs button, then start again.",
+        "If it says Burning Empires is missing or the wrong version, click Install or repair Burning Empires.",
+        "Installing by hand? Get Burning Empires 2.0.2 from Nexus Mods. Install the main file first, then the hotfix.",
+        "If it says a Workshop mod is missing, subscribe to Harmony, ButterLib and UIExtenderEx. If MCM is missing, get it from Nexus Mods. Then start again.",
+        "With extra mods, try the locked Burning Empires setup. If that works, use Test mods on the server to find the mod."
+      ]
+    },
+    {
+      "heading": "Windows only",
+      "steps": [
+        "A Burning Empires server only runs on Windows. Linux hosted servers cannot run it, because it needs UIExtenderEx and MCM.",
+        "Prepare server copies the Burning Empires files the server needs from your own game, so keep the game installed on this PC."
+      ]
+    },
+    {
+      "heading": "Mods do not match",
+      "steps": [
+        "When a player's mods differ, the Logs page says which mods are missing or do not match.",
+        "Click Share mod list and have the player use Import mod list in the client launcher.",
+        "The player picks the same setup, with the same mods in the same order."
+      ]
+    },
+    {
+      "heading": "Black terrain and old screens",
+      "steps": [
+        "Parts of the map can show black terrain. This is a known Burning Empires issue, not a problem with your server.",
+        "Population and religion screens on players' PCs can be out of date until they rejoin."
+      ]
+    },
+    {
+      "heading": "Get help",
+      "steps": [
+        "Click Send my logs on the left. The password and addresses are taken out, and saves are left out. You get a short code like CR-7KQ2M.",
+        "Post only that code in Discord, not the log files.",
+        "Open server logs opens the logs folder."
+      ]
+    }
+  ]
+}

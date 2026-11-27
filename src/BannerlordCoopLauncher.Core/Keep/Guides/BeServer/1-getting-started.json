@@ -1,0 +1,48 @@
+{
+  "id": "getting-started",
+  "title": "Getting started",
+  "summary": "Host your first Burning Empires Coop server.",
+  "sections": [
+    {
+      "heading": "What you need",
+      "steps": [
+        "Bannerlord 1.4.8 on Windows, and Bannerlord Coop from the Steam Workshop.",
+        "Burning Empires 2.0.2 from Nexus Mods. Get the main file and the hotfix, and leave both downloads as they are.",
+        "Click Install or repair Burning Empires. The server tool puts Burning Empires in for you.",
+        "Installing by hand? Install the main file first, then the hotfix.",
+        "Harmony, ButterLib and UIExtenderEx from the Steam Workshop, and MCM from Nexus Mods in the game's Modules folder. The tool tells you when one is missing.",
+        "The tool finds the dedicated server inside the Workshop Coop folder by itself."
+      ],
+      "tip": "The client launcher has the same Install or repair Burning Empires button, so either tool can set up the game."
+    },
+    {
+      "heading": "Make a campaign",
+      "steps": [
+        "Type a name and click New campaign. The server starts a fresh Burning Empires world under that name.",
+        "You can also host a single player Burning Empires save. Pick it under Pick that save.",
+        "If it says Single player copy, click Name server copy. Your Documents save stays as it is.",
+        "A save without Burning Empires does not load. Pick a Burning Empires save or start a new campaign."
+      ]
+    },
+    {
+      "heading": "Start the server",
+      "steps": [
+        "Click Prepare server once. It copies the dedicated server and the files Burning Empires needs on it.",
+        "Click Start server.",
+        "The first time, read the Coop server terms and click I accept.",
+        "The first time, Windows may ask to allow .NET Host. Click Allow so players can join.",
+        "Wait until the status says Server online. A gold bar shows the progress while it starts."
+      ],
+      "tip": "The first start of a new campaign builds the world and can take a long time. Do not stop the server while it does."
+    },
+    {
+      "heading": "Next time",
+      "steps": [
+        "The same campaign stays ready. Pick the Server copy and click Start server.",
+        "Stop server saves the world first, then closes the server.",
+        "A server that is still loading stops right away, with no save.",
+        "Click What's new under the language button to see what changed in the last few versions."
+      ]
+    }
+  ]
+}

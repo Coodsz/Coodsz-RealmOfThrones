@@ -1,0 +1,33 @@
+{
+  "id": "inviting-friends",
+  "title": "Inviting friends",
+  "summary": "Send the invite and get everyone into your world.",
+  "sections": [
+    {
+      "heading": "Send the invite",
+      "steps": [
+        "Start the server and wait until it says Server online.",
+        "Press Copy invite on the Dashboard and paste it in Discord.",
+        "The password is never in the invite. Tell your friends yourself if you set one."
+      ]
+    },
+    {
+      "heading": "What your friends need",
+      "steps": [
+        "Bannerlord, the Coop mod and Coodsz Coop Client Launcher.",
+        "The same mods and the same map as your server.",
+        "Then they join from Steam lobby, or with your address and the UDP port."
+      ]
+    },
+    {
+      "heading": "If they cannot connect",
+      "steps": [
+        "Tick Open the port on my router automatically on the Dashboard.",
+        "Press Allow through firewall. Windows asks you first.",
+        "Still nothing? Forward UDP port 4200 on your router by hand, or use Steam lobby.",
+        "A home network address only works for people on your own WiFi."
+      ],
+      "tip": "Press How will friends join? to see which way works for your setup."
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": "cheats",
+  "title": "Cheats",
+  "summary": "Give gold, troops and items, or fix what a cheater broke.",
+  "sections": [
+    {
+      "heading": "Before you start",
+      "steps": [
+        "Cheats work while the server is running and says Server online.",
+        "Coodsz Coop Server Tool adds its own server tools on every Start. Players do not need them."
+      ]
+    },
+    {
+      "heading": "Using the Cheats page",
+      "steps": [
+        "Pick a player on the left, or tick the boxes to pick several.",
+        "Pick a tab. Gold, Health, Army, Clan, Character or Items and compensation.",
+        "Type an amount and press the button. A change only counts when the server confirms it.",
+        "To send your own console command, use the Console page."
+      ]
+    },
+    {
+      "heading": "Undo and the Admin log",
+      "steps": [
+        "Every change goes into the Admin log with the old and the new value.",
+        "Press Undo next to a recent change to put it back."
+      ]
+    },
+    {
+      "heading": "Pictures",
+      "steps": [
+        "Press Build pictures to draw item and troop pictures with your own game.",
+        "It starts Bannerlord once and closes it when it is done. Until then the cards show names."
+      ],
+      "tip": "Client cheats on Settings is something else. It lets players use cheats themselves."
+    }
+  ]
+}

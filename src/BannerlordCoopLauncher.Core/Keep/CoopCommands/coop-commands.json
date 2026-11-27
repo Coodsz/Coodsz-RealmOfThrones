@@ -1,0 +1,3314 @@
+[
+  {
+    "Name": "coop.debug.alley.abandon",
+    "Description": "Abandons a player-owned alley on the server.",
+    "Usage": "coop.debug.alley.abandon <settlement_id> <alley_index>",
+    "Category": "ALLEYS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.alley.attack",
+    "Description": "Starts an AI attack against a player-owned alley.",
+    "Usage": "coop.debug.alley.attack <settlement_id> <alley_index>",
+    "Category": "ALLEYS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.alley.daily_tick",
+    "Description": "Runs one authoritative alley daily tick.",
+    "Usage": "coop.debug.alley.daily_tick",
+    "Category": "ALLEYS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.alley.info",
+    "Description": "Reports state for an alley.",
+    "Usage": "coop.debug.alley.info <settlement_id> <alley_index>",
+    "Category": "ALLEYS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.alley.list",
+    "Description": "Lists alleys in a settlement.",
+    "Usage": "coop.debug.alley.list <settlement_id>",
+    "Category": "ALLEYS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.alley.my_hero_id",
+    "Description": "Reports the local main hero registry id.",
+    "Usage": "coop.debug.alley.my_hero_id",
+    "Category": "ALLEYS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.alley.recruit_conversation",
+    "Description": "Drives or inspects the alley recruitment conversation.",
+    "Usage": "coop.debug.alley.recruit_conversation <action>",
+    "Category": "ALLEYS",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.alley.recruit_conversation_start",
+    "Description": "Starts a conversation with the alley overseer.",
+    "Usage": "coop.debug.alley.recruit_conversation_start <settlement_id> <alley_index>",
+    "Category": "ALLEYS",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.alley.recruit_inventory",
+    "Description": "Drives or inspects the alley recruitment inventory screen.",
+    "Usage": "coop.debug.alley.recruit_inventory <action>",
+    "Category": "ALLEYS",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.alley.recruit_overseer_state",
+    "Description": "Reports the alley overseer mission state.",
+    "Usage": "coop.debug.alley.recruit_overseer_state <settlement_id> <alley_index>",
+    "Category": "ALLEYS",
+    "Side": "CLIENT",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.alley.recruit_roster",
+    "Description": "Reports the recruit roster for a hero party.",
+    "Usage": "coop.debug.alley.recruit_roster <hero_registry_id>",
+    "Category": "ALLEYS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.alley.recruit_start_looter_battle",
+    "Description": "Starts the alley recruitment looter battle fixture.",
+    "Usage": "coop.debug.alley.recruit_start_looter_battle <hero_registry_id>",
+    "Category": "ALLEYS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.alley.set_owner",
+    "Description": "Sets an alley owner on the server.",
+    "Usage": "coop.debug.alley.set_owner <settlement_id> <alley_index> <hero_registry_id>",
+    "Category": "ALLEYS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.arenas.list_interactions",
+    "Description": "Lists interactions for co-op debugging.",
+    "Usage": "coop.debug.arenas.list_interactions",
+    "Category": "ARENAS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.army.create",
+    "Description": "Creates an army on the server.",
+    "Usage": "coop.debug.army.create <kingdom_id> <target_settlement_id> <hero_leader_id> <army_type>",
+    "Category": "ARMIES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.army.destroy",
+    "Description": "Destroys an army on the server.",
+    "Usage": "coop.debug.army.destroy <army_id> <disband_reason>",
+    "Category": "ARMIES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.army.info",
+    "Description": "Reports state for an army.",
+    "Usage": "coop.debug.army.info <army_id>",
+    "Category": "ARMIES",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.army.list",
+    "Description": "Lists registered armies.",
+    "Usage": "coop.debug.army.list",
+    "Category": "ARMIES",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.army.mobile_party_add",
+    "Description": "Adds a mobile party to an army.",
+    "Usage": "coop.debug.army.mobile_party_add <army_id> <mobile_party_id>",
+    "Category": "ARMIES",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.army.mobile_party_list",
+    "Description": "Lists parties in an army.",
+    "Usage": "coop.debug.army.mobile_party_list <army_id>",
+    "Category": "ARMIES",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.army.mobile_party_remove",
+    "Description": "Removes a mobile party from an army.",
+    "Usage": "coop.debug.army.mobile_party_remove <army_id> <mobile_party_id>",
+    "Category": "ARMIES",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.army.set_objective",
+    "Description": "Sets an army objective, or finishes it with None.",
+    "Usage": "coop.debug.army.set_objective <army_id> <type> <object_id>",
+    "Category": "ARMIES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.battle.capture_mount_pose",
+    "Description": "Runs the capture mount pose debug operation.",
+    "Usage": "coop.debug.battle.capture_mount_pose <mount_agent_id>",
+    "Category": "BATTLES",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.battle.charge_owned_formations",
+    "Description": "Runs the charge owned formations debug operation.",
+    "Usage": "coop.debug.battle.charge_owned_formations",
+    "Category": "BATTLES",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.battle.focus_ladder",
+    "Description": "Runs the focus ladder debug operation.",
+    "Usage": "coop.debug.battle.focus_ladder <machine_id>",
+    "Category": "BATTLES",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.battle.focus_mount",
+    "Description": "Runs the focus mount debug operation.",
+    "Usage": "coop.debug.battle.focus_mount <mount_agent_id>",
+    "Category": "BATTLES",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.battle.hold_cavalry",
+    "Description": "Runs the hold cavalry debug operation.",
+    "Usage": "coop.debug.battle.hold_cavalry",
+    "Category": "BATTLES",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.battle.ladder_state",
+    "Description": "Reports ladder state.",
+    "Usage": "coop.debug.battle.ladder_state [<machine_id>]",
+    "Category": "BATTLES",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.battle.mount_camera_state",
+    "Description": "Reports mount camera state.",
+    "Usage": "coop.debug.battle.mount_camera_state",
+    "Category": "BATTLES",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.battle.mount_pose_samples",
+    "Description": "Runs the mount pose samples debug operation.",
+    "Usage": "coop.debug.battle.mount_pose_samples <mount_agent_id>",
+    "Category": "BATTLES",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.battle.mount_state",
+    "Description": "Reports mount state.",
+    "Usage": "coop.debug.battle.mount_state [<authority>]",
+    "Category": "BATTLES",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.battle.move_cavalry",
+    "Description": "Runs the move cavalry debug operation.",
+    "Usage": "coop.debug.battle.move_cavalry <distance>",
+    "Category": "BATTLES",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.battle.release_ladder_camera",
+    "Description": "Restores or clears release ladder camera.",
+    "Usage": "coop.debug.battle.release_ladder_camera",
+    "Category": "BATTLES",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.battle.release_mount_camera",
+    "Description": "Restores or clears release mount camera.",
+    "Usage": "coop.debug.battle.release_mount_camera",
+    "Category": "BATTLES",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.battle.size_state",
+    "Description": "Reports size state.",
+    "Usage": "coop.debug.battle.size_state",
+    "Category": "BATTLES",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.battle.state",
+    "Description": "Reports state.",
+    "Usage": "coop.debug.battle.state",
+    "Category": "BATTLES",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.battle.turn_cavalry",
+    "Description": "Runs the turn cavalry debug operation.",
+    "Usage": "coop.debug.battle.turn_cavalry <degrees>",
+    "Category": "BATTLES",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.campaign_options.auto_allocate_clan_member_perks",
+    "Description": "Runs the auto allocate clan member perks debug operation.",
+    "Usage": "coop.debug.campaign_options.auto_allocate_clan_member_perks [<value>]",
+    "Category": "CAMPAIGN OPTIONS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.campaign_options.battle_death",
+    "Description": "Runs the battle death debug operation.",
+    "Usage": "coop.debug.campaign_options.battle_death [<value>]",
+    "Category": "CAMPAIGN OPTIONS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.campaign_options.clan_member_death_chance",
+    "Description": "Runs the clan member death chance debug operation.",
+    "Usage": "coop.debug.campaign_options.clan_member_death_chance [<value>]",
+    "Category": "CAMPAIGN OPTIONS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.campaign_options.combat_ai_difficulty",
+    "Description": "Runs the combat ai difficulty debug operation.",
+    "Usage": "coop.debug.campaign_options.combat_ai_difficulty [<value>]",
+    "Category": "CAMPAIGN OPTIONS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.campaign_options.is_ironman_mode",
+    "Description": "Runs the is ironman mode debug operation.",
+    "Usage": "coop.debug.campaign_options.is_ironman_mode [<value>]",
+    "Category": "CAMPAIGN OPTIONS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.campaign_options.is_life_death_cycle_disabled",
+    "Description": "Runs the is life death cycle disabled debug operation.",
+    "Usage": "coop.debug.campaign_options.is_life_death_cycle_disabled [<value>]",
+    "Category": "CAMPAIGN OPTIONS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.campaign_options.list",
+    "Description": "Reports list.",
+    "Usage": "coop.debug.campaign_options.list",
+    "Category": "CAMPAIGN OPTIONS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.campaign_options.persuasion_success_chance",
+    "Description": "Runs the persuasion success chance debug operation.",
+    "Usage": "coop.debug.campaign_options.persuasion_success_chance [<value>]",
+    "Category": "CAMPAIGN OPTIONS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.campaign_options.player_map_movement_speed",
+    "Description": "Runs the player map movement speed debug operation.",
+    "Usage": "coop.debug.campaign_options.player_map_movement_speed [<value>]",
+    "Category": "CAMPAIGN OPTIONS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.campaign_options.player_received_damage_difficulty",
+    "Description": "Runs the player received damage difficulty debug operation.",
+    "Usage": "coop.debug.campaign_options.player_received_damage_difficulty [<value>]",
+    "Category": "CAMPAIGN OPTIONS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.campaign_options.player_troops_received_damage",
+    "Description": "Runs the player troops received damage debug operation.",
+    "Usage": "coop.debug.campaign_options.player_troops_received_damage [<value>]",
+    "Category": "CAMPAIGN OPTIONS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.campaign_options.recruitment_difficulty",
+    "Description": "Runs the recruitment difficulty debug operation.",
+    "Usage": "coop.debug.campaign_options.recruitment_difficulty [<value>]",
+    "Category": "CAMPAIGN OPTIONS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.campaign_options.stealth_and_disguise_difficulty",
+    "Description": "Runs the stealth and disguise difficulty debug operation.",
+    "Usage": "coop.debug.campaign_options.stealth_and_disguise_difficulty [<value>]",
+    "Category": "CAMPAIGN OPTIONS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.player_captivity.captivity_state",
+    "Description": "Reports captivity state.",
+    "Usage": "coop.debug.player_captivity.captivity_state <hero_id>",
+    "Category": "CAPTIVITY",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.player_captivity.capture_player",
+    "Description": "Runs the capture player debug operation.",
+    "Usage": "coop.debug.player_captivity.capture_player <hero_id> <captor_party_id>",
+    "Category": "CAPTIVITY",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.player_captivity.discard_player_from_party_screen",
+    "Description": "Runs the discard player from party screen debug operation.",
+    "Usage": "coop.debug.player_captivity.discard_player_from_party_screen <hero_id> <captor_party_id>",
+    "Category": "CAPTIVITY",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.player_captivity.liberate_prisoner",
+    "Description": "Runs the liberate prisoner debug operation.",
+    "Usage": "coop.debug.player_captivity.liberate_prisoner <hero_id>",
+    "Category": "CAPTIVITY",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.player_captivity.observe_player",
+    "Description": "Runs the observe player debug operation.",
+    "Usage": "coop.debug.player_captivity.observe_player <hero_id>",
+    "Category": "CAPTIVITY",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.player_captivity.random_capture_player",
+    "Description": "Runs the random capture player debug operation.",
+    "Usage": "coop.debug.player_captivity.random_capture_player <hero_id>",
+    "Category": "CAPTIVITY",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.player_captivity.ransom_player_at_settlement",
+    "Description": "Runs the ransom player at settlement debug operation.",
+    "Usage": "coop.debug.player_captivity.ransom_player_at_settlement <hero_id>",
+    "Category": "CAPTIVITY",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.player_captivity.release_player",
+    "Description": "Runs the release player debug operation.",
+    "Usage": "coop.debug.player_captivity.release_player <hero_id>",
+    "Category": "CAPTIVITY",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.player_captivity.status",
+    "Description": "Reports status.",
+    "Usage": "coop.debug.player_captivity.status <hero_id>",
+    "Category": "CAPTIVITY",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.caravans.view_interacted_caravans",
+    "Description": "Reports view interacted caravans.",
+    "Usage": "coop.debug.caravans.view_interacted_caravans",
+    "Category": "CARAVANS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.caravans.view_looted_caravans",
+    "Description": "Reports view looted caravans.",
+    "Usage": "coop.debug.caravans.view_looted_caravans",
+    "Category": "CARAVANS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.caravans.view_prohibited_kingdoms",
+    "Description": "Reports view prohibited kingdoms.",
+    "Usage": "coop.debug.caravans.view_prohibited_kingdoms",
+    "Category": "CARAVANS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.caravans.view_taken_trade_rumors",
+    "Description": "Reports view taken trade rumors.",
+    "Usage": "coop.debug.caravans.view_taken_trade_rumors",
+    "Category": "CARAVANS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.caravans.view_trade_action_logs",
+    "Description": "Reports view trade action logs.",
+    "Usage": "coop.debug.caravans.view_trade_action_logs",
+    "Category": "CARAVANS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.character_objects.info",
+    "Description": "Reports info.",
+    "Usage": "coop.debug.character_objects.info <character_id>",
+    "Category": "CHARACTERS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.character_objects.list",
+    "Description": "Reports list.",
+    "Usage": "coop.debug.character_objects.list",
+    "Category": "CHARACTERS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.clan.add_companion",
+    "Description": "Adds a registered companion to a clan.",
+    "Usage": "coop.debug.clan.add_companion <clan_id> <hero_id>",
+    "Category": "CLANS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.clan.add_heirs",
+    "Description": "Creates eligible heirs for a registered player clan on the server.",
+    "Usage": "coop.debug.clan.add_heirs <clan_id> <count> [<parent>]",
+    "Category": "CLANS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.clan.add_influence",
+    "Description": "Adds influence to a registered clan.",
+    "Usage": "coop.debug.clan.add_influence <clan_id> <amount>",
+    "Category": "CLANS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.clan.add_renown",
+    "Description": "Adds renown to a registered clan.",
+    "Usage": "coop.debug.clan.add_renown <clan_id> <renown>",
+    "Category": "CLANS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.clan.change_clan_kingdom",
+    "Description": "Moves a registered clan to a kingdom.",
+    "Usage": "coop.debug.clan.change_clan_kingdom <clan_id> <kingdom_id>",
+    "Category": "CLANS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.clan.change_clan_leader",
+    "Description": "Changes the leader of a registered clan.",
+    "Usage": "coop.debug.clan.change_clan_leader <clan_id> <hero_id>",
+    "Category": "CLANS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.clan.close",
+    "Description": "Closes the clan screen on a client.",
+    "Usage": "coop.debug.clan.close",
+    "Category": "CLANS",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.clan.daily_gold_change",
+    "Description": "Reports predicted daily gold changes for a clan.",
+    "Usage": "coop.debug.clan.daily_gold_change <clan_id>",
+    "Category": "CLANS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.clan.destroy_clan",
+    "Description": "Destroys a registered clan.",
+    "Usage": "coop.debug.clan.destroy_clan <clan_id>",
+    "Category": "CLANS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.clan.economy",
+    "Description": "Reports battle-economy values for a clan.",
+    "Usage": "coop.debug.clan.economy [<clan_id_or_name>]",
+    "Category": "CLANS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.clan.field_dump",
+    "Description": "Dumps every field of a registered clan.",
+    "Usage": "coop.debug.clan.field_dump <clan_id>",
+    "Category": "CLANS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.clan.give_influence",
+    "Description": "Gives influence to a registered clan.",
+    "Usage": "coop.debug.clan.give_influence <clan_id> <amount>",
+    "Category": "CLANS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.clan.info",
+    "Description": "Reports a curated summary for a registered clan.",
+    "Usage": "coop.debug.clan.info <clan_id>",
+    "Category": "CLANS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.clan.join_kingdom",
+    "Description": "Joins a registered clan to a kingdom.",
+    "Usage": "coop.debug.clan.join_kingdom <clan_id> <kingdom_id>",
+    "Category": "CLANS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.clan.leave_kingdom",
+    "Description": "Removes a registered clan from its kingdom.",
+    "Usage": "coop.debug.clan.leave_kingdom <clan_id>",
+    "Category": "CLANS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.clan.list",
+    "Description": "Lists campaign clans.",
+    "Usage": "coop.debug.clan.list",
+    "Category": "CLANS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.clan.membership",
+    "Description": "Reports kingdom membership for a clan.",
+    "Usage": "coop.debug.clan.membership <clan_id>",
+    "Category": "CLANS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.clan.open",
+    "Description": "Opens the clan screen on a client.",
+    "Usage": "coop.debug.clan.open",
+    "Category": "CLANS",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.clan.refresh_burst",
+    "Description": "Sends repeated party role refresh messages.",
+    "Usage": "coop.debug.clan.refresh_burst <party_id> <count>",
+    "Category": "CLANS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.clan.remove_companion",
+    "Description": "Removes a registered companion from a clan.",
+    "Usage": "coop.debug.clan.remove_companion <hero_id>",
+    "Category": "CLANS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.clan.screen_state",
+    "Description": "Reports clan screen state.",
+    "Usage": "coop.debug.clan.screen_state",
+    "Category": "CLANS",
+    "Side": "CLIENT",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.clan.select_parties",
+    "Description": "Selects the parties tab on the clan screen.",
+    "Usage": "coop.debug.clan.select_parties",
+    "Category": "CLANS",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.clan.wage_state",
+    "Description": "Reports clan party wage state.",
+    "Usage": "coop.debug.clan.wage_state [<clan_id>]",
+    "Category": "CLANS",
+    "Side": "CLIENT",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.companions.clear_wanderers",
+    "Description": "Clears available wanderer heroes.",
+    "Usage": "coop.debug.companions.clear_wanderers",
+    "Category": "COMPANIONS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.companions.close_party_screen",
+    "Description": "Closes the companion party screen.",
+    "Usage": "coop.debug.companions.close_party_screen",
+    "Category": "COMPANIONS",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.companions.commit_party_screen",
+    "Description": "Commits changes on the companion party screen.",
+    "Usage": "coop.debug.companions.commit_party_screen",
+    "Category": "COMPANIONS",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.companions.list_wanderers",
+    "Description": "Lists available wanderer heroes.",
+    "Usage": "coop.debug.companions.list_wanderers",
+    "Category": "COMPANIONS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.companions.open_party_screen",
+    "Description": "Opens the companion party screen.",
+    "Usage": "coop.debug.companions.open_party_screen",
+    "Category": "COMPANIONS",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.companions.scout_role_state",
+    "Description": "Reports the scout assigned to a party.",
+    "Usage": "coop.debug.companions.scout_role_state <party_id>",
+    "Category": "COMPANIONS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.game_thread.instrument",
+    "Description": "Runs the instrument debug operation.",
+    "Usage": "coop.debug.game_thread.instrument [<mode>]",
+    "Category": "GAME THREAD",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.game_thread.stall",
+    "Description": "Runs the stall debug operation.",
+    "Usage": "coop.debug.game_thread.stall <milliseconds>",
+    "Category": "GAME THREAD",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.advance_time",
+    "Description": "Runs the advance time debug operation.",
+    "Usage": "coop.debug.advance_time [<days>]",
+    "Category": "GENERAL",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.fix_camera",
+    "Description": "Runs the fix camera debug operation.",
+    "Usage": "coop.debug.fix_camera",
+    "Category": "GENERAL",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.get_time_mode",
+    "Description": "Reports get time mode.",
+    "Usage": "coop.debug.get_time_mode",
+    "Category": "GENERAL",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.set_time_mode",
+    "Description": "Runs the set time mode debug operation.",
+    "Usage": "coop.debug.set_time_mode <time_mode>",
+    "Category": "GENERAL",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.template",
+    "Description": "Runs the template debug operation.",
+    "Usage": "coop.debug.template",
+    "Category": "GENERAL",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.hero_developer.add_attribute_points",
+    "Description": "Runs the add attribute points debug operation.",
+    "Usage": "coop.debug.hero_developer.add_attribute_points <hero_name_or_id> <point_count>",
+    "Category": "HERO DEVELOPMENT",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.hero_developer.add_focus_points",
+    "Description": "Runs the add focus points debug operation.",
+    "Usage": "coop.debug.hero_developer.add_focus_points <hero_name_or_id> <point_count>",
+    "Category": "HERO DEVELOPMENT",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.hero_developer.add_skill_xp",
+    "Description": "Runs the add skill xp debug operation.",
+    "Usage": "coop.debug.hero_developer.add_skill_xp <hero_name_or_id> <skill_name> <xp_amount>",
+    "Category": "HERO DEVELOPMENT",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.hero_developer.reset_skills",
+    "Description": "Runs the reset skills debug operation.",
+    "Usage": "coop.debug.hero_developer.reset_skills <hero_name_or_id>",
+    "Category": "HERO DEVELOPMENT",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.hero_developer.stats",
+    "Description": "Reports stats.",
+    "Usage": "coop.debug.hero_developer.stats <hero_name>",
+    "Category": "HERO DEVELOPMENT",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.hero.add_power",
+    "Description": "Adds power to a registered hero on the server.",
+    "Usage": "coop.debug.hero.add_power <hero_id> <power>",
+    "Category": "HEROES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.hero.audit",
+    "Description": "Audits registered hero state.",
+    "Usage": "coop.debug.hero.audit",
+    "Category": "HEROES",
+    "Side": "BOTH",
+    "Type": "AUDIT"
+  },
+  {
+    "Name": "coop.debug.hero.boost_fighter",
+    "Description": "Boosts a registered hero for fighter fixture testing.",
+    "Usage": "coop.debug.hero.boost_fighter <hero_registry_id>",
+    "Category": "HEROES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.hero.create_hero",
+    "Description": "Creates a hero from a character template on the server.",
+    "Usage": "coop.debug.hero.create_hero <character_object_id> [<age>]",
+    "Category": "HEROES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.hero.get_banneritem",
+    "Description": "Reports the banner item for a registered hero.",
+    "Usage": "coop.debug.hero.get_banneritem <hero_id>",
+    "Category": "HEROES",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.hero.get_effective_relation",
+    "Description": "Reports the effective relation between two registered heroes.",
+    "Usage": "coop.debug.hero.get_effective_relation <hero1_id> <hero2_id>",
+    "Category": "HEROES",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.hero.get_issue",
+    "Description": "Reports the issue for a registered hero.",
+    "Usage": "coop.debug.hero.get_issue <hero_id>",
+    "Category": "HEROES",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.hero.get_relation",
+    "Description": "Reports the base relation between two registered heroes.",
+    "Usage": "coop.debug.hero.get_relation <hero1_id> <hero2_id>",
+    "Category": "HEROES",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.hero.gold_state",
+    "Description": "Reports gold for a registered hero.",
+    "Usage": "coop.debug.hero.gold_state <hero_id>",
+    "Category": "HEROES",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.hero.home_settlement_snapshot",
+    "Description": "Reports registered hero home-settlement state.",
+    "Usage": "coop.debug.hero.home_settlement_snapshot <resolve_missing>",
+    "Category": "HEROES",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.hero.id",
+    "Description": "Finds registered ids for heroes with an exact display name.",
+    "Usage": "coop.debug.hero.id <heroName>",
+    "Category": "HEROES",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.hero.ill_days",
+    "Description": "Reports the local player's illness duration on clients or matching heroes on the server.",
+    "Usage": "coop.debug.hero.ill_days [<hero_name>]",
+    "Category": "HEROES",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.hero.info",
+    "Description": "Dumps fields for a registered hero.",
+    "Usage": "coop.debug.hero.info <hero_id>",
+    "Category": "HEROES",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.hero.issues",
+    "Description": "Lists heroes with active issues.",
+    "Usage": "coop.debug.hero.issues",
+    "Category": "HEROES",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.hero.kill_player",
+    "Description": "Kills a living registered player hero on the server.",
+    "Usage": "coop.debug.hero.kill_player <hero_id> <death_detail> [<killer_hero_id>]",
+    "Category": "HEROES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.hero.list",
+    "Description": "Lists registered heroes, optionally filtered by display-name prefix.",
+    "Usage": "coop.debug.hero.list [<name_prefix>]",
+    "Category": "HEROES",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.hero.list_banneritems",
+    "Description": "Lists available banner items.",
+    "Usage": "coop.debug.hero.list_banneritems",
+    "Category": "HEROES",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.hero.refresh_volunteers",
+    "Description": "Refreshes volunteers for a settlement on the server.",
+    "Usage": "coop.debug.hero.refresh_volunteers [<settlement_id>]",
+    "Category": "HEROES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.hero.set_age",
+    "Description": "Sets the age of heroes matching a display name or registered id on the server.",
+    "Usage": "coop.debug.hero.set_age <hero_name_or_id> <age>",
+    "Category": "HEROES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.hero.set_banneritem",
+    "Description": "Sets the banner item for a registered hero on the server.",
+    "Usage": "coop.debug.hero.set_banneritem <hero_id> <banner_item_id>",
+    "Category": "HEROES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.hero.set_effective_relation",
+    "Description": "Sets effective relation between two registered heroes.",
+    "Usage": "coop.debug.hero.set_effective_relation <hero1_id> <hero2_id> <value>",
+    "Category": "HEROES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.hero.set_gold",
+    "Description": "Sets gold for every hero with an exact display name on the server.",
+    "Usage": "coop.debug.hero.set_gold <hero_name> <gold>",
+    "Category": "HEROES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.hero.set_gold_state",
+    "Description": "Sets non-negative gold for a registered hero on the server.",
+    "Usage": "coop.debug.hero.set_gold_state <hero_id> <gold>",
+    "Category": "HEROES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.hero.set_hitpoints",
+    "Description": "Sets hit points for a registered hero on the server.",
+    "Usage": "coop.debug.hero.set_hitpoints <hero_id> <hit_points>",
+    "Category": "HEROES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.hero.set_issue",
+    "Description": "Sets an issue for a registered hero on the server.",
+    "Usage": "coop.debug.hero.set_issue <hero_id> <issue_id>",
+    "Category": "HEROES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.hero.set_relation",
+    "Description": "Sets the base relation between two registered heroes.",
+    "Usage": "coop.debug.hero.set_relation <hero1_id> <hero2_id> <value>",
+    "Category": "HEROES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.hero.volunteers",
+    "Description": "Lists volunteers for a hero.",
+    "Usage": "coop.debug.hero.volunteers <hero_id>",
+    "Category": "HEROES",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.hideout.teleport_party",
+    "Description": "Reveals the nearest populated hideout off cooldown and teleports the party with the given id to its entrance.",
+    "Usage": "coop.debug.hideout.teleport_party <partyId>",
+    "Category": "HIDEOUTS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.inventory.give_animals",
+    "Description": "Runs the give animals debug operation.",
+    "Usage": "coop.debug.inventory.give_animals <hero_name>",
+    "Category": "INVENTORY",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.inventory.give_warhorses",
+    "Description": "Runs the give warhorses debug operation.",
+    "Usage": "coop.debug.inventory.give_warhorses <hero_name>",
+    "Category": "INVENTORY",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.inventory.hero_equipment",
+    "Description": "Runs the hero equipment debug operation.",
+    "Usage": "coop.debug.inventory.hero_equipment <hero_name>",
+    "Category": "INVENTORY",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.inventory.item_ids",
+    "Description": "Runs the item ids debug operation.",
+    "Usage": "coop.debug.inventory.item_ids <hero_name>",
+    "Category": "INVENTORY",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.inventory.item_values",
+    "Description": "Runs the item values debug operation.",
+    "Usage": "coop.debug.inventory.item_values <hero_name>",
+    "Category": "INVENTORY",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.inventory.view_entered_settlements",
+    "Description": "Reports view entered settlements.",
+    "Usage": "coop.debug.inventory.view_entered_settlements",
+    "Category": "INVENTORY",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.inventory.view_player_trade_data",
+    "Description": "Reports view player trade data.",
+    "Usage": "coop.debug.inventory.view_player_trade_data",
+    "Category": "INVENTORY",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.inventory.view_player_trade_rumors",
+    "Description": "Reports view player trade rumors.",
+    "Usage": "coop.debug.inventory.view_player_trade_rumors",
+    "Category": "INVENTORY",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.issues.complete",
+    "Description": "Runs the complete debug operation.",
+    "Usage": "coop.debug.issues.complete <hero_id> [<outcome>]",
+    "Category": "ISSUES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.issues.give",
+    "Description": "Runs the give debug operation.",
+    "Usage": "coop.debug.issues.give <hero_id> <quest_type_key>",
+    "Category": "ISSUES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.issues.list_types",
+    "Description": "Reports list types.",
+    "Usage": "coop.debug.issues.list_types",
+    "Category": "ISSUES",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.item_rosters.add_item_burst",
+    "Description": "Runs the add item burst debug operation.",
+    "Usage": "coop.debug.item_rosters.add_item_burst <settlement_id> <count>",
+    "Category": "ITEM ROSTERS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.item_rosters.add_random_item",
+    "Description": "Runs the add random item debug operation.",
+    "Usage": "coop.debug.item_rosters.add_random_item <settlement_id>",
+    "Category": "ITEM ROSTERS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.item_rosters.export",
+    "Description": "Runs the export debug operation.",
+    "Usage": "coop.debug.item_rosters.export <party_or_settlement_id>",
+    "Category": "ITEM ROSTERS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.item_rosters.info",
+    "Description": "Reports info.",
+    "Usage": "coop.debug.item_rosters.info <party_or_settlement_id>",
+    "Category": "ITEM ROSTERS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.item_object.data",
+    "Description": "Reports data.",
+    "Usage": "coop.debug.item_object.data <item_id>",
+    "Category": "ITEMS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.kingdom.add_decision",
+    "Description": "Adds a supported decision to a kingdom.",
+    "Usage": "coop.debug.kingdom.add_decision <kingdom_id> <proposer_clan_id> <ignore_influence_cost> <decision_type> [<decision_arg1>] [<decision_arg2>] [<decision_arg3>]",
+    "Category": "KINGDOMS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.kingdom.add_decision_usage",
+    "Description": "Lists supported kingdom decision arguments.",
+    "Usage": "coop.debug.kingdom.add_decision_usage",
+    "Category": "KINGDOMS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.kingdom.close",
+    "Description": "Closes the kingdom screen on a client.",
+    "Usage": "coop.debug.kingdom.close",
+    "Category": "KINGDOMS",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.kingdom.collection_add",
+    "Description": "Adds a value to a synced kingdom collection.",
+    "Usage": "coop.debug.kingdom.collection_add <collection> <kingdom_id> <value_id> [<ignore_influence_cost>] [<decision_type>] [<decision_arg1>] [<decision_arg2>] [<decision_arg3>]",
+    "Category": "KINGDOMS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.kingdom.collection_list",
+    "Description": "Lists a synced kingdom collection.",
+    "Usage": "coop.debug.kingdom.collection_list <collection> <kingdom_id>",
+    "Category": "KINGDOMS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.kingdom.collection_remove",
+    "Description": "Removes a value from a synced kingdom collection.",
+    "Usage": "coop.debug.kingdom.collection_remove <collection> <kingdom_id> <value_id_or_index>",
+    "Category": "KINGDOMS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.kingdom.create",
+    "Description": "Creates a kingdom for a clan leader on the server.",
+    "Usage": "coop.debug.kingdom.create <leader_hero_name> <kingdom_name>",
+    "Category": "KINGDOMS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.kingdom.decisions",
+    "Description": "Lists queued decisions and client votes for a kingdom.",
+    "Usage": "coop.debug.kingdom.decisions <kingdom_id>",
+    "Category": "KINGDOMS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.kingdom.declare_war",
+    "Description": "Declares war between two factions on the server.",
+    "Usage": "coop.debug.kingdom.declare_war <faction1_id> <faction2_id>",
+    "Category": "KINGDOMS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.kingdom.force_ally",
+    "Description": "Forms an alliance between two kingdoms on the server.",
+    "Usage": "coop.debug.kingdom.force_ally <kingdom1_id> <kingdom2_id>",
+    "Category": "KINGDOMS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.kingdom.force_player_join_kingdom",
+    "Description": "Moves a player clan into a kingdom.",
+    "Usage": "coop.debug.kingdom.force_player_join_kingdom <controller_id> <kingdom_id>",
+    "Category": "KINGDOMS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.kingdom.force_player_vassalage",
+    "Description": "Requests player vassalage in a kingdom.",
+    "Usage": "coop.debug.kingdom.force_player_vassalage <controller_id> <kingdom_id> [<grant_rewards>]",
+    "Category": "KINGDOMS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.kingdom.force_trade_agreement",
+    "Description": "Forms a trade agreement between two kingdoms on the server.",
+    "Usage": "coop.debug.kingdom.force_trade_agreement <kingdom1_id> <kingdom2_id>",
+    "Category": "KINGDOMS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.kingdom.info",
+    "Description": "Reports state for a registered kingdom.",
+    "Usage": "coop.debug.kingdom.info <kingdom_id>",
+    "Category": "KINGDOMS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.kingdom.list",
+    "Description": "Lists campaign kingdoms.",
+    "Usage": "coop.debug.kingdom.list",
+    "Category": "KINGDOMS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.kingdom.list_decision_outcomes",
+    "Description": "Lists possible outcomes for a kingdom decision.",
+    "Usage": "coop.debug.kingdom.list_decision_outcomes <kingdom_id> <decision_index>",
+    "Category": "KINGDOMS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.kingdom.list_kingdom_decisions",
+    "Description": "Lists queued decisions for a kingdom.",
+    "Usage": "coop.debug.kingdom.list_kingdom_decisions <kingdom_id>",
+    "Category": "KINGDOMS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.kingdom.list_policies",
+    "Description": "Lists active policies for a kingdom.",
+    "Usage": "coop.debug.kingdom.list_policies <kingdom_id>",
+    "Category": "KINGDOMS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.kingdom.make_peace",
+    "Description": "Makes peace between two factions on the server.",
+    "Usage": "coop.debug.kingdom.make_peace <faction1_id> <faction2_id>",
+    "Category": "KINGDOMS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.kingdom.open",
+    "Description": "Opens the kingdom screen on a client.",
+    "Usage": "coop.debug.kingdom.open",
+    "Category": "KINGDOMS",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.kingdom.open_decision",
+    "Description": "Opens one queued kingdom decision.",
+    "Usage": "coop.debug.kingdom.open_decision <kingdom_id> <decision_index>",
+    "Category": "KINGDOMS",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.kingdom.policy_timeout_capture",
+    "Description": "Captures the kingdom policy-timeout fixture.",
+    "Usage": "coop.debug.kingdom.policy_timeout_capture",
+    "Category": "KINGDOMS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.kingdom.policy_timeout_restore",
+    "Description": "Restores the kingdom policy-timeout fixture.",
+    "Usage": "coop.debug.kingdom.policy_timeout_restore <kingdom_id> <proposer_clan_id> <policy_id> <policy_was_active>",
+    "Category": "KINGDOMS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.kingdom.policy_timeout_stage",
+    "Description": "Stages the kingdom policy-timeout fixture.",
+    "Usage": "coop.debug.kingdom.policy_timeout_stage <kingdom_id> <proposer_clan_id> <policy_id> <policy_was_active>",
+    "Category": "KINGDOMS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.kingdom.policy_timeout_state",
+    "Description": "Reports kingdom policy-timeout fixture state.",
+    "Usage": "coop.debug.kingdom.policy_timeout_state",
+    "Category": "KINGDOMS",
+    "Side": "CLIENT",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.kingdom.policy_timeout_verify",
+    "Description": "Verifies the kingdom policy-timeout fixture.",
+    "Usage": "coop.debug.kingdom.policy_timeout_verify <kingdom_id> <policy_id> <policy_was_active>",
+    "Category": "KINGDOMS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.kingdom.remove_decision",
+    "Description": "Removes a queued decision from a kingdom.",
+    "Usage": "coop.debug.kingdom.remove_decision <kingdom_id> <decision_index>",
+    "Category": "KINGDOMS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.kingdom.remove_decision_usage",
+    "Description": "Describes kingdom decision removal arguments.",
+    "Usage": "coop.debug.kingdom.remove_decision_usage",
+    "Category": "KINGDOMS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.kingdom.resolve_decision",
+    "Description": "Resolves a queued kingdom decision.",
+    "Usage": "coop.debug.kingdom.resolve_decision <kingdom_id> <decision_index>",
+    "Category": "KINGDOMS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.kingdom.screen_state",
+    "Description": "Reports kingdom screen state.",
+    "Usage": "coop.debug.kingdom.screen_state",
+    "Category": "KINGDOMS",
+    "Side": "CLIENT",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.kingdom.vote_decision",
+    "Description": "Requests a client vote on a kingdom decision.",
+    "Usage": "coop.debug.kingdom.vote_decision <kingdom_id> <decision_index> <outcome> <support_weight> [<is_final>]",
+    "Category": "KINGDOMS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.location.add_character",
+    "Description": "Adds character for co-op debugging.",
+    "Usage": "coop.debug.location.add_character <locationId> <characterObjectId>",
+    "Category": "LOCATIONS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.location.add_special_item",
+    "Description": "Adds special item for co-op debugging.",
+    "Usage": "coop.debug.location.add_special_item <locationId> <itemObjectId>",
+    "Category": "LOCATIONS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.location.enter",
+    "Description": "Enters the relevant state for co-op debugging.",
+    "Usage": "coop.debug.location.enter <locationId>",
+    "Category": "LOCATIONS",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.location.info",
+    "Description": "Shows the relevant state for co-op debugging.",
+    "Usage": "coop.debug.location.info <locationId>",
+    "Category": "LOCATIONS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.location.leave",
+    "Description": "Leaves the relevant state for co-op debugging.",
+    "Usage": "coop.debug.location.leave",
+    "Category": "LOCATIONS",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.location.list",
+    "Description": "Lists the relevant state for co-op debugging.",
+    "Usage": "coop.debug.location.list",
+    "Category": "LOCATIONS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.location.list_characters",
+    "Description": "Lists characters for co-op debugging.",
+    "Usage": "coop.debug.location.list_characters <locationId>",
+    "Category": "LOCATIONS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.location.list_special_items",
+    "Description": "Lists special items for co-op debugging.",
+    "Usage": "coop.debug.location.list_special_items <locationId>",
+    "Category": "LOCATIONS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.location.populate",
+    "Description": "Runs the relevant state for co-op debugging.",
+    "Usage": "coop.debug.location.populate <settlementStringId>",
+    "Category": "LOCATIONS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.location.remove_all_characters",
+    "Description": "Removes all characters for co-op debugging.",
+    "Usage": "coop.debug.location.remove_all_characters <locationId>",
+    "Category": "LOCATIONS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.location.remove_character",
+    "Description": "Removes character for co-op debugging.",
+    "Usage": "coop.debug.location.remove_character <locationId> <characterObjectId>",
+    "Category": "LOCATIONS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.location.remove_special_item",
+    "Description": "Removes special item for co-op debugging.",
+    "Usage": "coop.debug.location.remove_special_item <locationId> <itemObjectId>",
+    "Category": "LOCATIONS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_camera.focus_main_party",
+    "Description": "Runs the focus main party debug operation.",
+    "Usage": "coop.debug.map_camera.focus_main_party",
+    "Category": "MAP CAMERA",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_camera.state",
+    "Description": "Reports state.",
+    "Usage": "coop.debug.map_camera.state",
+    "Category": "MAP CAMERA",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.map_event.battle_reward_client_state",
+    "Description": "Reports battle reward client state.",
+    "Usage": "coop.debug.map_event.battle_reward_client_state",
+    "Category": "MAP EVENTS",
+    "Side": "CLIENT",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.map_event.choose_battle_mode",
+    "Description": "Runs the choose battle mode debug operation.",
+    "Usage": "coop.debug.map_event.choose_battle_mode <mode>",
+    "Category": "MAP EVENTS",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.click_deployment_ready",
+    "Description": "Runs the click deployment ready debug operation.",
+    "Usage": "coop.debug.map_event.click_deployment_ready",
+    "Category": "MAP EVENTS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.collapse_scoreboard_parties",
+    "Description": "Runs the collapse scoreboard parties debug operation.",
+    "Usage": "coop.debug.map_event.collapse_scoreboard_parties",
+    "Category": "MAP EVENTS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.complete_encounter_meeting",
+    "Description": "Runs the complete encounter meeting debug operation.",
+    "Usage": "coop.debug.map_event.complete_encounter_meeting",
+    "Category": "MAP EVENTS",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.conversation_hold_state",
+    "Description": "Reports conversation hold state.",
+    "Usage": "coop.debug.map_event.conversation_hold_state <party_base_id>",
+    "Category": "MAP EVENTS",
+    "Side": "SERVER",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.map_event.deployment_state",
+    "Description": "Reports deployment state.",
+    "Usage": "coop.debug.map_event.deployment_state",
+    "Category": "MAP EVENTS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.map_event.encounter_state",
+    "Description": "Reports encounter state.",
+    "Usage": "coop.debug.map_event.encounter_state",
+    "Category": "MAP EVENTS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.map_event.engage_nearest_bandit",
+    "Description": "Places the nearest bandit next to a player and orders it to engage them.",
+    "Usage": "coop.debug.map_event.engage_nearest_bandit <controller_id> [<excluded_party_id>]",
+    "Category": "MAP EVENTS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.enter_current_battle",
+    "Description": "Runs the enter current battle debug operation.",
+    "Usage": "coop.debug.map_event.enter_current_battle",
+    "Category": "MAP EVENTS",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.finish_current_encounter",
+    "Description": "Runs the finish current encounter debug operation.",
+    "Usage": "coop.debug.map_event.finish_current_encounter",
+    "Category": "MAP EVENTS",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.finish_deployment",
+    "Description": "Runs the finish deployment debug operation.",
+    "Usage": "coop.debug.map_event.finish_deployment",
+    "Category": "MAP EVENTS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.finish_non_battle_encounter",
+    "Description": "Runs the finish non battle encounter debug operation.",
+    "Usage": "coop.debug.map_event.finish_non_battle_encounter",
+    "Category": "MAP EVENTS",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.finish_player_encounter",
+    "Description": "Runs the finish player encounter debug operation.",
+    "Usage": "coop.debug.map_event.finish_player_encounter <controller_id>",
+    "Category": "MAP EVENTS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.get_event",
+    "Description": "Reports event.",
+    "Usage": "coop.debug.map_event.get_event <map_event_id>",
+    "Category": "MAP EVENTS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.map_event.get_events",
+    "Description": "Reports events.",
+    "Usage": "coop.debug.map_event.get_events",
+    "Category": "MAP EVENTS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.map_event.hold_ai_conversation",
+    "Description": "Holds an AI lord party for a player's map conversation.",
+    "Usage": "coop.debug.map_event.hold_ai_conversation <controller_id> <hero_id>",
+    "Category": "MAP EVENTS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.join_existing",
+    "Description": "Runs the join existing debug operation.",
+    "Usage": "coop.debug.map_event.join_existing <map_event_id> <side>",
+    "Category": "MAP EVENTS",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.kill_all_but_one",
+    "Description": "Runs the kill all but one debug operation.",
+    "Usage": "coop.debug.map_event.kill_all_but_one",
+    "Category": "MAP EVENTS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.kill_enemy",
+    "Description": "Runs the kill enemy debug operation.",
+    "Usage": "coop.debug.map_event.kill_enemy",
+    "Category": "MAP EVENTS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.kill_enemy_team",
+    "Description": "Runs the kill enemy team debug operation.",
+    "Usage": "coop.debug.map_event.kill_enemy_team",
+    "Category": "MAP EVENTS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.kill_own_team",
+    "Description": "Runs the kill own team debug operation.",
+    "Usage": "coop.debug.map_event.kill_own_team",
+    "Category": "MAP EVENTS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.kill_random_troop",
+    "Description": "Runs the kill random troop debug operation.",
+    "Usage": "coop.debug.map_event.kill_random_troop",
+    "Category": "MAP EVENTS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.kms",
+    "Description": "Runs the kms debug operation.",
+    "Usage": "coop.debug.map_event.kms [<force>]",
+    "Category": "MAP EVENTS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.late_join_mode_cleanup",
+    "Description": "Runs the late join mode cleanup debug operation.",
+    "Usage": "coop.debug.map_event.late_join_mode_cleanup",
+    "Category": "MAP EVENTS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.late_join_mode_enter",
+    "Description": "Runs the late join mode enter debug operation.",
+    "Usage": "coop.debug.map_event.late_join_mode_enter",
+    "Category": "MAP EVENTS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.late_join_mode_join",
+    "Description": "Runs the late join mode join debug operation.",
+    "Usage": "coop.debug.map_event.late_join_mode_join",
+    "Category": "MAP EVENTS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.late_join_mode_state",
+    "Description": "Reports late join mode state.",
+    "Usage": "coop.debug.map_event.late_join_mode_state <controller_id>",
+    "Category": "MAP EVENTS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.map_event.leave_battle",
+    "Description": "Runs the leave battle debug operation.",
+    "Usage": "coop.debug.map_event.leave_battle",
+    "Category": "MAP EVENTS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.leave_settlement",
+    "Description": "Runs the leave settlement debug operation.",
+    "Usage": "coop.debug.map_event.leave_settlement <controller_id>",
+    "Category": "MAP EVENTS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.list_player_encounter",
+    "Description": "Reports player encounter.",
+    "Usage": "coop.debug.map_event.list_player_encounter",
+    "Category": "MAP EVENTS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.map_event.peace_pursuit_state",
+    "Description": "Reports peace pursuit state.",
+    "Usage": "coop.debug.map_event.peace_pursuit_state <controller_id> <party_string_id>",
+    "Category": "MAP EVENTS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.map_event.player_interaction_state",
+    "Description": "Reports player interaction state.",
+    "Usage": "coop.debug.map_event.player_interaction_state",
+    "Category": "MAP EVENTS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.map_event.prisoner_prompt",
+    "Description": "Runs the prisoner prompt debug operation.",
+    "Usage": "coop.debug.map_event.prisoner_prompt <action>",
+    "Category": "MAP EVENTS",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.prisoner_prompt_state",
+    "Description": "Reports prisoner prompt state.",
+    "Usage": "coop.debug.map_event.prisoner_prompt_state",
+    "Category": "MAP EVENTS",
+    "Side": "CLIENT",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.map_event.request_player_field_battle",
+    "Description": "Runs the request player field battle debug operation.",
+    "Usage": "coop.debug.map_event.request_player_field_battle <defender_mobile_party_id>",
+    "Category": "MAP EVENTS",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.restore_player_field_battle",
+    "Description": "Restores or clears restore player field battle.",
+    "Usage": "coop.debug.map_event.restore_player_field_battle",
+    "Category": "MAP EVENTS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.retreat_confirmation",
+    "Description": "Runs the retreat confirmation debug operation.",
+    "Usage": "coop.debug.map_event.retreat_confirmation <action>",
+    "Category": "MAP EVENTS",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.scoreboard_state",
+    "Description": "Reports scoreboard state.",
+    "Usage": "coop.debug.map_event.scoreboard_state",
+    "Category": "MAP EVENTS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.map_event.start_attack_mission",
+    "Description": "Runs the start attack mission debug operation.",
+    "Usage": "coop.debug.map_event.start_attack_mission",
+    "Category": "MAP EVENTS",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.start_looter",
+    "Description": "Runs the start looter debug operation.",
+    "Usage": "coop.debug.map_event.start_looter",
+    "Category": "MAP EVENTS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.start_nearest_bandit_attack",
+    "Description": "Runs the start nearest bandit attack debug operation.",
+    "Usage": "coop.debug.map_event.start_nearest_bandit_attack <controller_id> [<excluded_party_id>]",
+    "Category": "MAP EVENTS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.start_nearest_looter",
+    "Description": "Runs the start nearest looter debug operation.",
+    "Usage": "coop.debug.map_event.start_nearest_looter",
+    "Category": "MAP EVENTS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.start_player_field_battle",
+    "Description": "Runs the start player field battle debug operation.",
+    "Usage": "coop.debug.map_event.start_player_field_battle <attacker_mobile_party_id> <defender_mobile_party_id>",
+    "Category": "MAP EVENTS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.submit_player_interaction",
+    "Description": "Runs the submit player interaction debug operation.",
+    "Usage": "coop.debug.map_event.submit_player_interaction <option>",
+    "Category": "MAP EVENTS",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.test_peace_stops_pursuit",
+    "Description": "Runs the test peace stops pursuit debug operation.",
+    "Usage": "coop.debug.map_event.test_peace_stops_pursuit <controller_id> <party_string_id>",
+    "Category": "MAP EVENTS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.map_event.toggle_scoreboard",
+    "Description": "Runs the toggle scoreboard debug operation.",
+    "Usage": "coop.debug.map_event.toggle_scoreboard",
+    "Category": "MAP EVENTS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mapevent.allow_raid_ai_intervention",
+    "Description": "Controls raid ai intervention for co-op debugging.",
+    "Usage": "coop.debug.mapevent.allow_raid_ai_intervention <mode>",
+    "Category": "MAP EVENTS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.metrics.party_sync_performance_logs",
+    "Description": "Runs the party sync performance logs debug operation.",
+    "Usage": "coop.debug.metrics.party_sync_performance_logs <mode> [<seconds>] [<file_name>]",
+    "Category": "METRICS",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobile_party.add_prisoners",
+    "Description": "Runs the addprisoners debug operation.",
+    "Usage": "coop.debug.mobile_party.add_prisoners <hero_name>",
+    "Category": "MOBILE PARTIES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobile_party.add_troop_xp",
+    "Description": "Runs the addtroopxp debug operation.",
+    "Usage": "coop.debug.mobile_party.add_troop_xp <hero_name> <xp_amount>",
+    "Category": "MOBILE PARTIES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobile_party.add_troops",
+    "Description": "Runs the addtroops debug operation.",
+    "Usage": "coop.debug.mobile_party.add_troops <hero_name>",
+    "Category": "MOBILE PARTIES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobile_party.character_ids",
+    "Description": "Runs the characterids debug operation.",
+    "Usage": "coop.debug.mobile_party.character_ids <hero_name_or_id>",
+    "Category": "MOBILE PARTIES",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobile_party.clan_party_transfer_screen_state",
+    "Description": "Reports clan party transfer screen state.",
+    "Usage": "coop.debug.mobile_party.clan_party_transfer_screen_state <clan_party_id> <character_id> <expected_state>",
+    "Category": "MOBILE PARTIES",
+    "Side": "CLIENT",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.mobile_party.commit_clan_party_transfer",
+    "Description": "Runs the commit clan party transfer debug operation.",
+    "Usage": "coop.debug.mobile_party.commit_clan_party_transfer",
+    "Category": "MOBILE PARTIES",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobile_party.commit_garrison_xp_withdrawal",
+    "Description": "Runs the commit garrison xp withdrawal debug operation.",
+    "Usage": "coop.debug.mobile_party.commit_garrison_xp_withdrawal",
+    "Category": "MOBILE PARTIES",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobile_party.declare_war",
+    "Description": "Runs the declare war debug operation.",
+    "Usage": "coop.debug.mobile_party.declare_war <party_id> <settlement_id>",
+    "Category": "MOBILE PARTIES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobile_party.imprison_companion",
+    "Description": "Runs the imprison companion debug operation.",
+    "Usage": "coop.debug.mobile_party.imprison_companion <captor_hero> <prisoner_hero>",
+    "Category": "MOBILE PARTIES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobile_party.move_offset",
+    "Description": "Runs the move offset debug operation.",
+    "Usage": "coop.debug.mobile_party.move_offset <offset_x> <offset_y>",
+    "Category": "MOBILE PARTIES",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobile_party.move_to_settlement",
+    "Description": "Runs the move to settlement debug operation.",
+    "Usage": "coop.debug.mobile_party.move_to_settlement <party_id> <settlement_id> [<instant>]",
+    "Category": "MOBILE PARTIES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobile_party.open_clan_party_transfer",
+    "Description": "Runs the open clan party transfer debug operation.",
+    "Usage": "coop.debug.mobile_party.open_clan_party_transfer <clan_party_id>",
+    "Category": "MOBILE PARTIES",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobile_party.party_screen_troop_state",
+    "Description": "Reports party screen troop state.",
+    "Usage": "coop.debug.mobile_party.party_screen_troop_state <character_id>",
+    "Category": "MOBILE PARTIES",
+    "Side": "CLIENT",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.mobile_party.position",
+    "Description": "Runs the position debug operation.",
+    "Usage": "coop.debug.mobile_party.position <party_id>",
+    "Category": "MOBILE PARTIES",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobile_party.remove_prisoners",
+    "Description": "Runs the removeprisoners debug operation.",
+    "Usage": "coop.debug.mobile_party.remove_prisoners <hero_name>",
+    "Category": "MOBILE PARTIES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobile_party.restore_position",
+    "Description": "Restores a party to a campaign-map position and hold state.",
+    "Usage": "coop.debug.mobile_party.restore_position <party_id> <x> <y> <is_on_land>",
+    "Category": "MOBILE PARTIES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobile_party.select_party_screen_troop",
+    "Description": "Runs the select party screen troop debug operation.",
+    "Usage": "coop.debug.mobile_party.select_party_screen_troop <character_id>",
+    "Category": "MOBILE PARTIES",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobile_party.set_troop_state",
+    "Description": "Reports set troop state.",
+    "Usage": "coop.debug.mobile_party.set_troop_state <party_id> <character_id> <exists> <number> <wounded_count> <xp>",
+    "Category": "MOBILE PARTIES",
+    "Side": "SERVER",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.mobile_party.set_troop_wounded",
+    "Description": "Runs the set troop wounded debug operation.",
+    "Usage": "coop.debug.mobile_party.set_troop_wounded <party_id> <character_id> <wounded_count>",
+    "Category": "MOBILE PARTIES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobile_party.siege_buff",
+    "Description": "Runs the siege buff debug operation.",
+    "Usage": "coop.debug.mobile_party.siege_buff <party_id>",
+    "Category": "MOBILE PARTIES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobile_party.snapshot_prison",
+    "Description": "Runs the snapshot prison debug operation.",
+    "Usage": "coop.debug.mobile_party.snapshot_prison <hero_name_or_id>",
+    "Category": "MOBILE PARTIES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobile_party.stage_clan_party_transfer",
+    "Description": "Runs the stage clan party transfer debug operation.",
+    "Usage": "coop.debug.mobile_party.stage_clan_party_transfer <clan_party_id> <character_id>",
+    "Category": "MOBILE PARTIES",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobile_party.stage_garrison_xp_withdrawal",
+    "Description": "Runs the stage garrison xp withdrawal debug operation.",
+    "Usage": "coop.debug.mobile_party.stage_garrison_xp_withdrawal <garrison_party_id> <character_id>",
+    "Category": "MOBILE PARTIES",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobile_party.stage_party_screen_transfer",
+    "Description": "Runs the stage party screen transfer debug operation.",
+    "Usage": "coop.debug.mobile_party.stage_party_screen_transfer <character_id>",
+    "Category": "MOBILE PARTIES",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobile_party.upgrade_party_screen_troop",
+    "Description": "Runs the upgrade party screen troop debug operation.",
+    "Usage": "coop.debug.mobile_party.upgrade_party_screen_troop <character_id> [<upgrade_target_index>]",
+    "Category": "MOBILE PARTIES",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobile_party.who_am_i",
+    "Description": "Runs the whoami debug operation.",
+    "Usage": "coop.debug.mobile_party.who_am_i",
+    "Category": "MOBILE PARTIES",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobileparty.attachment_ids",
+    "Description": "Runs ids for co-op debugging.",
+    "Usage": "coop.debug.mobileparty.attachment_ids <partyStringId>",
+    "Category": "MOBILE PARTIES",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobileparty.audit",
+    "Description": "Audits the relevant state for co-op debugging.",
+    "Usage": "coop.debug.mobileparty.audit",
+    "Category": "MOBILE PARTIES",
+    "Side": "BOTH",
+    "Type": "AUDIT"
+  },
+  {
+    "Name": "coop.debug.mobileparty.component_info",
+    "Description": "Runs info for co-op debugging.",
+    "Usage": "coop.debug.mobileparty.component_info <partyStringId>",
+    "Category": "MOBILE PARTIES",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobileparty.create_party",
+    "Description": "Creates party for co-op debugging.",
+    "Usage": "coop.debug.mobileparty.create_party <heroId> <settlementId>",
+    "Category": "MOBILE PARTIES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobileparty.destroy_all_bandit_parties",
+    "Description": "Destroys all bandit parties for co-op debugging.",
+    "Usage": "coop.debug.mobileparty.destroy_all_bandit_parties",
+    "Category": "MOBILE PARTIES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobileparty.destroy_party",
+    "Description": "Destroys party for co-op debugging.",
+    "Usage": "coop.debug.mobileparty.destroy_party <mobilePartyId>",
+    "Category": "MOBILE PARTIES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobileparty.disorganization_cache",
+    "Description": "Inspects party speed cache versions, optionally evaluating the local speed cache.",
+    "Usage": "coop.debug.mobileparty.disorganization_cache <partyId> <evaluate>",
+    "Category": "MOBILE PARTIES",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobileparty.info",
+    "Description": "Shows the relevant state for co-op debugging.",
+    "Usage": "coop.debug.mobileparty.info <partyStringId>",
+    "Category": "MOBILE PARTIES",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobileparty.list",
+    "Description": "Lists the relevant state for co-op debugging.",
+    "Usage": "coop.debug.mobileparty.list",
+    "Category": "MOBILE PARTIES",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.mobileparty.set_disorganized",
+    "Description": "Calls the authoritative disorganization action for a registered party.",
+    "Usage": "coop.debug.mobileparty.set_disorganized <partyId> <value>",
+    "Category": "MOBILE PARTIES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobileparty.set_wage_limit_updated",
+    "Description": "Sets wage limit updated for co-op debugging.",
+    "Usage": "coop.debug.mobileparty.set_wage_limit_updated <partyStringId> <value>",
+    "Category": "MOBILE PARTIES",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobileparty.set_wage_unlimited",
+    "Description": "Sets wage unlimited for co-op debugging.",
+    "Usage": "coop.debug.mobileparty.set_wage_unlimited <partyStringId> <value>",
+    "Category": "MOBILE PARTIES",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobileparty.spawn_test_parties",
+    "Description": "Spawns test parties for co-op debugging.",
+    "Usage": "coop.debug.mobileparty.spawn_test_parties [<count>] [<settlementId>]",
+    "Category": "MOBILE PARTIES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mobileparty.verify_ai_authority",
+    "Description": "Verifies ai authority for co-op debugging.",
+    "Usage": "coop.debug.mobileparty.verify_ai_authority <mobilePartyId>",
+    "Category": "MOBILE PARTIES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.mod_config.list",
+    "Description": "Reports list.",
+    "Usage": "coop.debug.mod_config.list",
+    "Category": "MOD OPTIONS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.mod_config.voice_enabled",
+    "Description": "Enables or disables voice for the entire server this session.",
+    "Usage": "coop.debug.mod_config.voice_enabled <value>",
+    "Category": "MOD OPTIONS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.party_visuals.buffer_state",
+    "Description": "Reports buffer state.",
+    "Usage": "coop.debug.party_visuals.buffer_state",
+    "Category": "PARTY VISUALS",
+    "Side": "CLIENT",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.delete_player",
+    "Description": "Requests deletion of the local player from the server.",
+    "Usage": "coop.delete_player",
+    "Category": "PLAYER",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.unstuck",
+    "Description": "Runs the unstuck debug operation.",
+    "Usage": "coop.unstuck [<player>]",
+    "Category": "PLAYER",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.players.list",
+    "Description": "Lists registered co-op players.",
+    "Usage": "coop.debug.players.list",
+    "Category": "PLAYERS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.players.party_state",
+    "Description": "Reports replicated party state for a player.",
+    "Usage": "coop.debug.players.party_state <controller_id>",
+    "Category": "PLAYERS",
+    "Side": "SERVER",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.romance.agree",
+    "Description": "Marks a romance pair as agreed on marriage.",
+    "Usage": "coop.debug.romance.agree <player_hero_id> <npc_hero_id>",
+    "Category": "ROMANCE",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.romance.compatible",
+    "Description": "Marks a romance pair as compatible.",
+    "Usage": "coop.debug.romance.compatible <player_hero_id> <npc_hero_id>",
+    "Category": "ROMANCE",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.romance.divorce",
+    "Description": "Divorces a player hero and NPC hero.",
+    "Usage": "coop.debug.romance.divorce <player_hero_id> <npc_hero_id>",
+    "Category": "ROMANCE",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.romance.fail_practicalities",
+    "Description": "Sets a marriage fixture pair to failed in practicalities.",
+    "Usage": "coop.debug.romance.fail_practicalities <first_hero_id> <second_hero_id>",
+    "Category": "ROMANCE",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.romance.help",
+    "Description": "Describes the romance debug commands.",
+    "Usage": "coop.debug.romance.help",
+    "Category": "ROMANCE",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.romance.list",
+    "Description": "Lists current romance states.",
+    "Usage": "coop.debug.romance.list",
+    "Category": "ROMANCE",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.romance.marry",
+    "Description": "Marries a player hero and NPC hero.",
+    "Usage": "coop.debug.romance.marry <player_hero_id> <npc_hero_id>",
+    "Category": "ROMANCE",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.romance.start",
+    "Description": "Starts courtship between a player and NPC.",
+    "Usage": "coop.debug.romance.start <player_hero_id> <npc_hero_id>",
+    "Category": "ROMANCE",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.romance.status",
+    "Description": "Reports romance state for a player and NPC.",
+    "Usage": "coop.debug.romance.status <player_hero_id> <npc_hero_id>",
+    "Category": "ROMANCE",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.save.force_autosave",
+    "Description": "Runs the force autosave debug operation.",
+    "Usage": "coop.debug.save.force_autosave [<evidence_hold_milliseconds>]",
+    "Category": "SAVES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.save.save_as",
+    "Description": "Runs the save as debug operation.",
+    "Usage": "coop.debug.save.save_as <save_name>",
+    "Category": "SAVES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.save.state",
+    "Description": "Reports state.",
+    "Usage": "coop.debug.save.state",
+    "Category": "SAVES",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.settlement_component.set_gold",
+    "Description": "Sets gold for co-op debugging.",
+    "Usage": "coop.debug.settlement_component.set_gold <settlementComponentId> <gold>",
+    "Category": "SETTLEMENTS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.settlement_component.set_is_owner_unassigned",
+    "Description": "Sets is owner unassigned for co-op debugging.",
+    "Usage": "coop.debug.settlement_component.set_is_owner_unassigned <settlementComponentId> <value>",
+    "Category": "SETTLEMENTS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.settlement_component.set_owner",
+    "Description": "Sets owner for co-op debugging.",
+    "Usage": "coop.debug.settlement_component.set_owner <settlementComponentId> <mobilePartyId>",
+    "Category": "SETTLEMENTS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.settlements.audit",
+    "Description": "Audits the relevant state for co-op debugging.",
+    "Usage": "coop.debug.settlements.audit",
+    "Category": "SETTLEMENTS",
+    "Side": "CLIENT",
+    "Type": "AUDIT"
+  },
+  {
+    "Name": "coop.debug.settlements.capture_by_siege",
+    "Description": "Captures by siege for co-op debugging.",
+    "Usage": "coop.debug.settlements.capture_by_siege <settlementNameOrId> [<capturerHeroId>]",
+    "Category": "SETTLEMENTS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.settlements.collect_cache_notables",
+    "Description": "Collects cache notables for co-op debugging.",
+    "Usage": "coop.debug.settlements.collect_cache_notables <settlementId>",
+    "Category": "SETTLEMENTS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.settlements.enter_random_castle",
+    "Description": "Enters random castle for co-op debugging.",
+    "Usage": "coop.debug.settlements.enter_random_castle [<castleId>]",
+    "Category": "SETTLEMENTS",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.settlements.get_town_name",
+    "Description": "Gets town name for co-op debugging.",
+    "Usage": "coop.debug.settlements.get_town_name <settlementId>",
+    "Category": "SETTLEMENTS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.settlements.info",
+    "Description": "Shows the relevant state for co-op debugging.",
+    "Usage": "coop.debug.settlements.info <settlementId>",
+    "Category": "SETTLEMENTS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.settlements.last_attacker",
+    "Description": "Runs attacker for co-op debugging.",
+    "Usage": "coop.debug.settlements.last_attacker <settlementId> <lastAttackerPartyId>",
+    "Category": "SETTLEMENTS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.settlements.list_siege_state",
+    "Description": "Lists siege state for co-op debugging.",
+    "Usage": "coop.debug.settlements.list_siege_state",
+    "Category": "SETTLEMENTS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.settlements.owner_state",
+    "Description": "Shows state for co-op debugging.",
+    "Usage": "coop.debug.settlements.owner_state <settlementNameOrId>",
+    "Category": "SETTLEMENTS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.settlements.set_allies_spotted",
+    "Description": "Sets allies spotted for co-op debugging.",
+    "Usage": "coop.debug.settlements.set_allies_spotted <settlementId> <value>",
+    "Category": "SETTLEMENTS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.settlements.set_bribe_paid",
+    "Description": "Sets bribe paid for co-op debugging.",
+    "Usage": "coop.debug.settlements.set_bribe_paid <settlementId> <value>",
+    "Category": "SETTLEMENTS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.settlements.set_enemies_spotted",
+    "Description": "Sets enemies spotted for co-op debugging.",
+    "Usage": "coop.debug.settlements.set_enemies_spotted <settlementId> <value>",
+    "Category": "SETTLEMENTS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.settlements.set_garrison_pay_limit",
+    "Description": "Sets garrison pay limit for co-op debugging.",
+    "Usage": "coop.debug.settlements.set_garrison_pay_limit <settlementId> <payLimit>",
+    "Category": "SETTLEMENTS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.settlements.set_hit_points",
+    "Description": "Sets hit points for co-op debugging.",
+    "Usage": "coop.debug.settlements.set_hit_points <settlementId> <value>",
+    "Category": "SETTLEMENTS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.settlements.set_militia",
+    "Description": "Sets militia for co-op debugging.",
+    "Usage": "coop.debug.settlements.set_militia <settlementId> <militia>",
+    "Category": "SETTLEMENTS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.settlements.set_owner_clan",
+    "Description": "Sets owner clan for co-op debugging.",
+    "Usage": "coop.debug.settlements.set_owner_clan <settlementNameOrId> <heroId>",
+    "Category": "SETTLEMENTS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.settlements.set_siege_state",
+    "Description": "Sets siege state for co-op debugging.",
+    "Usage": "coop.debug.settlements.set_siege_state <settlementId> <siegeState>",
+    "Category": "SETTLEMENTS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.besiegercamp.add_besieger_party",
+    "Description": "Adds besieger party for co-op debugging.",
+    "Usage": "coop.debug.besiegercamp.add_besieger_party <besiegerCampId> <partyId>",
+    "Category": "SIEGES",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.besiegercamp.remove_party",
+    "Description": "Removes party for co-op debugging.",
+    "Usage": "coop.debug.besiegercamp.remove_party <besiegerCampId> <partyId>",
+    "Category": "SIEGES",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.besiegercamp.set_leader_party",
+    "Description": "Sets leader party for co-op debugging.",
+    "Usage": "coop.debug.besiegercamp.set_leader_party <besiegerCampId> <partyId>",
+    "Category": "SIEGES",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.besiegercamp.set_number_of_troops_killed_on_side",
+    "Description": "Sets number of troops killed on side for co-op debugging.",
+    "Usage": "coop.debug.besiegercamp.set_number_of_troops_killed_on_side <besiegerCampId> <value>",
+    "Category": "SIEGES",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.besiegercamp.set_progress",
+    "Description": "Sets progress for co-op debugging.",
+    "Usage": "coop.debug.besiegercamp.set_progress <besiegerCampId> <progress>",
+    "Category": "SIEGES",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.besiegercamp.set_siege_strategy",
+    "Description": "Sets siege strategy for co-op debugging.",
+    "Usage": "coop.debug.besiegercamp.set_siege_strategy <besiegerCampId> <strategyId>",
+    "Category": "SIEGES",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.siege.army_relief_state",
+    "Description": "Runs relief state for co-op debugging.",
+    "Usage": "coop.debug.siege.army_relief_state <controllerId> <settlementId>",
+    "Category": "SIEGES",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.siege.assault",
+    "Description": "Runs the relevant state for co-op debugging.",
+    "Usage": "coop.debug.siege.assault <settlementId>",
+    "Category": "SIEGES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.siege.assault_entry_state",
+    "Description": "Runs entry state for co-op debugging.",
+    "Usage": "coop.debug.siege.assault_entry_state",
+    "Category": "SIEGES",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.siege.dump_engines",
+    "Description": "Dumps engines for co-op debugging.",
+    "Usage": "coop.debug.siege.dump_engines",
+    "Category": "SIEGES",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.siege.dump_machines",
+    "Description": "Dumps machines for co-op debugging.",
+    "Usage": "coop.debug.siege.dump_machines [<includeAll>]",
+    "Category": "SIEGES",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.siege.dump_party",
+    "Description": "Dumps party for co-op debugging.",
+    "Usage": "coop.debug.siege.dump_party <heroNameOrPartyId>",
+    "Category": "SIEGES",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.siege.focus",
+    "Description": "Focuses the relevant state for co-op debugging.",
+    "Usage": "coop.debug.siege.focus <settlementId>",
+    "Category": "SIEGES",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.siege.graph",
+    "Description": "Runs the relevant state for co-op debugging.",
+    "Usage": "coop.debug.siege.graph <settlementId>",
+    "Category": "SIEGES",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.siege.join_active_assault",
+    "Description": "Joins active assault for co-op debugging.",
+    "Usage": "coop.debug.siege.join_active_assault <settlementId>",
+    "Category": "SIEGES",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.siege.join_players",
+    "Description": "Joins players for co-op debugging.",
+    "Usage": "coop.debug.siege.join_players <settlementId> <expectedPlayerCount> [<declareMissingWars>]",
+    "Category": "SIEGES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.siege.leave",
+    "Description": "Leaves the relevant state for co-op debugging.",
+    "Usage": "coop.debug.siege.leave",
+    "Category": "SIEGES",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.siege.leave_settlement",
+    "Description": "Leaves settlement for co-op debugging.",
+    "Usage": "coop.debug.siege.leave_settlement",
+    "Category": "SIEGES",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.siege.list",
+    "Description": "Lists the relevant state for co-op debugging.",
+    "Usage": "coop.debug.siege.list",
+    "Category": "SIEGES",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.siege.player_state",
+    "Description": "Runs state for co-op debugging.",
+    "Usage": "coop.debug.siege.player_state <partyId>",
+    "Category": "SIEGES",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.siege.prepare_ladders_only",
+    "Description": "Prepares ladders only for co-op debugging.",
+    "Usage": "coop.debug.siege.prepare_ladders_only <settlementId>",
+    "Category": "SIEGES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.siege.request_assault",
+    "Description": "Requests assault for co-op debugging.",
+    "Usage": "coop.debug.siege.request_assault <settlementId>",
+    "Category": "SIEGES",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.siege.request_besiege",
+    "Description": "Requests besiege for co-op debugging.",
+    "Usage": "coop.debug.siege.request_besiege <settlementId>",
+    "Category": "SIEGES",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.siege.resolve_starvation",
+    "Description": "Resolves starvation for co-op debugging.",
+    "Usage": "coop.debug.siege.resolve_starvation <settlementId>",
+    "Category": "SIEGES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.siege.stage_machines",
+    "Description": "Stages machines for co-op debugging.",
+    "Usage": "coop.debug.siege.stage_machines <settlementId>",
+    "Category": "SIEGES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.siege.start",
+    "Description": "Starts the relevant state for co-op debugging.",
+    "Usage": "coop.debug.siege.start <settlementId> [<besiegerPartyId>]",
+    "Category": "SIEGES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.siege.start_army_relief",
+    "Description": "Starts army relief for co-op debugging.",
+    "Usage": "coop.debug.siege.start_army_relief <controllerId> <settlementId> [<armyPartyCount>]",
+    "Category": "SIEGES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.siege.stop",
+    "Description": "Stops the relevant state for co-op debugging.",
+    "Usage": "coop.debug.siege.stop <settlementId> <originalX> <originalY> <originalIsOnLand>",
+    "Category": "SIEGES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.siege.terminal_status",
+    "Description": "Runs status for co-op debugging.",
+    "Usage": "coop.debug.siege.terminal_status <settlementId>",
+    "Category": "SIEGES",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.crafting.add_crafted_items",
+    "Description": "Runs the add crafted items debug operation.",
+    "Usage": "coop.debug.crafting.add_crafted_items <hero_name>",
+    "Category": "SMITHING",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.crafting.add_town_order",
+    "Description": "Runs the add town order debug operation.",
+    "Usage": "coop.debug.crafting.add_town_order <hero_name>",
+    "Category": "SMITHING",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.crafting.crafted_item_history",
+    "Description": "Runs the crafted item history debug operation.",
+    "Usage": "coop.debug.crafting.crafted_item_history",
+    "Category": "SMITHING",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.crafting.crafting_pieces_xp",
+    "Description": "Runs the crafting pieces xp debug operation.",
+    "Usage": "coop.debug.crafting.crafting_pieces_xp",
+    "Category": "SMITHING",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.crafting.give_supplies",
+    "Description": "Runs the give supplies debug operation.",
+    "Usage": "coop.debug.crafting.give_supplies <hero_name>",
+    "Category": "SMITHING",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.crafting.stamina",
+    "Description": "Runs the stamina debug operation.",
+    "Usage": "coop.debug.crafting.stamina",
+    "Category": "SMITHING",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.crafting.town_orders",
+    "Description": "Runs the town orders debug operation.",
+    "Usage": "coop.debug.crafting.town_orders <town_name>",
+    "Category": "SMITHING",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.crafting.unlock_all_crafting_pieces",
+    "Description": "Runs the unlock all crafting pieces debug operation.",
+    "Usage": "coop.debug.crafting.unlock_all_crafting_pieces",
+    "Category": "SMITHING",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.crafting.unlocked_crafting_pieces",
+    "Description": "Runs the unlocked crafting pieces debug operation.",
+    "Usage": "coop.debug.crafting.unlocked_crafting_pieces",
+    "Category": "SMITHING",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.steam.host_lobby",
+    "Description": "Runs the host lobby debug operation.",
+    "Usage": "coop.debug.steam.host_lobby",
+    "Category": "STEAM",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.steam.invite",
+    "Description": "Runs the invite debug operation.",
+    "Usage": "coop.debug.steam.invite",
+    "Category": "STEAM",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.tournaments.add_tournament_to_town",
+    "Description": "Adds tournament to town for co-op debugging.",
+    "Usage": "coop.debug.tournaments.add_tournament_to_town <townNameOrId>",
+    "Category": "TOURNAMENTS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.town.add_item_to_sold_items",
+    "Description": "Adds item to sold items for co-op debugging.",
+    "Usage": "coop.debug.town.add_item_to_sold_items <townId> <itemId> <numberOfItems>",
+    "Category": "TOWNS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.town.apply_garrison_lifecycle",
+    "Description": "Applies garrison lifecycle for co-op debugging.",
+    "Usage": "coop.debug.town.apply_garrison_lifecycle <townId> <operation>",
+    "Category": "TOWNS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.town.auditor",
+    "Description": "Runs the relevant state for co-op debugging.",
+    "Usage": "coop.debug.town.auditor",
+    "Category": "TOWNS",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.town.change_current_building",
+    "Description": "Changes current building for co-op debugging.",
+    "Usage": "coop.debug.town.change_current_building <townId>",
+    "Category": "TOWNS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.town.change_current_building_queue",
+    "Description": "Changes current building queue for co-op debugging.",
+    "Usage": "coop.debug.town.change_current_building_queue <townId>",
+    "Category": "TOWNS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.town.focus_garrison",
+    "Description": "Focuses garrison for co-op debugging.",
+    "Usage": "coop.debug.town.focus_garrison <townId>",
+    "Category": "TOWNS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.town.garrison_backlink",
+    "Description": "Runs backlink for co-op debugging.",
+    "Usage": "coop.debug.town.garrison_backlink <townId>",
+    "Category": "TOWNS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.town.info",
+    "Description": "Shows the relevant state for co-op debugging.",
+    "Usage": "coop.debug.town.info <townId>",
+    "Category": "TOWNS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.town.list_buildings",
+    "Description": "Lists buildings for co-op debugging.",
+    "Usage": "coop.debug.town.list_buildings <townId>",
+    "Category": "TOWNS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.town.list_items",
+    "Description": "Lists items for co-op debugging.",
+    "Usage": "coop.debug.town.list_items",
+    "Category": "TOWNS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.town.list_towns",
+    "Description": "Lists towns for co-op debugging.",
+    "Usage": "coop.debug.town.list_towns",
+    "Category": "TOWNS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.town.list_workshops",
+    "Description": "Lists workshops for co-op debugging.",
+    "Usage": "coop.debug.town.list_workshops <townId>",
+    "Category": "TOWNS",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.town.management_data",
+    "Description": "Runs data for co-op debugging.",
+    "Usage": "coop.debug.town.management_data <townName>",
+    "Category": "TOWNS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.town.refresh_mercenary_stocks",
+    "Description": "Refreshes mercenary stocks for co-op debugging.",
+    "Usage": "coop.debug.town.refresh_mercenary_stocks <townName>",
+    "Category": "TOWNS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.town.request_mercenary_stock",
+    "Description": "Requests mercenary stock for co-op debugging.",
+    "Usage": "coop.debug.town.request_mercenary_stock <townName>",
+    "Category": "TOWNS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.town.set_food_stocks",
+    "Description": "Sets food stocks for co-op debugging.",
+    "Usage": "coop.debug.town.set_food_stocks <townId> <foodStocks>",
+    "Category": "TOWNS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.town.set_garrison_auto_recruitment",
+    "Description": "Sets garrison auto recruitment for co-op debugging.",
+    "Usage": "coop.debug.town.set_garrison_auto_recruitment <townId> <enabled>",
+    "Category": "TOWNS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.town.set_governor",
+    "Description": "Sets governor for co-op debugging.",
+    "Usage": "coop.debug.town.set_governor <townId> <heroId>",
+    "Category": "TOWNS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.town.set_in_rebellious_state",
+    "Description": "Sets in rebellious state for co-op debugging.",
+    "Usage": "coop.debug.town.set_in_rebellious_state <townId> <inRebelliousState>",
+    "Category": "TOWNS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.town.set_last_captured_by",
+    "Description": "Sets last captured by for co-op debugging.",
+    "Usage": "coop.debug.town.set_last_captured_by <townId> <clanId>",
+    "Category": "TOWNS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.town.set_loyalty",
+    "Description": "Sets loyalty for co-op debugging.",
+    "Usage": "coop.debug.town.set_loyalty <townId> <loyalty>",
+    "Category": "TOWNS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.town.set_prosperity",
+    "Description": "Sets prosperity for co-op debugging.",
+    "Usage": "coop.debug.town.set_prosperity <townId> <prosperity>",
+    "Category": "TOWNS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.town.set_security",
+    "Description": "Sets security for co-op debugging.",
+    "Usage": "coop.debug.town.set_security <townId> <security>",
+    "Category": "TOWNS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.town.set_trade_tax_acc",
+    "Description": "Sets trade tax acc for co-op debugging.",
+    "Usage": "coop.debug.town.set_trade_tax_acc <townId> <tradeTax>",
+    "Category": "TOWNS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.town.start_rebellion",
+    "Description": "Starts rebellion for co-op debugging.",
+    "Usage": "coop.debug.town.start_rebellion <townId>",
+    "Category": "TOWNS",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.ui.active_state",
+    "Description": "Reports active state.",
+    "Usage": "coop.debug.ui.active_state",
+    "Category": "UI",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.ui.close_screen",
+    "Description": "Runs the close screen debug operation.",
+    "Usage": "coop.debug.ui.close_screen",
+    "Category": "UI",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.ui.evidence_map_state",
+    "Description": "Reports evidence map state.",
+    "Usage": "coop.debug.ui.evidence_map_state",
+    "Category": "UI",
+    "Side": "CLIENT",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.ui.leave_settlement_encounter",
+    "Description": "Runs the leave settlement encounter debug operation.",
+    "Usage": "coop.debug.ui.leave_settlement_encounter",
+    "Category": "UI",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.ui.loading_window_state",
+    "Description": "Reports loading window state.",
+    "Usage": "coop.debug.ui.loading_window_state",
+    "Category": "UI",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.ui.pop_state",
+    "Description": "Reports pop state.",
+    "Usage": "coop.debug.ui.pop_state",
+    "Category": "UI",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.ui.prepare_evidence_map",
+    "Description": "Runs the prepare evidence map debug operation.",
+    "Usage": "coop.debug.ui.prepare_evidence_map",
+    "Category": "UI",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.ui.saving_overlay_state",
+    "Description": "Reports saving overlay state.",
+    "Usage": "coop.debug.ui.saving_overlay_state",
+    "Category": "UI",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.ui.switch_menu",
+    "Description": "Runs the switch menu debug operation.",
+    "Usage": "coop.debug.ui.switch_menu <menu_id>",
+    "Category": "UI",
+    "Side": "CLIENT",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.ui.tactical_symbols",
+    "Description": "Runs the tactical symbols debug operation.",
+    "Usage": "coop.debug.ui.tactical_symbols <mode>",
+    "Category": "UI",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.villagers.view_interacted_villagers",
+    "Description": "Shows interacted villagers for co-op debugging.",
+    "Usage": "coop.debug.villagers.view_interacted_villagers",
+    "Category": "VILLAGER PARTIES",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.villagers.view_looted_villagers",
+    "Description": "Shows looted villagers for co-op debugging.",
+    "Usage": "coop.debug.villagers.view_looted_villagers",
+    "Category": "VILLAGER PARTIES",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.village.info",
+    "Description": "Shows the relevant state for co-op debugging.",
+    "Usage": "coop.debug.village.info <villageId>",
+    "Category": "VILLAGES",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.village.list",
+    "Description": "Lists the relevant state for co-op debugging.",
+    "Usage": "coop.debug.village.list",
+    "Category": "VILLAGES",
+    "Side": "BOTH",
+    "Type": "INSPECT"
+  },
+  {
+    "Name": "coop.debug.village.set_demand_time",
+    "Description": "Sets demand time for co-op debugging.",
+    "Usage": "coop.debug.village.set_demand_time <villageId> <demandTime>",
+    "Category": "VILLAGES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.village.set_hearth",
+    "Description": "Sets hearth for co-op debugging.",
+    "Usage": "coop.debug.village.set_hearth <villageId> <hearth>",
+    "Category": "VILLAGES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.village.set_state",
+    "Description": "Sets state for co-op debugging.",
+    "Usage": "coop.debug.village.set_state <villageId> <state>",
+    "Category": "VILLAGES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.village.set_trade_tax_acc",
+    "Description": "Sets trade tax acc for co-op debugging.",
+    "Usage": "coop.debug.village.set_trade_tax_acc <villageId> <tradeTax>",
+    "Category": "VILLAGES",
+    "Side": "SERVER",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.workshop.hero_owned_workshops",
+    "Description": "Runs owned workshops for co-op debugging.",
+    "Usage": "coop.debug.workshop.hero_owned_workshops <heroId>",
+    "Category": "WORKSHOPS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.workshop.owners_in_settlement",
+    "Description": "Runs in settlement for co-op debugging.",
+    "Usage": "coop.debug.workshop.owners_in_settlement <settlementId>",
+    "Category": "WORKSHOPS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.workshop.set_workshop_custom_name",
+    "Description": "Sets workshop custom name for co-op debugging.",
+    "Usage": "coop.debug.workshop.set_workshop_custom_name <settlementId> <workshopType> <newCustomName>",
+    "Category": "WORKSHOPS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.workshop.set_workshop_owner",
+    "Description": "Sets workshop owner for co-op debugging.",
+    "Usage": "coop.debug.workshop.set_workshop_owner <settlementId> <workshopType> <newOwnerId>",
+    "Category": "WORKSHOPS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.workshop.view_warehouse_rosters",
+    "Description": "Shows warehouse rosters for co-op debugging.",
+    "Usage": "coop.debug.workshop.view_warehouse_rosters",
+    "Category": "WORKSHOPS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  },
+  {
+    "Name": "coop.debug.workshop.workshop_info",
+    "Description": "Runs info for co-op debugging.",
+    "Usage": "coop.debug.workshop.workshop_info <settlementId>",
+    "Category": "WORKSHOPS",
+    "Side": "BOTH",
+    "Type": "GAMEPLAY"
+  }
+]

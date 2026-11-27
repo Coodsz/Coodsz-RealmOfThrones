@@ -1,0 +1,24 @@
+{
+  "id": "game-speed",
+  "title": "Game speed",
+  "summary": "Fast forward on the map and the battle speed limit.",
+  "sections": [
+    {
+      "heading": "On the Dashboard",
+      "steps": [
+        "The Game speed card says if 2x speed and the battle speed limit are on.",
+        "Turn on 2x speed lets the host and players fast forward on the campaign map.",
+        "Turn on battle speed limit puts time back to normal speed while any player is in a battle.",
+        "Players change the speed with the map time buttons, or the keys 1, 2 and 3."
+      ]
+    },
+    {
+      "heading": "When it takes effect",
+      "steps": [
+        "The buttons save right away.",
+        "A running server keeps its old speed until it restarts. Click Restart server on the card."
+      ],
+      "tip": "The same choices are in the Game speed group at the top of the Settings page."
+    }
+  ]
+}

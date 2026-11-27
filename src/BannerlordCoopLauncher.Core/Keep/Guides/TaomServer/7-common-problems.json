@@ -1,0 +1,48 @@
+{
+  "id": "common-problems",
+  "title": "Common problems",
+  "summary": "Quick fixes for the usual hosting troubles.",
+  "sections": [
+    {
+      "heading": "The server crashes or stops on start",
+      "steps": [
+        "Open the Logs page. The tool writes what happened and what to do.",
+        "If it says the server cannot load a DLL, click the red Unblock DLLs button, then start again.",
+        "A save from an older TAOM does not load. Start a new 2.0.29.5 campaign in single player.",
+        "With extra mods, try Plain TAOM. If that works, use Test mods on the server to find the mod."
+      ]
+    },
+    {
+      "heading": "Mods do not match",
+      "steps": [
+        "When a player's mods differ, the Logs page says which mods are missing or do not match.",
+        "Click Share mod list and have the player use Import mod list in the client launcher.",
+        "The player picks the same setup, with the same mods in the same order."
+      ]
+    },
+    {
+      "heading": "Stuck on loading",
+      "steps": [
+        "The first start of a new campaign builds the map cache. It can take up to an hour.",
+        "The gold bar shows how far it is. Do not stop the server, or it starts over.",
+        "Friends wait until the status says Server online before they connect."
+      ]
+    },
+    {
+      "heading": "Shader cache",
+      "steps": [
+        "The server tool has no shader cache. Shaders belong to each player's game.",
+        "After the mod list changes, a player's game can build its shaders again once, so that start is slower.",
+        "If graphics look wrong for a player, they click Clear shader cache on the Settings page of the client launcher."
+      ]
+    },
+    {
+      "heading": "Get help",
+      "steps": [
+        "Click Send my logs on the left. The password and addresses are taken out, and saves are left out. You get a short code like CR-7KQ2M.",
+        "Post only that code in Discord, not the log files.",
+        "Open server logs opens the logs folder."
+      ]
+    }
+  ]
+}

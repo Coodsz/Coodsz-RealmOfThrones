@@ -1,0 +1,41 @@
+{
+  "id": "getting-started",
+  "title": "Getting started",
+  "summary": "Get your first Coop world running in a few minutes.",
+  "sections": [
+    {
+      "heading": "Before you start",
+      "steps": [
+        "Install Bannerlord and the Coop mod from the Steam Workshop. The dedicated server comes with the mod.",
+        "Open Coodsz Coop Server Tool. If it cannot find the server, press Set server folder on the Dashboard.",
+        "Pick BannerlordCoopServer.exe. It is in Workshop folder 3770450698\\DedicatedServer."
+      ]
+    },
+    {
+      "heading": "Make a world",
+      "steps": [
+        "On Saves, press Create a world.",
+        "Start a fresh campaign, or continue a single player campaign from your own save.",
+        "Give the world a name and pick a difficulty.",
+        "Set the rules and a password if you want one, then press Create world."
+      ]
+    },
+    {
+      "heading": "Start the server",
+      "steps": [
+        "Press Start server on the Dashboard.",
+        "The first time, read the server terms and press I accept.",
+        "Wait until the status says Server online. The first start can take a few minutes."
+      ],
+      "tip": "The world presets on Settings fill in the difficulty for you. Casual, Standard and Hardcore."
+    },
+    {
+      "heading": "New in this version",
+      "steps": [
+        "New things have a gold NEW badge. Click one to try it and its badge goes away.",
+        "Press What's new under the language button to see what changed in the last few versions.",
+        "The What's new window also opens by itself once after each update."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": "getting-started",
+  "title": "Getting started",
+  "summary": "Get the launcher ready to join a Burning Empires server.",
+  "sections": [
+    {
+      "heading": "What you need",
+      "steps": [
+        "Bannerlord 1.4.8 on Steam.",
+        "Subscribe to Bannerlord Coop on the Steam Workshop.",
+        "Download Burning Empires 2.0.2 from Nexus Mods, the main file and the hotfix. Leave both downloads as they are."
+      ],
+      "tip": "The launcher looks for both Burning Empires downloads on your PC, so Downloads is fine."
+    },
+    {
+      "heading": "Set up the game",
+      "steps": [
+        "Close Bannerlord first.",
+        "Click Check mods. It looks for every module of your setup and does not download anything.",
+        "On the Settings page, click Install or repair Burning Empires. It puts in the main file, then the hotfix, then Burning Empires Coop Compat.",
+        "Installing by hand? Install the main file first, then the hotfix.",
+        "It also subscribes you to Harmony, ButterLib and UIExtenderEx on the Steam Workshop when one is missing. MCM comes from Nexus Mods."
+      ],
+      "tip": "Install or repair never deletes Burning Empires or your Burning Empires saves. It only writes the new files over the old ones."
+    },
+    {
+      "heading": "Good to know",
+      "steps": [
+        "Pick your language with the 🌐 button at the bottom of the sidebar.",
+        "The War Sails variant and the Historical campaign start do not work in Coop.",
+        "When an update is out, a bar at the top shows Install update.",
+        "Click What's new next to the language button to see what changed in the last few versions."
+      ]
+    }
+  ]
+}

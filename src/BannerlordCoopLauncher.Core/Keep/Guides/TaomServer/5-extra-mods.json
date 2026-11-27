@@ -1,0 +1,59 @@
+{
+  "id": "extra-mods",
+  "title": "Adding extra mods",
+  "summary": "Run your server with more mods than plain TAOM.",
+  "sections": [
+    {
+      "heading": "Setups",
+      "steps": [
+        "Open the Mods page.",
+        "Plain TAOM is locked and runs the sealed TAOM Coop server with no extra mods.",
+        "TAOM plus is a locked set of mods tested in Coop with TAOM.",
+        "For your own mods, click New setup or Copy. Rename gives it a name."
+      ],
+      "tip": "Locked setups show a Locked tag. Copy one to change its mods or their order."
+    },
+    {
+      "heading": "Add and order mods",
+      "steps": [
+        "Click Add mods, pick the mods, then click Save mods.",
+        "Use the arrows to move a mod, the On box to switch it off, and ✕ to remove it. The mod stays installed.",
+        "Click Auto sort to order the extra mods from what each mod says it needs. The TAOM core does not move.",
+        "Install mods downloads the Workshop mods of the setup you do not have yet."
+      ]
+    },
+    {
+      "heading": "Share with your players",
+      "steps": [
+        "Click Share mod list. It saves a file your players can open with Import mod list in the client launcher.",
+        "Players need the same mods in the same order, or the server turns the join down.",
+        "The Mods page says which mods players have to get from Nexus Mods or ModDB."
+      ]
+    },
+    {
+      "heading": "Done for you",
+      "steps": [
+        "Mods that ask for Harmony, ButterLib, UIExtenderEx or MCM are fixed to use TAOM.Dependencies on the server copy.",
+        "Extra mods are unblocked when the server starts. Unblock DLLs on the Settings page does it by hand.",
+        "When a setup adds mods to a campaign, the tool asks once and keeps a copy of the save first."
+      ]
+    },
+    {
+      "heading": "Badges",
+      "steps": [
+        "Each mod shows a badge from the community TAOM list, like Tested safe, Risky or Known broken.",
+        "Hover a badge to read its note. Mods no list knows show Unknown, not tested.",
+        "Next to it you see your own result, like Passed on your server."
+      ]
+    },
+    {
+      "heading": "Test mods on the server",
+      "steps": [
+        "Stop the server and pick a Server copy save.",
+        "Click Test mods on the server, tick the mods and click Start test.",
+        "Each mod runs alone with the TAOM core on a copy of your save. Your real saves are not written.",
+        "Players cannot join while the test runs."
+      ]
+    }
+  ]
+}

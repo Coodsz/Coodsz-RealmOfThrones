@@ -1,0 +1,39 @@
+{
+  "id": "encyclopedia",
+  "title": "Encyclopedia, profiles and items",
+  "summary": "Browse the running world, look at a player, and give or take items.",
+  "sections": [
+    {
+      "heading": "The Encyclopedia",
+      "steps": [
+        "Start the server. The Encyclopedia reads the world by itself once the server answers.",
+        "Pick Heroes and lords, Clans, Kingdoms, Settlements, Troops or Items on the left.",
+        "Search by name, or use the chips above the list to show one kind or one kingdom.",
+        "Click a name on a card to follow it, and press Back to go back.",
+        "Lords move and towns change hands while you play. Press Read again for the newest world."
+      ],
+      "tip": "Nothing in the Encyclopedia changes the game. Pictures come from Build pictures on the Cheats page."
+    },
+    {
+      "heading": "Player profile",
+      "steps": [
+        "Press Profile next to a player on the Players page, or Open profile on the Cheats page.",
+        "The profile shows level, gold, health, influence, renown and army.",
+        "The tabs are Skills, Equipment, Inventory and Army. Press the refresh icon to read it again.",
+        "On Skills you can change skill levels, focus points, attribute points and XP.",
+        "At the bottom are Open in Cheats, Give/take items, Show on map and Ban."
+      ]
+    },
+    {
+      "heading": "The Items window",
+      "steps": [
+        "Open it with Open items on the Cheats page, or Give/take items in a profile.",
+        "Pick Give items or Take items. Take items works on one player at a time.",
+        "Click items to put them in the basket, then press the Give or Take button under it.",
+        "Give value as gold gives the basket's value as gold instead of the items.",
+        "On an item in the Encyclopedia, Give with the Items window opens it with that item searched."
+      ],
+      "tip": "The window says what the server confirmed. An item the server refused stays in the basket."
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+<UserControl x:Class="Coodsz.Ui.Banner"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Focusable="False">
+    <!-- One notice under the header: title, text, an optional button and an optional Dismiss. Colours follow Kind (Banner.xaml.cs). -->
+    <Border x:Name="Frame" CornerRadius="8" BorderThickness="1" Padding="12,8" MinHeight="40">
+        <DockPanel LastChildFill="True">
+            <Button x:Name="DismissButton" DockPanel.Dock="Right" Visibility="Collapsed" Margin="8,0,0,0" Style="{DynamicResource Keep.BtnGhost}" Content="Dismiss" Click="Dismiss_Click" ToolTip="Hides this notice."/>
+            <Button x:Name="ActionButton" DockPanel.Dock="Right" Visibility="Collapsed" Margin="12,0,0,0" Style="{DynamicResource Keep.BtnGold}" Click="Action_Click"/>
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock x:Name="TitleText" FontSize="13" FontWeight="SemiBold" TextWrapping="Wrap"/>
+                <TextBlock x:Name="BodyText" FontSize="13" TextWrapping="Wrap" Margin="0,2,0,0"/>
+            </StackPanel>
+        </DockPanel>
+    </Border>
+</UserControl>

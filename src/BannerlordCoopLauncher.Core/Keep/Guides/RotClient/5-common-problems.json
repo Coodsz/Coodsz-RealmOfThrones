@@ -1,0 +1,30 @@
+{
+  "id": "common-problems",
+  "title": "Common problems",
+  "summary": "What to try when the game crashes, looks wrong or will not join.",
+  "sections": [
+    {
+      "heading": "The game crashes",
+      "steps": [
+        "If the game crashes on start, try Safe mode on Logs and help.",
+        "If that works, Find the crashing mod finds the extra mod that crashes it.",
+        "Click Send my logs on Logs and help. You see every file first, then you get a short code. Post only that code on Discord.",
+        "Click Open client logs on Logs and help to find the log files."
+      ]
+    },
+    {
+      "heading": "Graphics look wrong",
+      "steps": [
+        "Close Bannerlord, open Settings and click Clear shader cache. It does not touch mods or saves."
+      ]
+    },
+    {
+      "heading": "The join does not start",
+      "steps": [
+        "Do not click Connect while Bannerlord is open.",
+        "Import the host's mod list again and click Check mods.",
+        "Pick the same setup as the host."
+      ]
+    }
+  ]
+}

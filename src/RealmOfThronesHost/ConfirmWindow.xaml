@@ -1,0 +1,65 @@
+<Window x:Class="RealmOfThronesHost.ConfirmWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Confirm" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize" WindowStyle="None" ShowInTaskbar="False"
+        Background="Transparent" AllowsTransparency="True" FontFamily="Segoe UI"
+        PreviewKeyDown="Window_PreviewKeyDown">
+    <Window.Resources>
+        <ControlTemplate x:Key="HoverButton" TargetType="Button">
+            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                <Grid>
+                    <Border x:Name="Hover" Background="#33F6EDE0" BorderBrush="{DynamicResource Keep.BorderHover}" BorderThickness="2" Opacity="0" IsHitTestVisible="False"/>
+                    <ContentPresenter Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="Center" TextElement.Foreground="{TemplateBinding Foreground}"/>
+                </Grid>
+            </Border>
+            <ControlTemplate.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsMouseOver" Value="True"/>
+                        <Condition Property="IsEnabled" Value="True"/>
+                    </MultiTrigger.Conditions>
+                    <Setter TargetName="Hover" Property="Opacity" Value="1"/>
+                </MultiTrigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        <!-- The details box scrolls; the dark scrollbar instead of the light Windows one. -->
+        <Style TargetType="ScrollBar" BasedOn="{StaticResource Keep.ScrollBar}"/>
+    </Window.Resources>
+    <Border x:Name="Frame" Background="{DynamicResource Keep.BgPanel}" BorderBrush="{DynamicResource Keep.BorderDim}" BorderThickness="1" Padding="22" Width="460">
+        <!-- The list or details row takes what is left. WindowPlacement caps the box at the screen height, so on a
+             small or scaled screen the details get shorter and scroll, and the Cancel and OK row stays on screen. -->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="TitleBlock" FontFamily="Palatino Linotype" FontSize="22" Foreground="{DynamicResource Keep.Success}" TextWrapping="Wrap" Margin="0,0,28,0"/>
+            <Button Grid.Row="0" Content="&#x00D7;" HorizontalAlignment="Right" VerticalAlignment="Top"
+                    Width="28" Height="28" Padding="0" Margin="0,-6,-6,0" Cursor="Hand" FontSize="18"
+                    Background="Transparent" Foreground="{DynamicResource Keep.Teal}" BorderThickness="0"
+                    Template="{StaticResource HoverButton}" Click="Cancel_Click" ToolTip="Cancel"/>
+            <TextBlock x:Name="BodyBlock" Grid.Row="1" FontSize="16" Foreground="{DynamicResource Keep.TextMain}" TextWrapping="Wrap" Margin="0,14,0,0"/>
+            <!-- AskList: a tidy list of names with a small note and a warning line under it. -->
+            <StackPanel x:Name="ListPanel" Grid.Row="2" Visibility="Collapsed" Margin="0,12,0,0">
+                <Border Background="{DynamicResource Keep.BgInput}" BorderBrush="{DynamicResource Keep.BorderDim}" BorderThickness="1" Padding="12,8">
+                    <StackPanel x:Name="ListItems"/>
+                </Border>
+                <TextBlock x:Name="NoteBlock" FontSize="13" Foreground="{DynamicResource Keep.Teal}" TextWrapping="Wrap" Margin="0,12,0,0"/>
+                <TextBlock x:Name="WarnBlock" FontSize="13" Foreground="{DynamicResource Keep.Amber}" TextWrapping="Wrap" Margin="0,4,0,0"/>
+            </StackPanel>
+            <TextBox x:Name="DetailsBox" Grid.Row="2" Visibility="Collapsed" IsReadOnly="True" TextWrapping="Wrap" MinHeight="90" MaxHeight="320" Margin="0,14,0,0" Padding="8"
+                     VerticalScrollBarVisibility="Auto" FontFamily="Consolas" FontSize="12" Background="{DynamicResource Keep.BgInput}" Foreground="{DynamicResource Keep.TextMain}" BorderBrush="{DynamicResource Keep.BorderDim}"/>
+            <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,18,0,0">
+                <Button x:Name="CancelButton" Content="Cancel" ToolTip="Closes this box without doing anything." Padding="16,8" Cursor="Hand" FontFamily="Segoe UI" FontSize="15"
+                        Background="{DynamicResource Keep.BgRaised}" Foreground="{DynamicResource Keep.TextMain}" BorderBrush="{DynamicResource Keep.BorderDim}" BorderThickness="1"
+                        Template="{StaticResource HoverButton}" Click="Cancel_Click"/>
+                <Button x:Name="OkButton" Content="OK" ToolTip="Goes ahead with what this box describes." Margin="8,0,0,0" Padding="18,8" Cursor="Hand" FontFamily="Segoe UI" FontWeight="SemiBold" FontSize="15"
+                        Background="{DynamicResource Keep.GoFill}" Foreground="{DynamicResource Keep.TextMain}" BorderBrush="{DynamicResource Keep.Success}" BorderThickness="1"
+                        Template="{StaticResource HoverButton}" Click="Ok_Click" IsDefault="True"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

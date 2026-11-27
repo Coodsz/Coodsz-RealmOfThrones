@@ -1,0 +1,33 @@
+{
+  "id": "backups-and-rescue",
+  "title": "Backups and Rescue save",
+  "summary": "Get a campaign back when something went wrong.",
+  "sections": [
+    {
+      "heading": "Backups",
+      "steps": [
+        "The tool makes a backup of your campaign after every save, in Documents\\Mount and Blade II Bannerlord\\CoopData\\DedicatedServer\\save-backups\\automatic.",
+        "It keeps the last 10 for each save, each with its Burning Empires data.",
+        "A copy is also kept before a save first runs with another setup."
+      ]
+    },
+    {
+      "heading": "Restore a backup",
+      "steps": [
+        "Click Stop server first.",
+        "Open the Saves page and click Restore save backup.",
+        "Pick the backup file and click Open, then click Restore. Your current save is kept as a backup first."
+      ]
+    },
+    {
+      "heading": "Rescue save",
+      "steps": [
+        "Start server already fixes known save problems. Use Rescue save when support asks, or when lords are stuck with an empty party.",
+        "Click Stop server, then Run Rescue save on the Logs page. Do not click Start server yourself.",
+        "The tool starts the server with the rescue, fixes the save and saves it.",
+        "When it says Done, click Stop server, then Start server to play normally."
+      ],
+      "tip": "The ? next to Run Rescue save shows these steps. Still broken? Click Send my logs and post the code in Discord."
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "id": "mods",
+  "title": "Mods and the community list",
+  "summary": "Add mods to your server and see which ones work with Coop.",
+  "sections": [
+    {
+      "heading": "Adding mods",
+      "steps": [
+        "Go to Mods and press Add mods.",
+        "Tick the mods you want on the server.",
+        "Press Save module config, then restart the server."
+      ]
+    },
+    {
+      "heading": "Adding mods to a running campaign",
+      "steps": [
+        "You can add mods to a campaign that is already going. Turn them on and press Start server.",
+        "Start server asks before it loads the save with the new mods, and makes a backup of the save first.",
+        "Load backup on Saves puts the save back as it was.",
+        "A Restart does not ask again for the same mods.",
+        "Turning off a mod the save was made with is refused. Turn it back on, or make a new campaign save."
+      ],
+      "tip": "Keep the old mods in their order and put the new ones under them."
+    },
+    {
+      "heading": "The community list",
+      "steps": [
+        "Every mod has a badge from the community list. It says if the mod works, is broken, is client only or is not tested yet.",
+        "Broken mods break Coop games. Leave them off.",
+        "Client only mods go on your friends' games, not on the server.",
+        "Use the chips above the list to show just one kind."
+      ]
+    },
+    {
+      "heading": "Testing mods yourself",
+      "steps": [
+        "Press Test mods on the server to try each mod alone on a throwaway campaign.",
+        "Your own results show next to the badge, so you know what works on your PC."
+      ]
+    },
+    {
+      "heading": "RBM settings",
+      "steps": [
+        "When RBM is on in your setup, Settings shows the card RBM settings for this PC's game.",
+        "It edits RBM's config.xml on this PC, the file your own game reads when you play from this PC.",
+        "Turn RBM's parts and its campaign options on or off there, then press Save RBM settings.",
+        "The Coop server does not run RBM's code. RBM's campaign rules run in each player's own game, so every player should use the same values.",
+        "Coop friendly turns off Lords buy equipment. That RBM setting empties the town markets in coop.",
+        "Coop and Friends turns it off in each player's own game when they press Connect, unless they untick Keep RBM coop friendly."
+      ],
+      "tip": "If the card says RBM has no config.xml yet, play once with RBM on this PC."
+    },
+    {
+      "heading": "Same mods for everyone",
+      "steps": [
+        "Friends need the same mods as the server.",
+        "Press Share mod list and send it to them.",
+        "To play Coop with no mods at all, pick the Plain Coop (no mods) setup. Friends pick the same setup in Coop and Friends."
+      ],
+      "tip": "Changing the mod list makes Bannerlord build its shaders again, so the first start after a change is slow."
+    }
+  ]
+}

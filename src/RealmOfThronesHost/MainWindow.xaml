@@ -1,0 +1,1391 @@
+<Window x:Class="RealmOfThronesHost.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:RealmOfThronesHost"
+        xmlns:ui="clr-namespace:Coodsz.Ui"
+        Title="Coodsz Realm of Thrones Server Tool" Height="900" Width="1280"
+        MinHeight="720" MinWidth="900"
+        Background="{DynamicResource Keep.BgDeep}" Foreground="{DynamicResource Keep.TextMain}" FontFamily="Segoe UI"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <!-- Crash reports (CrashReportUi in CrashReportWindow.cs): the red of a failed start, the gold of the buttons and the green of the heading. -->
+        <StaticResource x:Key="ReportRed" ResourceKey="Keep.Red"/>
+        <StaticResource x:Key="ReportRedBack" ResourceKey="Keep.BadSoft"/>
+        <StaticResource x:Key="ReportGold" ResourceKey="Keep.GoldInk"/>
+        <StaticResource x:Key="ReportGoldBack" ResourceKey="Keep.InfoSoft"/>
+        <StaticResource x:Key="ReportGreen" ResourceKey="Keep.Success"/>
+        <StaticResource x:Key="ReportGreenBack" ResourceKey="Keep.SuccessSoft"/>
+        <StaticResource x:Key="ReportInk" ResourceKey="Keep.BgDeep"/>
+        <!-- The Coop Server Tool's buttons, cards and boxes in the Keep colours (redesign wave 6), under the names this window's
+             elements already use, so every element keeps its own attributes. -->
+        <ControlTemplate x:Key="HoverButton" TargetType="Button">
+            <Border x:Name="Edge" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="Center" TextElement.Foreground="{TemplateBinding Foreground}"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsMouseOver" Value="True"/>
+                        <Condition Property="IsEnabled" Value="True"/>
+                    </MultiTrigger.Conditions>
+                    <Setter TargetName="Edge" Property="BorderBrush" Value="{DynamicResource Keep.GoldInk}"/>
+                    <Setter TargetName="Edge" Property="BorderThickness" Value="2"/>
+                </MultiTrigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        <Style x:Key="SectionTitle" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Palatino Linotype"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="Foreground" Value="{DynamicResource Keep.TextMain}"/>
+        </Style>
+        <Style x:Key="Primary" TargetType="Button">
+            <Setter Property="Background" Value="{DynamicResource Keep.AccentSoft}"/>
+            <Setter Property="Foreground" Value="{DynamicResource Keep.TextMain}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource Keep.Accent}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="14,8"/>
+            <Setter Property="Margin" Value="6,0,0,0"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Template" Value="{StaticResource HoverButton}"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource Keep.GoldButtonHover}"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" Value="0.45"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <!-- Steady, without the old pulse (redesign plan 6.14). -->
+        <Style x:Key="UpdateInstall" TargetType="Button" BasedOn="{StaticResource Primary}">
+            <Setter Property="Background" Value="{DynamicResource Keep.AmberSoft}"/>
+            <Setter Property="Foreground" Value="{DynamicResource Keep.WarningInk}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource Keep.Amber}"/>
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style>
+        <Style x:Key="Ghost" TargetType="Button">
+            <Setter Property="Background" Value="{DynamicResource Keep.BgRaised}"/>
+            <Setter Property="Foreground" Value="{DynamicResource Keep.TextMain}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource Keep.BorderDim}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="12,7"/>
+            <Setter Property="Margin" Value="6,0,0,0"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="Template" Value="{StaticResource HoverButton}"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource Keep.BgHover}"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" Value="0.45"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="Danger" TargetType="Button">
+            <Setter Property="Background" Value="{DynamicResource Keep.RedSoft}"/>
+            <Setter Property="Foreground" Value="{DynamicResource Keep.OnDanger}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource Keep.DangerLine}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="12,7"/>
+            <Setter Property="Margin" Value="6,0,0,0"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="Template" Value="{StaticResource HoverButton}"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{DynamicResource Keep.DangerHover}"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" Value="0.45"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="CheckBox">
+            <Setter Property="Foreground" Value="{DynamicResource Keep.TextMain}"/>
+            <Setter Property="Margin" Value="0,6,16,6"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="CheckBox">
+                        <Border x:Name="Edge" BorderBrush="Transparent" BorderThickness="2" Padding="4,2" Background="Transparent">
+                            <StackPanel Orientation="Horizontal">
+                                <Border Width="16" Height="16" BorderBrush="{DynamicResource Keep.BorderDim}" BorderThickness="1" Background="{DynamicResource Keep.BgInput}" VerticalAlignment="Center" Margin="0,0,8,0">
+                                    <Path x:Name="Mark" Data="M 2 8 L 6 12 L 14 3" Stroke="{DynamicResource Keep.Accent}" StrokeThickness="1.6" Visibility="Collapsed" Margin="0,1,0,0"/>
+                                </Border>
+                                <ContentPresenter VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="Mark" Property="Visibility" Value="Visible"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Edge" Property="BorderBrush" Value="{DynamicResource Keep.GoldInk}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Opacity" Value="0.45"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="{DynamicResource Keep.BgInput}"/>
+            <Setter Property="Foreground" Value="{DynamicResource Keep.TextMain}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource Keep.Line}"/>
+            <Setter Property="Padding" Value="8,6"/>
+            <Setter Property="CaretBrush" Value="{DynamicResource Keep.TextMain}"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="BorderBrush" Value="{DynamicResource Keep.GoldInk}"/>
+                </Trigger>
+                <Trigger Property="IsKeyboardFocused" Value="True">
+                    <Setter Property="BorderBrush" Value="{DynamicResource Keep.GoldInk}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="DarkListItem" TargetType="ListBoxItem">
+            <Setter Property="Foreground" Value="{DynamicResource Keep.TextMain}"/>
+            <Setter Property="Padding" Value="8,4"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border x:Name="Row" Background="Transparent" BorderBrush="Transparent" BorderThickness="2" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Row" Property="BorderBrush" Value="{DynamicResource Keep.GoldInk}"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="Row" Property="Background" Value="{DynamicResource Keep.BgRaised}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!-- A mod row of the Mods page: a near solid card of its own, like the Coop Server Tool's rows. -->
+        <Style x:Key="ModuleRow" TargetType="ListBoxItem">
+            <Setter Property="Foreground" Value="{DynamicResource Keep.TextMain}"/>
+            <Setter Property="Padding" Value="10,6"/>
+            <Setter Property="Margin" Value="0,0,0,6"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <!-- Every row the same height with its content centred, and the dashed focus ring only for keyboard focus (ModRowLayout). -->
+            <Setter Property="MinHeight" Value="{x:Static ui:ModRowLayout.RowHeight}"/>
+            <Setter Property="FocusVisualStyle" Value="{StaticResource Keep.ModRowFocus}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border x:Name="Row" Background="{DynamicResource Keep.PanelGradient}" BorderBrush="{DynamicResource Keep.Line}" BorderThickness="1" CornerRadius="6" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True" MinHeight="{TemplateBinding MinHeight}">
+                            <ContentPresenter VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Row" Property="BorderBrush" Value="{DynamicResource Keep.RowHoverLine}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="SaveItem" TargetType="ComboBoxItem">
+            <Setter Property="Padding" Value="10,8"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBoxItem">
+                        <Grid>
+                            <Border x:Name="ItemBorder" Background="{DynamicResource Keep.BgInput}" Padding="{TemplateBinding Padding}">
+                                <ContentPresenter/>
+                            </Border>
+                            <Border x:Name="HoverEdge" BorderBrush="{DynamicResource Keep.GoldInk}" BorderThickness="2" Opacity="0" IsHitTestVisible="False"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsHighlighted" Value="True">
+                                <Setter TargetName="HoverEdge" Property="Opacity" Value="1"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="ItemBorder" Property="Background" Value="{DynamicResource Keep.AccentSoft}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="SaveBoxStyle" TargetType="ComboBox">
+            <Setter Property="Background" Value="{DynamicResource Keep.BgInput}"/>
+            <Setter Property="Foreground" Value="{DynamicResource Keep.TextMain}"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource Keep.BorderDim}"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="ItemContainerStyle" Value="{StaticResource SaveItem}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Grid>
+                            <ToggleButton Focusable="False" ClickMode="Press" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+                                <ToggleButton.Template>
+                                    <ControlTemplate TargetType="ToggleButton">
+                                        <Border x:Name="BoxEdge" Background="{DynamicResource Keep.BgInput}" BorderBrush="{DynamicResource Keep.Line}" BorderThickness="1" MinHeight="34">
+                                            <DockPanel LastChildFill="True" Margin="10,0,10,0">
+                                                <Path DockPanel.Dock="Right" Data="M 0 0 L 4 4 L 8 0" Stroke="{DynamicResource Keep.Accent}" StrokeThickness="1.4" Width="8" Height="4" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                                                <TextBlock DockPanel.Dock="Right" Text="{Binding SelectedItem.PlaceText, RelativeSource={RelativeSource AncestorType=ComboBox}}" FontFamily="Segoe UI" FontSize="15" Foreground="{DynamicResource Keep.TextDim}" VerticalAlignment="Center" Margin="12,0,0,0"/>
+                                                <TextBlock Text="{Binding SelectedItem.Name, RelativeSource={RelativeSource AncestorType=ComboBox}}" FontFamily="Segoe UI" FontSize="16" Foreground="{DynamicResource Keep.TextMain}" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                                            </DockPanel>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="BoxEdge" Property="BorderBrush" Value="{DynamicResource Keep.GoldInk}"/>
+                                            </Trigger>
+                                            <Trigger Property="IsKeyboardFocused" Value="True">
+                                                <Setter TargetName="BoxEdge" Property="BorderBrush" Value="{DynamicResource Keep.Accent}"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </ToggleButton.Template>
+                            </ToggleButton>
+                            <Popup Placement="Bottom" AllowsTransparency="True" Focusable="False" PopupAnimation="None" IsOpen="{TemplateBinding IsDropDownOpen}">
+                                <Border Background="{DynamicResource Keep.BgInput}" BorderBrush="{DynamicResource Keep.BorderDim}" BorderThickness="1" MinWidth="{Binding ActualWidth, RelativeSource={RelativeSource TemplatedParent}}">
+                                    <ScrollViewer MaxHeight="280" CanContentScroll="False">
+                                        <ItemsPresenter/>
+                                    </ScrollViewer>
+                                </Border>
+                            </Popup>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!-- A Settings group: a near solid Keep card with its heading inside, open or closed by the heading. -->
+        <Style x:Key="SettingFold" TargetType="Expander">
+            <Setter Property="Margin" Value="0,0,0,12"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="Foreground" Value="{DynamicResource Keep.TextMain}"/>
+            <Setter Property="Background" Value="{DynamicResource Keep.PanelGradient}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource Keep.BorderDim}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Expander">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{DynamicResource Keep.BorderDim}" BorderThickness="1" CornerRadius="2" VerticalAlignment="Top">
+                            <StackPanel VerticalAlignment="Top">
+                                <ToggleButton Cursor="Hand" Focusable="False" Padding="16,14" HorizontalAlignment="Stretch"
+                                              IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                              Content="{TemplateBinding Header}">
+                                    <ToggleButton.Template>
+                                        <ControlTemplate TargetType="ToggleButton">
+                                            <Border x:Name="Hover" Background="Transparent" BorderBrush="Transparent" BorderThickness="2">
+                                                <DockPanel Margin="{TemplateBinding Padding}">
+                                                    <TextBlock DockPanel.Dock="Right" FontFamily="Segoe UI" FontSize="18" Foreground="{DynamicResource Keep.Accent}" VerticalAlignment="Center" Margin="16,0,0,0">
+                                                        <TextBlock.Style>
+                                                            <Style TargetType="TextBlock">
+                                                                <Setter Property="Text" Value="▸"/>
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding IsChecked, RelativeSource={RelativeSource AncestorType=ToggleButton}}" Value="True">
+                                                                        <Setter Property="Text" Value="▾"/>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </TextBlock.Style>
+                                                    </TextBlock>
+                                                    <ContentPresenter VerticalAlignment="Center"/>
+                                                </DockPanel>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="Hover" Property="BorderBrush" Value="{DynamicResource Keep.GoldInk}"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </ToggleButton.Template>
+                                </ToggleButton>
+                                <ContentPresenter x:Name="Body" Margin="16,4,16,12" VerticalAlignment="Top" HorizontalAlignment="Stretch" Visibility="Collapsed"/>
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsExpanded" Value="True">
+                                <Setter TargetName="Body" Property="Visibility" Value="Visible"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="Card" TargetType="Border">
+            <Setter Property="Padding" Value="14"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource Keep.BorderDim}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="2"/>
+            <!-- Near solid (94%), so text on a card keeps its contrast over the picture behind the pages. -->
+            <Setter Property="Background" Value="{DynamicResource Keep.PanelGradient}"/>
+        </Style>
+        <!-- Dark dropdown for the header's mod setup and the Settings page (campaign difficulty). -->
+        <Style x:Key="SettingChoice" TargetType="ComboBox">
+            <Setter Property="Foreground" Value="{DynamicResource Keep.TextMain}"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="ItemContainerStyle">
+                <Setter.Value>
+                    <Style TargetType="ComboBoxItem">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ComboBoxItem">
+                                    <Border x:Name="ItemBorder" Background="{DynamicResource Keep.BgInput}" Padding="10,7">
+                                        <ContentPresenter TextElement.Foreground="{DynamicResource Keep.TextMain}"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsHighlighted" Value="True">
+                                            <Setter TargetName="ItemBorder" Property="Background" Value="{DynamicResource Keep.BgRaised}"/>
+                                        </Trigger>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter TargetName="ItemBorder" Property="Background" Value="{DynamicResource Keep.AccentSoft}"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Grid>
+                            <ToggleButton Focusable="False" ClickMode="Press" Cursor="Hand" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+                                <ToggleButton.Template>
+                                    <ControlTemplate TargetType="ToggleButton">
+                                        <Border x:Name="BoxEdge" Background="{DynamicResource Keep.BgInput}" BorderBrush="{DynamicResource Keep.Line}" BorderThickness="1">
+                                            <Path HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" Data="M 0 0 L 4 4 L 8 0" Stroke="{DynamicResource Keep.Accent}" StrokeThickness="1.4" Width="8" Height="4"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="BoxEdge" Property="BorderBrush" Value="{DynamicResource Keep.GoldInk}"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </ToggleButton.Template>
+                            </ToggleButton>
+                            <ContentPresenter IsHitTestVisible="False" Margin="10,0,24,0" VerticalAlignment="Center" HorizontalAlignment="Left"
+                                              Content="{TemplateBinding SelectionBoxItem}" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                              TextElement.Foreground="{DynamicResource Keep.TextMain}"/>
+                            <Popup Placement="Bottom" AllowsTransparency="True" Focusable="False" PopupAnimation="None" IsOpen="{TemplateBinding IsDropDownOpen}">
+                                <Border Background="{DynamicResource Keep.BgInput}" BorderBrush="{DynamicResource Keep.BorderDim}" BorderThickness="1" MinWidth="{Binding ActualWidth, RelativeSource={RelativeSource TemplatedParent}}">
+                                    <ItemsPresenter/>
+                                </Border>
+                            </Popup>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Opacity" Value="0.45"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!-- Every scroll bar of the window in the thin dark Keep look, not the light Windows one. -->
+        <Style TargetType="ScrollBar" BasedOn="{StaticResource Keep.ScrollBar}"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <!-- 220 wide, or 64 with icons only under 1000 px (NavRail.Fit in MainWindow.xaml.cs). -->
+            <ColumnDefinition x:Name="NavColumn" Width="220"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Border Style="{StaticResource Keep.Sidebar}">
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Top" Margin="12,18,12,12">
+                    <DockPanel Margin="4,0,0,0">
+                        <!-- The brand mark: the banner of the tool icon, a dark wine fill (Keep.BrandFill) so it shows on the black sidebar, with the red edge and crown. -->
+                        <Viewbox x:Name="BrandMark" DockPanel.Dock="Left" Width="30" Height="30" VerticalAlignment="Top" Margin="0,0,10,0">
+                            <Canvas Width="128" Height="128">
+                                <Path Data="{StaticResource Keep.IconBanner}" Fill="{DynamicResource Keep.BrandFill}" Stroke="{DynamicResource Keep.ToolEdge}" StrokeThickness="6"/>
+                                <Path Data="M 52 32 V 22 L 58 27 L 64 18 L 70 27 L 76 22 V 32 Z" Fill="{DynamicResource Keep.CardHeading}"/>
+                            </Canvas>
+                        </Viewbox>
+                        <!-- COODSZ big in the serif font, the tool name small and in capitals under it. -->
+                        <StackPanel x:Name="BrandText" VerticalAlignment="Center">
+                            <TextBlock x:Name="BrandWord" Text="COODSZ" FontFamily="Palatino Linotype" FontSize="22" FontWeight="Normal" Foreground="{DynamicResource Keep.TextMain}" Tag="coodsz:no-translate"/>
+                            <TextBlock x:Name="ToolHeading" Text="REALM OF THRONES SERVER TOOL" FontSize="10.5" FontWeight="SemiBold" Foreground="{DynamicResource Keep.TextDim}" Margin="1,1,0,0" TextWrapping="Wrap" Tag="coodsz:no-translate"/>
+                        </StackPanel>
+                    </DockPanel>
+                    <!-- Send my logs (CrashReportUi): on every page, for a crash, a stuck join, a desync or lag. -->
+                    <ContentControl x:Name="SendLogsSlot" Margin="0,14,0,0" HorizontalAlignment="Left"/>
+                    <!-- Send my logs as an icon in the 64 px sidebar (ShowCompactSidebar). -->
+                    <Button x:Name="SendLogsCompact" AutomationProperties.Name="Send my logs" Style="{StaticResource Keep.Nav}" ui:NavRail.Icon="{StaticResource Keep.IconSend}" Visibility="Collapsed" Margin="0,10,0,0" Click="SendLogs_Click" ToolTip="Stuck joining, a desync, lag or something else? Sends your cleaned logs to Coodsz and gives you a short code to post in Discord. You see every file before anything is sent."/>
+                </StackPanel>
+                <Border DockPanel.Dock="Bottom" BorderBrush="{StaticResource Keep.Line}" BorderThickness="0,1,0,0" Margin="12,0,12,12" Padding="0,10,0,0">
+                    <Grid>
+                        <!-- The 64 px sidebar shows a More button instead (CompactMore_Click opens Language, What's new, Donate and Join my server). -->
+                        <Button x:Name="CompactMore" AutomationProperties.Name="More" Style="{StaticResource Keep.Nav}" ui:NavRail.Icon="{StaticResource Keep.IconMore}" Visibility="Collapsed" Click="CompactMore_Click" ToolTip="Language, What's new, Donate and Join my server."/>
+                        <Viewbox x:Name="FooterFit" StretchDirection="DownOnly" HorizontalAlignment="Left">
+                            <StackPanel>
+                                <ContentControl x:Name="LanguageSlot" Margin="0,12,0,0" HorizontalAlignment="Left"/>
+                                <ContentControl x:Name="WhatsNewSlot" Margin="0,8,0,0" HorizontalAlignment="Left"/>
+                                <ContentControl x:Name="DonateSlot" Margin="0,8,0,0" HorizontalAlignment="Left"/>
+                                <!-- The Realm promo as a small link plus the Dashboard card, as in the Coop Server Tool (build-plan.md 7). -->
+                                <Button x:Name="RealmLink" Style="{StaticResource Keep.BtnLink}" Content="Join my server" Tag="Realm" Click="Nav_Click" Margin="0,8,0,0" ToolTip="The Realm Bannerlord, my custom modded server"/>
+                                <TextBlock x:Name="VersionText" Foreground="{DynamicResource Keep.TextDim}" FontSize="11" HorizontalAlignment="Left" Margin="6,8,0,0" Text="Realm of Thrones 8.1.8"/>
+                            </StackPanel>
+                        </Viewbox>
+                    </Grid>
+                </Border>
+                <!-- The page buttons sit at the top in a list that scrolls on a short window. -->
+                <ScrollViewer x:Name="NavScroll" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Margin="0,0,0,4">
+                    <ScrollViewer.Resources>
+                        <Style TargetType="ScrollBar" BasedOn="{StaticResource Keep.ScrollBar}"/>
+                    </ScrollViewer.Resources>
+                    <StackPanel x:Name="NavList" VerticalAlignment="Top" Margin="12,0">
+                        <Button x:Name="NavDashboard" ToolTip="Shows the Dashboard with Start server, the server state, the addresses and who is online." Style="{StaticResource Keep.Nav}" ui:NavRail.Icon="{StaticResource Keep.IconDashboard}" Content="Dashboard" Tag="Dashboard" Click="Nav_Click" AutomationProperties.AutomationId="NavDashboard"/>
+                        <!-- Saves keeps the Tag Server, so every ShowPage("Server") still opens it. -->
+                        <Button x:Name="NavServer" ToolTip="Shows the Saves page with the campaign save, Prepare server and the save backups." Style="{StaticResource Keep.Nav}" ui:NavRail.Icon="{StaticResource Keep.IconSaves}" Content="Saves" Tag="Server" Click="Nav_Click" AutomationProperties.AutomationId="NavServer"/>
+                        <Button x:Name="NavModules" ToolTip="Pick the mod setup the server loads and add or remove mods." Style="{StaticResource Keep.Nav}" ui:NavRail.Icon="{StaticResource Keep.IconMods}" Content="Mods" Tag="Modules" Click="Nav_Click" AutomationProperties.AutomationId="NavModules"/>
+                        <Button x:Name="NavSettings" ToolTip="Game speed, autosave, battle size and campaign difficulty." Style="{StaticResource Keep.Nav}" ui:NavRail.Icon="{StaticResource Keep.IconSettings}" Content="Settings" Tag="Settings" Click="Nav_Click" AutomationProperties.AutomationId="NavSettings"/>
+                        <Button x:Name="NavCheats" ToolTip="Set gold, give influence and send saved console commands to players." Style="{StaticResource Keep.Nav}" ui:NavRail.Icon="{StaticResource Keep.IconCheats}" Content="Cheats" Tag="Cheats" Click="Nav_Click" AutomationProperties.AutomationId="NavCheats"/>
+                        <Button x:Name="NavConsole" ToolTip="Type server console commands and see the replies." Style="{StaticResource Keep.Nav}" ui:NavRail.Icon="{StaticResource Keep.IconConsole}" Content="Console" Tag="Console" Click="Nav_Click" AutomationProperties.AutomationId="NavConsole"/>
+                        <Button x:Name="NavLogs" ToolTip="Shows the live lines from the server log." Style="{StaticResource Keep.Nav}" ui:NavRail.Icon="{StaticResource Keep.IconLogs}" Content="Logs" Tag="Logs" Click="Nav_Click" AutomationProperties.AutomationId="NavLogs"/>
+                        <Button x:Name="NavEncyclopedia" ToolTip="Links to the Realm of Thrones wiki and tables of troops, gear, cultures, kingdoms and clans." Style="{StaticResource Keep.Nav}" ui:NavRail.Icon="{StaticResource Keep.IconEncyclopedia}" Content="Encyclopedia" Tag="Encyclopedia" Click="Nav_Click" AutomationProperties.AutomationId="NavEncyclopedia"/>
+                        <Button x:Name="NavGuides" ToolTip="Short help pages for hosting with this tool." Style="{StaticResource Keep.Nav}" ui:NavRail.Icon="{StaticResource Keep.IconGuides}" Content="Guides" Tag="Guides" Click="Nav_Click" AutomationProperties.AutomationId="NavGuides"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </DockPanel>
+        </Border>
+        <DockPanel Grid.Column="1">
+            <!-- The header: page title, the mod setup picker (ModSetupBox, the setup Start server uses), the state pill and the clock. -->
+            <Border DockPanel.Dock="Top" Style="{StaticResource Keep.HeaderBar}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="PageTitle" Grid.Column="0" Style="{StaticResource Keep.PageTitle}" Text="Dashboard"/>
+                    <StackPanel Grid.Column="1" Margin="16,0,8,0" Width="280" VerticalAlignment="Center">
+                        <!-- The Locked tag sits on the label line, so it does not take width from the setup name. -->
+                        <DockPanel Margin="0,0,0,4" LastChildFill="False">
+                            <TextBlock DockPanel.Dock="Left" Text="Mod setup" Foreground="{DynamicResource Keep.TextDim}" FontSize="11" VerticalAlignment="Center"/>
+                            <Border x:Name="LockedSetupTag" DockPanel.Dock="Left" Visibility="Collapsed" VerticalAlignment="Center" Margin="8,0,0,0" Padding="6,0" CornerRadius="0" Background="{DynamicResource Keep.BgRaised}" BorderBrush="{DynamicResource Keep.Amber}" BorderThickness="1">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="🔒" FontFamily="Segoe UI Emoji" FontSize="12" Foreground="{DynamicResource Keep.Amber}" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                                    <TextBlock Text="Locked" FontSize="13" FontWeight="SemiBold" Foreground="{DynamicResource Keep.Amber}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Border>
+                        </DockPanel>
+                        <ComboBox x:Name="ModSetupBox" Style="{StaticResource SettingChoice}" Height="34" HorizontalAlignment="Stretch" SelectionChanged="ModSetupBox_SelectionChanged" ToolTip="The mod setup players should use to join this server."/>
+                        <TextBlock x:Name="LockedSetupText" Visibility="Collapsed" FontSize="12" FontWeight="SemiBold" Foreground="{DynamicResource Keep.Amber}" TextWrapping="Wrap" Margin="0,6,0,0"/>
+                        <!-- While the server runs: picking a setup is for the next Start, the mods stay blocked (ApplyModListBlock). -->
+                        <TextBlock x:Name="SetupRunningNote" Visibility="Collapsed" Text="Changes what the next Start uses." FontSize="11" Foreground="{DynamicResource Keep.TextDim}" TextWrapping="Wrap" Margin="0,4,0,0"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" VerticalAlignment="Center" Margin="8,0,0,0">
+                        <ui:StatusPill x:Name="StatePill" Kind="Stopped" Text="Stopped" ToolTip="What the server is doing now."/>
+                        <!-- The older state word and dot stay for the code that sets them; the pill says the same. -->
+                        <StackPanel Orientation="Horizontal" Visibility="Collapsed">
+                            <Ellipse x:Name="StatusDot" Width="10" Height="10" Fill="{DynamicResource Keep.Amber}" Margin="0,0,8,0"/>
+                            <TextBlock x:Name="StateText" Text="STOPPED" FontWeight="Bold" Foreground="{DynamicResource Keep.Amber}"/>
+                        </StackPanel>
+                        <!-- The uptime, the map cache step while it starts, or the error: shown while the server runs or failed (ShowFrame). -->
+                        <TextBlock x:Name="StateDetail" Text="The server is stopped." Foreground="{DynamicResource Keep.TextDim}" FontSize="11" MaxWidth="260" TextWrapping="Wrap" Margin="2,4,0,0" Visibility="Collapsed"/>
+                        <ProgressBar x:Name="StartTopProgress" Height="4" Margin="0,6,0,0" Minimum="0" Maximum="1" Visibility="Collapsed" Foreground="{DynamicResource Keep.GoldInk}" Background="{DynamicResource Keep.WarningSoft}" BorderThickness="0"/>
+                    </StackPanel>
+                    <ui:HeaderClock Grid.Column="3" Margin="16,0,0,0"/>
+                </Grid>
+            </Border>
+            <!-- The notices: one at a time, the most urgent first (BannerStack.Priority), the rest behind "N more notices". -->
+            <ui:BannerStack x:Name="Banners" DockPanel.Dock="Top" MaxShown="1">
+                <!-- Coodsz's notice from compat-list/announcement.json (AnnouncementUi.cs in Shared/Frame): after the crash, report and reply bars, before the other notices, until Dismiss. -->
+                <ui:Banner x:Name="AnnouncementBanner" Kind="Warn" CanDismiss="True" Visibility="Collapsed" Margin="18,12,18,0" ui:BannerStack.Priority="3"/>
+                <Border x:Name="UpdateNoticeBar" DockPanel.Dock="Top" Visibility="Collapsed" Background="{DynamicResource Keep.PanelGradient}" BorderBrush="{DynamicResource Keep.BorderDim}" BorderThickness="0,0,0,1" Padding="16,10" ui:BannerStack.Priority="4">
+                    <DockPanel LastChildFill="True">
+                        <Button x:Name="InstallUpdateButton" ToolTip="Downloads and installs the new version of this tool, then opens it again." DockPanel.Dock="Right" Content="Install update" Click="InstallUpdate_Click" MinWidth="160" Margin="16,0,0,0" Style="{StaticResource UpdateInstall}" VerticalAlignment="Center"/>
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock x:Name="UpdateNotice" FontSize="16" FontWeight="SemiBold" Foreground="{DynamicResource Keep.Amber}" TextWrapping="Wrap"/>
+                            <ProgressBar x:Name="UpdateProgress" Height="12" Margin="0,8,0,0" Minimum="0" Maximum="1" Visibility="Collapsed" Foreground="{DynamicResource Keep.GoldInk}" Background="{DynamicResource Keep.WarningSoft}" BorderBrush="{DynamicResource Keep.GoldInk}" BorderThickness="1"/>
+                        </StackPanel>
+                    </DockPanel>
+                </Border>
+                <ContentControl x:Name="ReplyBannerHost" DockPanel.Dock="Top" Visibility="Collapsed" Margin="18,12,18,0" ui:BannerStack.Priority="2"/>
+                <ContentControl x:Name="CrashBarHost" DockPanel.Dock="Top" Visibility="Collapsed" Margin="18,12,18,0" ui:BannerStack.Priority="1"/>
+            </ui:BannerStack>
+            <Grid Margin="18">
+                <!-- The tool's picture behind the page area (Keep.BackdropArt, set by Backdrop.Apply in App.xaml.cs) under the
+                     Coop Server Tool's dark gradient (Keep.BackdropOverlayTop to Keep.BackdropOverlayBottom). -->
+                <Rectangle x:Name="PageBackdrop" Margin="-18" RenderOptions.BitmapScalingMode="HighQuality" IsHitTestVisible="False">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="{DynamicResource Keep.BackdropArt}" Stretch="UniformToFill" AlignmentX="Right" AlignmentY="Center"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="PageBackdropShade" Margin="-18" IsHitTestVisible="False">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Color="{DynamicResource Keep.BackdropOverlayTop}" Offset="0"/>
+                            <GradientStop Color="{DynamicResource Keep.BackdropOverlayBottom}" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <!-- The Dashboard: the server state with the one big button, the addresses, the newest server lines, game speed
+                     and the players on the left; the mods, what the tool is made for and the Realm card on the right. -->
+                <ScrollViewer x:Name="DashboardPage" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                    <!-- The side column goes under the main one when the page is too narrow for both (FitDashboard). -->
+                    <Grid x:Name="DashGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition x:Name="DashSideColumn" Width="300"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel x:Name="DashMain" Margin="0,0,12,0">
+                            <!-- First run (no save or no server folder yet): numbered steps with a button each (ShowFirstRunSteps). -->
+                            <Border x:Name="FirstRunCard" Style="{StaticResource Card}" Margin="0,0,0,12" Visibility="Collapsed">
+                                <StackPanel>
+                                    <TextBlock Text="Get your server ready" Style="{StaticResource SectionTitle}" FontSize="20" Margin="0,0,0,10"/>
+                                    <ui:StepsStrip x:Name="FirstRunSteps"/>
+                                </StackPanel>
+                            </Border>
+                            <Border Style="{StaticResource Card}">
+                                <StackPanel>
+                                    <DockPanel Margin="0,0,0,10">
+                                        <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Center">
+                                            <ui:Chip x:Name="PasswordChip" Kind="Mute" Text="Password Open" Margin="0,0,6,0" ToolTip="Open: anyone with the address can join. Set: friends type the password. Change it on Settings, under Join."/>
+                                            <ui:Chip x:Name="SteamChip" Kind="Mute" Text="Steam lobby Off" ToolTip="Whether the server shows a Steam lobby under your Steam name. Change it on Settings, under Join."/>
+                                        </StackPanel>
+                                        <TextBlock Text="Server status" Style="{StaticResource SectionTitle}" FontSize="20" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                                    </DockPanel>
+                                    <UniformGrid Columns="4" Margin="0,0,0,12">
+                                        <Border Style="{StaticResource Card}" Margin="0,0,8,0"><StackPanel><TextBlock Text="CURRENT SAVE" Foreground="{DynamicResource Keep.TextDim}" FontSize="11"/><TextBlock x:Name="DashSave" Text="-" FontSize="16" Margin="0,6,0,0" TextWrapping="Wrap" ToolTip="{Binding Text, RelativeSource={RelativeSource Self}}" Tag="coodsz:no-translate"/></StackPanel></Border>
+                                        <Border Style="{StaticResource Card}" Margin="0,0,8,0"><StackPanel><TextBlock Text="MOD SETUP" Foreground="{DynamicResource Keep.TextDim}" FontSize="11"/><TextBlock x:Name="DashSetup" Text="-" FontSize="16" Margin="0,6,0,0" TextWrapping="Wrap" ToolTip="{Binding Text, RelativeSource={RelativeSource Self}}" Tag="coodsz:no-translate"/></StackPanel></Border>
+                                        <Border Style="{StaticResource Card}" Margin="0,0,8,0"><StackPanel><TextBlock Text="PLAYERS" Foreground="{DynamicResource Keep.TextDim}" FontSize="11"/><TextBlock x:Name="DashPlayers" Text="0" FontSize="16" Margin="0,6,0,0" Tag="coodsz:no-translate"/></StackPanel></Border>
+                                        <Border Style="{StaticResource Card}"><StackPanel><TextBlock Text="PORTS" Foreground="{DynamicResource Keep.TextDim}" FontSize="11"/><TextBlock x:Name="DashPort" Text="UDP 4200" FontSize="16" Margin="0,6,0,0" TextTrimming="CharacterEllipsis" Tag="coodsz:no-translate"/></StackPanel></Border>
+                                    </UniformGrid>
+                                    <TextBlock x:Name="ServerLoadText" ToolTipService.Placement="Top" FontSize="13" Foreground="{DynamicResource Keep.TextDim}" Margin="0,2,0,0" Visibility="Collapsed" AutomationProperties.AutomationId="ServerLoad" ToolTip="CPU and memory of the server engine, every few seconds."/>
+                                    <!-- The one big button: Start server and Stop server share the spot, ShowServerActions shows one. -->
+                                    <WrapPanel Margin="0,4,0,8">
+                                        <Grid Margin="0,0,12,4" VerticalAlignment="Center">
+                                            <Button x:Name="StartButton" Style="{StaticResource Keep.BtnState}" Content="Start server" Click="StartButton_Click" AutomationProperties.AutomationId="StartServer" ToolTip="Starts the server with the save you picked, or makes the new campaign you named in step 1."/>
+                                            <Button x:Name="StopButton" Style="{StaticResource Keep.BtnStateStop}" Content="Stop server" Click="Stop_Click" Visibility="Collapsed" AutomationProperties.AutomationId="StopServer" ToolTip="Saves the campaign, then stops the server. Asks you first. Players are disconnected."/>
+                                        </Grid>
+                                        <!-- Only while the server runs (ShowServerActions); Last good save also puts back a save while it is stopped. -->
+                                        <WrapPanel x:Name="RunningActions" VerticalAlignment="Center" Visibility="Collapsed">
+                                            <Button Style="{StaticResource Ghost}" Content="Save game" Click="Save_Click" AutomationProperties.AutomationId="SaveWorld" ToolTip="Saves the campaign. The server stays running and players stay connected."/>
+                                            <Button x:Name="PauseServerButton" Style="{StaticResource Ghost}" Content="Pause" Click="PauseServer_Click" IsEnabled="False" AutomationProperties.AutomationId="PauseServer" ToolTip="Pauses campaign time on the running server. Players stay connected."/>
+                                            <Button x:Name="PlayServerButton" Style="{StaticResource Ghost}" Content="Play" Click="PlayServer_Click" IsEnabled="False" AutomationProperties.AutomationId="PlayServer" ToolTip="Lets campaign time run at normal speed on the running server until you press Pause, also when every player is in a settlement or a battle. Right click for 2x speed.">
+                                                <Button.ContextMenu>
+                                                    <ContextMenu>
+                                                        <MenuItem Header="Play at 2x speed" Click="PlayServerFast_Click" ToolTip="Lets campaign time run at 2x speed on the running server."/>
+                                                    </ContextMenu>
+                                                </Button.ContextMenu>
+                                            </Button>
+                                            <Button Style="{StaticResource Ghost}" Content="Restart" Click="Restart_Click" ToolTip="Saves the campaign, then restarts the server on the same save. Asks you first. Players are disconnected."/>
+                                        </WrapPanel>
+                                        <Button Style="{StaticResource Ghost}" Content="Last good save" Click="RestartLastGood_Click" AutomationProperties.AutomationId="RestartLastGood" ToolTip="Stops the server without saving. Puts back the newest save from before the hero lost their party, then starts the server."/>
+                                    </WrapPanel>
+                                    <!-- This PC's Bannerlord is newer than 1.4.8 (NewerGame): the same line as the Made for card, next to Start server. -->
+                                    <TextBlock x:Name="NewerGameText" Visibility="Collapsed" FontSize="13" FontWeight="SemiBold" Foreground="{DynamicResource Keep.WarningInk}" TextWrapping="Wrap" Margin="0,2,0,4"/>
+                                    <!-- Something went wrong? Send your logs (CrashReportUi), next to Start server. -->
+                                    <ContentControl x:Name="SendLogsLinkSlot" HorizontalAlignment="Left"/>
+                                    <!-- RotServerNotes.FirewallHint: shown until this server folder's server once reached SERVING. -->
+                                    <TextBlock x:Name="FirewallHintText" Margin="0,4,0,0" Foreground="{DynamicResource Keep.Warning}" FontSize="14" FontWeight="SemiBold" TextWrapping="Wrap" Visibility="Collapsed" AutomationProperties.AutomationId="FirewallHint" Text="Windows may ask to allow .NET Host. Click Allow so players can join."/>
+                                    <TextBlock x:Name="UptimeText" Text="Stopped." FontSize="14" FontWeight="SemiBold" Foreground="{DynamicResource Keep.TextDim}" Margin="0,8,0,0" TextWrapping="Wrap"/>
+                                    <DockPanel x:Name="StartProgressRow" Margin="0,8,0,0" Visibility="Collapsed" AutomationProperties.AutomationId="StartProgress">
+                                        <TextBlock x:Name="StartProgressText" DockPanel.Dock="Right" MinWidth="44" Margin="10,0,0,0" FontWeight="SemiBold" Foreground="{DynamicResource Keep.GoldInk}" VerticalAlignment="Center" TextAlignment="Right"/>
+                                        <ProgressBar x:Name="StartProgress" Height="12" Minimum="0" Maximum="1" Foreground="{DynamicResource Keep.GoldInk}" Background="{DynamicResource Keep.WarningSoft}" BorderBrush="{DynamicResource Keep.GoldInk}" BorderThickness="1" VerticalAlignment="Center"/>
+                                    </DockPanel>
+                                    <Border Margin="0,10,0,0" Padding="10,8" CornerRadius="4" Background="{DynamicResource Keep.PanelGradient}" BorderBrush="{DynamicResource Keep.BorderDim}" BorderThickness="1">
+                                        <TextBlock x:Name="ControlStatus" FontWeight="SemiBold" TextWrapping="Wrap" Text="Ready." Foreground="{DynamicResource Keep.Teal}" AutomationProperties.AutomationId="ControlStatus"/>
+                                    </Border>
+                                    <TextBlock x:Name="PathText" Margin="0,4,0,0" Foreground="{DynamicResource Keep.TextDim}" FontSize="13" TextWrapping="Wrap"/>
+                                    <Button x:Name="FindBannerlordButton" Content="Find Bannerlord" ToolTip="Pick the Mount &amp; Blade II Bannerlord folder. The tool remembers it." Click="FindBannerlord_Click" Visibility="Collapsed" HorizontalAlignment="Left" Margin="0,6,0,0" Style="{StaticResource Ghost}"/>
+                                </StackPanel>
+                            </Border>
+                            <Border Style="{StaticResource Card}" Margin="0,12,0,0">
+                                <StackPanel>
+                                    <WrapPanel Orientation="Horizontal">
+                                        <TextBlock Text="Addresses your friends can use" Style="{StaticResource SectionTitle}" FontSize="20" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0,0,16,0"/>
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                            <Button Style="{StaticResource Primary}" Content="Copy invite" Click="CopyInvite_Click" ToolTip="Copies a short message for Discord with the best addresses and the port. The password is never in it."/>
+                                            <Button Style="{StaticResource Ghost}" Content="How will friends join?" ToolTip="Checks your network and shows how friends can reach this server." Click="HowJoin_Click"/>
+                                            <Button Style="{StaticResource Ghost}" Content="?" Click="HowJoin_Click" ToolTip="How to join" MinWidth="36"/>
+                                        </StackPanel>
+                                    </WrapPanel>
+                                    <TextBlock x:Name="JoinBestText" Margin="0,6,0,8" Foreground="{DynamicResource Keep.Success}" FontWeight="SemiBold" TextWrapping="Wrap"/>
+                                    <ItemsControl x:Name="JoinAddressList">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid Margin="0,0,0,6">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="150"/>
+                                                        <ColumnDefinition Width="200"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock Text="{Binding Label}" FontWeight="SemiBold" Foreground="{DynamicResource Keep.TextMain}" VerticalAlignment="Center"/>
+                                                    <TextBox Grid.Column="1" Text="{Binding Value, Mode=OneWay}" ToolTip="An address friends can type to join." IsReadOnly="True" Height="30" Padding="6,0" VerticalContentAlignment="Center" FontFamily="Consolas"/>
+                                                    <Button Grid.Column="2" Style="{StaticResource Ghost}" Content="Copy" Click="CopyAddress_Click" ToolTip="Copies this address so you can paste it to friends." Margin="6,0,0,0" Padding="10,4"/>
+                                                    <TextBlock Grid.Column="3" Text="{Binding Note}" Foreground="{DynamicResource Keep.Teal}" FontSize="12" TextWrapping="Wrap" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                    <CheckBox x:Name="RouterPortBox" Content="Open the port on my router automatically" Foreground="{DynamicResource Keep.TextMain}" Margin="0,8,0,0" Checked="RouterPort_Changed" Unchecked="RouterPort_Changed" ToolTip="Uses UPnP on your router while the server runs, like Porthole. The port is closed again when the server stops or this tool closes."/>
+                                    <TextBlock x:Name="RouterPortStatus" Margin="24,4,0,0" Foreground="{DynamicResource Keep.Teal}" FontSize="12" TextWrapping="Wrap"/>
+                                    <WrapPanel Margin="0,8,0,0">
+                                        <Button x:Name="FirewallButton" Style="{StaticResource Ghost}" Content="Allow through firewall" Click="Firewall_Click" Margin="0" ToolTip="Adds an inbound Windows Firewall rule for the server's UDP port and program. Windows asks for permission first."/>
+                                        <Button Style="{StaticResource Ghost}" Content="Check again" Click="CheckJoining_Click" ToolTip="Checks the addresses, firewall and router port again."/>
+                                    </WrapPanel>
+                                    <TextBlock x:Name="FirewallStatus" Margin="0,4,0,0" Foreground="{DynamicResource Keep.Teal}" FontSize="12" TextWrapping="Wrap"/>
+                                </StackPanel>
+                            </Border>
+                            <ui:LogCard x:Name="DashLog" Margin="0,12,0,0" MaxLines="8"/>
+                            <Border Style="{StaticResource Card}" Margin="0,12,0,0" AutomationProperties.AutomationId="GameSpeedArea">
+                                <StackPanel>
+                                    <TextBlock Text="Game speed" Style="{StaticResource SectionTitle}" FontSize="20" FontWeight="SemiBold"/>
+                                    <TextBlock x:Name="GameSpeedLine" FontSize="15" FontWeight="SemiBold" Margin="0,6,0,0" TextWrapping="Wrap"/>
+                                    <TextBlock x:Name="GameSpeedBattleLine" FontSize="14" Foreground="{DynamicResource Keep.TextMain}" Margin="0,4,0,0" TextWrapping="Wrap"/>
+                                    <WrapPanel Margin="0,10,0,0">
+                                        <Button x:Name="GameSpeedButton" ToolTip="Turns 2x speed on the campaign map on or off and saves it. Restart the server to use it." Style="{StaticResource Primary}" Content="Turn on 2x speed" Margin="0,0,8,4" Click="GameSpeed_Click" AutomationProperties.AutomationId="GameSpeedButton"/>
+                                        <Button x:Name="GameSpeedBattleButton" ToolTip="Turns the normal speed rule during player battles on or off and saves it. Restart the server to use it." Style="{StaticResource Ghost}" Content="Turn off battle speed limit" Margin="0,0,8,4" Click="GameSpeedBattle_Click" AutomationProperties.AutomationId="GameSpeedBattleButton"/>
+                                        <Button x:Name="GameSpeedRestartButton" ToolTip="Saves the campaign, then restarts the server so the new speed applies. Asks you first." Style="{StaticResource Ghost}" Content="Restart server" Margin="0,0,8,4" Click="Restart_Click" Visibility="Collapsed" AutomationProperties.AutomationId="GameSpeedRestart"/>
+                                    </WrapPanel>
+                                    <TextBlock x:Name="GameSpeedRestartLine" FontSize="14" FontWeight="SemiBold" Foreground="{DynamicResource Keep.Warning}" Margin="0,6,0,0" TextWrapping="Wrap"/>
+                                    <TextBlock Text="Players change the speed on the campaign map with the time buttons at the bottom of the screen, or with the keys 1, 2 and 3." FontSize="13" Foreground="{DynamicResource Keep.Teal}" Margin="0,6,0,0" TextWrapping="Wrap"/>
+                                </StackPanel>
+                            </Border>
+                            <Border Style="{StaticResource Card}" Margin="0,12,0,0">
+                                <StackPanel>
+                                    <TextBlock x:Name="OnlinePlayersButton" Text="Online players: 0" FontSize="16" FontWeight="SemiBold" Foreground="{DynamicResource Keep.GoldInk}"/>
+                                    <ListBox x:Name="PlayerBox" Height="120" Margin="0,8,0,8" Background="{DynamicResource Keep.BgInput}" Foreground="{DynamicResource Keep.TextMain}" BorderBrush="{DynamicResource Keep.BorderDim}" ItemContainerStyle="{StaticResource DarkListItem}" AutomationProperties.AutomationId="PlayerBox"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Style="{StaticResource Ghost}" Content="Refresh" Margin="0" Click="RefreshPlayers_Click" ToolTip="Updates the list of online players." AutomationProperties.AutomationId="RefreshPlayers"/>
+                                        <Button Style="{StaticResource Ghost}" Content="Kick player" Click="KickPlayer_Click" ToolTip="Disconnects the selected player. They can join again." AutomationProperties.AutomationId="KickPlayer"/>
+                                        <Button Style="{StaticResource Danger}" Content="Ban player" Click="BanPlayer_Click" ToolTip="Adds the selected player to the ban list and kicks them." AutomationProperties.AutomationId="BanPlayer"/>
+                                    </StackPanel>
+                                    <TextBlock Text="Banned players" FontSize="16" FontWeight="SemiBold" Foreground="{DynamicResource Keep.GoldInk}" Margin="0,14,0,0"/>
+                                    <TextBlock x:Name="BanStatus" Text="No banned players." FontSize="15" Foreground="{DynamicResource Keep.Teal}" Margin="0,4,0,0" TextWrapping="Wrap"/>
+                                    <ListBox x:Name="BanBox" Height="100" Margin="0,8,0,8" Background="{DynamicResource Keep.BgInput}" Foreground="{DynamicResource Keep.TextMain}" BorderBrush="{DynamicResource Keep.BorderDim}" ItemContainerStyle="{StaticResource DarkListItem}" AutomationProperties.AutomationId="BanBox"/>
+                                    <Button Style="{StaticResource Ghost}" Content="Unban player" ToolTip="Removes the selected name from the ban list so they can join again." Margin="0" HorizontalAlignment="Left" Click="UnbanPlayer_Click" AutomationProperties.AutomationId="UnbanPlayer"/>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                        <StackPanel x:Name="DashSide" Grid.Column="1">
+                            <!-- The mods the server loads in groups (ModsSummaryCard.Show in ShowModSetups, ModTally) and the setup Start server uses. -->
+                            <ui:SideModsCard x:Name="ModsSummaryCard">
+                                <ui:SideModsCard.Link>
+                                    <Button DockPanel.Dock="Right" Style="{StaticResource Keep.BtnLink}" Content="Open Mods" Tag="Modules" Click="Nav_Click" ToolTip="Opens the Mods page, where you turn mods on and off and set their load order."/>
+                                </ui:SideModsCard.Link>
+                                <TextBlock x:Name="DashSetupLine" Foreground="{DynamicResource Keep.TextDim}" FontSize="12" TextWrapping="Wrap" Tag="coodsz:no-translate"/>
+                            </ui:SideModsCard>
+                            <!-- The game and mod versions this tool is made for, ticked against the server folder (ShowMadeFor). -->
+                            <ui:MadeForCard x:Name="MadeForCard"/>
+                            <!-- The Realm promo as a card plus the Join my server link in the sidebar footer (build-plan.md 7). -->
+                            <ui:RealmCard x:Name="RealmCard">
+                                <ui:RealmCard.Actions>
+                                    <WrapPanel>
+                                        <Button Style="{StaticResource Keep.BtnSolidGold}" Content="Join on Discord" Click="RealmJoin_Click" Margin="0,0,12,0" ToolTip="Opens the invite to The Realm Discord in your browser."/>
+                                        <Button Style="{StaticResource Keep.BtnLink}" Content="Learn more" Tag="Realm" Click="Nav_Click" VerticalAlignment="Center" ToolTip="Opens the Join my server page about The Realm."/>
+                                    </WrapPanel>
+                                </ui:RealmCard.Actions>
+                                <TextBlock Text="The Realm Bannerlord, my custom modded server" Style="{StaticResource Keep.Dim}" TextWrapping="Wrap"/>
+                            </ui:RealmCard>
+                        </StackPanel>
+                    </Grid>
+                </ScrollViewer>
+                <!-- Saves (Pages key "Server", so ShowPage("Server") still lands here): the campaign save, Prepare server and the backups. -->
+                <ScrollViewer x:Name="ServerPage" Visibility="Collapsed" VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        <Border Style="{StaticResource Card}" Margin="0,0,0,10">
+                            <TextBlock Foreground="{DynamicResource Keep.TextDim}" FontSize="15" TextWrapping="Wrap">
+                                <Run x:Name="SavesStepsIntro" Text="The steps are the same as on the Dashboard. Do 1 to 3 here, then click Start server on the Dashboard. "/>
+                                <Run Text="Run Prepare server again after a Coop or mod update. It never deletes your campaigns." Foreground="{DynamicResource Keep.Warning}" FontWeight="SemiBold"/>
+                            </TextBlock>
+                        </Border>
+                        <!-- The note under Start server, shown here too (SetControl), so a Prepare server or Choose Coop server problem is not only on the Dashboard. -->
+                        <Border x:Name="ServerPageStatusCard" Style="{StaticResource Card}" Margin="0,0,0,10" Visibility="Collapsed">
+                            <TextBlock x:Name="ServerPageStatus" FontWeight="SemiBold" TextWrapping="Wrap" AutomationProperties.AutomationId="ServerPageStatus"/>
+                        </Border>
+                        <!-- Steps 1 and 2 of the Dashboard's Get your server ready strip (ShowFirstRunSteps), in the same order. -->
+                        <Border x:Name="ChooseServerCard" Style="{StaticResource Card}" Margin="0,0,0,10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="52"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Border Width="42" Height="42" CornerRadius="21" Background="{DynamicResource Keep.AmberSoft}" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                    <TextBlock Text="1" Foreground="{DynamicResource Keep.Amber}" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <StackPanel Grid.Column="1">
+                                    <TextBlock Text="Choose Coop server" FontSize="17" FontWeight="SemiBold" Foreground="{DynamicResource Keep.Amber}"/>
+                                    <TextBlock Margin="0,4,0,0" Foreground="{DynamicResource Keep.Teal}" FontSize="14" TextWrapping="Wrap" Text="Pick the folder of the unpacked Coop server. The server runs from that folder."/>
+                                    <WrapPanel Margin="0,10,0,0">
+                                        <Button Style="{StaticResource Ghost}" Content="Choose Coop server" Margin="0,0,8,0" Click="PickCoopServer_Click" AutomationProperties.AutomationId="ChooseCoopServerSaves" ToolTip="Pick the folder of the unpacked Coop server. The server runs from that folder."/>
+                                    </WrapPanel>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                        <Border Style="{StaticResource Card}" Margin="0,0,0,10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="52"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Border Width="42" Height="42" CornerRadius="21" Background="{DynamicResource Keep.AmberSoft}" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                    <TextBlock x:Name="PrepareStepNumber" Text="2" Foreground="{DynamicResource Keep.Amber}" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <StackPanel Grid.Column="1">
+                                    <TextBlock Text="Prepare server" FontSize="17" FontWeight="SemiBold" Foreground="{DynamicResource Keep.Amber}"/>
+                                    <TextBlock x:Name="PrepareStepText" Margin="0,4,0,0" Foreground="{DynamicResource Keep.Teal}" FontSize="14" TextWrapping="Wrap" Text="Copies Realm of Thrones and the mods into the Coop server and makes the server map. If it says something is missing, follow that line."/>
+                                    <WrapPanel Margin="0,10,0,0">
+                                        <Button Style="{StaticResource Ghost}" Content="Prepare server" Margin="0,0,8,0" Click="Prepare_Click" AutomationProperties.AutomationId="PrepareServer" ToolTip="Checks the mods, copies Realm of Thrones and the setup's mods into the Coop server and makes the server map. It does not start the server. The first time takes a few minutes."/>
+                                    </WrapPanel>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                        <Border Style="{StaticResource Card}" Margin="0,0,0,10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="52"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Border Width="42" Height="42" CornerRadius="21" Background="{DynamicResource Keep.SuccessSoft}" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                    <TextBlock x:Name="CampaignStepNumber" Text="3" Foreground="{DynamicResource Keep.Success}" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <StackPanel Grid.Column="1">
+                                    <TextBlock Text="Start a new campaign, or use one you have" FontSize="17" FontWeight="SemiBold"/>
+                                    <TextBlock Margin="0,4,0,0" Foreground="{DynamicResource Keep.Teal}" FontSize="14" TextWrapping="Wrap" Text="Type a name, then click New campaign or Start server. Start server makes a fresh Realm of Thrones world, no save needed. To host a campaign you already have, leave this empty and pick it below."/>
+                                    <WrapPanel Margin="0,10,0,0">
+                                        <TextBox x:Name="NewCampaignBox" Width="220" Height="34" VerticalAlignment="Center" AutomationProperties.AutomationId="NewCampaignBox" ToolTip="The name of the new campaign. Use letters, numbers, spaces, hyphens or underscores."/>
+                                        <Button Style="{StaticResource Primary}" Content="New campaign" Click="NewCampaign_Click" AutomationProperties.AutomationId="NewCampaign" ToolTip="Start server makes a fresh Realm of Thrones campaign under this name."/>
+                                    </WrapPanel>
+                                    <TextBlock x:Name="NewCampaignNote" Margin="0,8,0,0" Foreground="{DynamicResource Keep.Success}" FontSize="14" FontWeight="SemiBold" TextWrapping="Wrap" Visibility="Collapsed" AutomationProperties.AutomationId="NewCampaignNote"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                        <Border Style="{StaticResource Card}" Margin="0,0,0,10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="52"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <!-- Still step 3: the campaign you already have. -->
+                                <StackPanel Grid.Column="1">
+                                    <TextBlock Text="Or pick a campaign you have" FontSize="17" FontWeight="SemiBold"/>
+                                    <TextBlock Margin="0,4,0,0" Foreground="{DynamicResource Keep.Teal}" FontSize="14" TextWrapping="Wrap" Text="If it says Single player copy, click Name server copy. Your Documents save stays as it is."/>
+                                    <WrapPanel Margin="0,10,0,0">
+                                        <ComboBox x:Name="SaveBox" ToolTip="Pick the campaign save the server hosts. Hover a save to see where the file is." Style="{StaticResource SaveBoxStyle}" Width="280" Height="34" VerticalAlignment="Center" SelectionChanged="SaveBox_SelectionChanged">
+                                            <ComboBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <DockPanel LastChildFill="False" ToolTip="{Binding FullPath}">
+                                                        <TextBlock DockPanel.Dock="Right" Text="{Binding PlaceText}" FontFamily="Segoe UI" FontSize="15" Foreground="{DynamicResource Keep.Teal}" VerticalAlignment="Center" Margin="16,0,0,0"/>
+                                                        <TextBlock Text="{Binding Name}" FontFamily="Segoe UI" FontSize="15" FontWeight="SemiBold" Foreground="{DynamicResource Keep.TextMain}" VerticalAlignment="Center"/>
+                                                        <TextBlock Text="{Binding DayText}" FontFamily="Segoe UI" FontSize="12" Foreground="{DynamicResource Keep.Teal}" VerticalAlignment="Center" Margin="8,0,0,0"/>
+                                                    </DockPanel>
+                                                </DataTemplate>
+                                            </ComboBox.ItemTemplate>
+                                        </ComboBox>
+                                        <TextBox x:Name="SaveNameBox" Width="160" Height="34" Margin="8,0,0,0" VerticalAlignment="Center" AutomationProperties.AutomationId="SaveNameBox" ToolTip="The name of the copy on the host. Leave this blank to use the campaign name. This does not rename the single player save."/>
+                                        <Button Style="{StaticResource Primary}" Content="Name server copy" Click="NameSave_Click" AutomationProperties.AutomationId="NameSave" ToolTip="Copies or renames the host file. A single player campaign is copied and left unchanged."/>
+                                        <Button Style="{StaticResource Danger}" Content="Delete server copy" Click="DeleteSave_Click" AutomationProperties.AutomationId="DeleteSave" ToolTip="Deletes a server copy only. Single player saves cannot be deleted."/>
+                                        <Button Style="{StaticResource Ghost}" Content="Browse save" ToolTip="Pick a Realm of Thrones campaign save file from anywhere on this PC." Margin="8,0,0,0" Click="BrowseSave_Click" AutomationProperties.AutomationId="BrowseSave"/>
+                                    </WrapPanel>
+                                    <!-- Shown while the save box is empty (FillSaves), so a first host is not sent off to make a single player save. -->
+                                    <TextBlock x:Name="SaveEmpty" Margin="0,8,0,0" Foreground="{DynamicResource Keep.Warning}" FontSize="14" FontWeight="SemiBold" TextWrapping="Wrap" Visibility="Collapsed" AutomationProperties.AutomationId="SaveEmpty" Text="No campaign yet. Type a name above and click New campaign. You don't need a single player save."/>
+                                    <TextBlock x:Name="SaveMissing" Margin="0,8,0,0" Foreground="{DynamicResource Keep.Teal}" FontSize="14" TextWrapping="Wrap" Visibility="Collapsed"/>
+                                    <TextBlock x:Name="SaveVersionWarning" Margin="0,8,0,0" Foreground="{DynamicResource Keep.Red}" FontSize="14" FontWeight="SemiBold" TextWrapping="Wrap" Visibility="Collapsed" AutomationProperties.AutomationId="SaveVersionWarning"/>
+                                    <StackPanel x:Name="SaveFacts" Margin="0,10,0,0" Visibility="Collapsed">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Border Background="{DynamicResource Keep.BgInput}" BorderBrush="{DynamicResource Keep.BorderDim}" BorderThickness="1" CornerRadius="6" Padding="12,8" Margin="0,0,8,0" MinWidth="120">
+                                                <StackPanel>
+                                                    <TextBlock Text="CHARACTER" Foreground="{DynamicResource Keep.Teal}" FontSize="11"/>
+                                                    <TextBlock x:Name="SaveCharacter" Margin="0,3,0,0" FontSize="16" FontWeight="SemiBold"/>
+                                                </StackPanel>
+                                            </Border>
+                                            <Border Background="{DynamicResource Keep.BgInput}" BorderBrush="{DynamicResource Keep.BorderDim}" BorderThickness="1" CornerRadius="6" Padding="12,8" Margin="0,0,8,0" MinWidth="72">
+                                                <StackPanel>
+                                                    <TextBlock Text="LEVEL" Foreground="{DynamicResource Keep.Teal}" FontSize="11"/>
+                                                    <TextBlock x:Name="SaveLevel" Margin="0,3,0,0" FontSize="16" FontWeight="SemiBold"/>
+                                                </StackPanel>
+                                            </Border>
+                                            <Border Background="{DynamicResource Keep.BgInput}" BorderBrush="{DynamicResource Keep.BorderDim}" BorderThickness="1" CornerRadius="6" Padding="12,8" MinWidth="110">
+                                                <StackPanel>
+                                                    <TextBlock Text="CAMPAIGN DAY" Foreground="{DynamicResource Keep.Teal}" FontSize="11"/>
+                                                    <TextBlock x:Name="SaveDay" Margin="0,3,0,0" FontSize="16" FontWeight="SemiBold"/>
+                                                </StackPanel>
+                                            </Border>
+                                        </StackPanel>
+                                        <TextBlock x:Name="SaveModsHeading" Margin="0,10,0,0" Foreground="{DynamicResource Keep.Teal}" FontSize="12" Text="Mods written in this save"/>
+                                        <ItemsControl x:Name="SaveMods" Margin="0,6,0,0">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <WrapPanel/>
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border Background="{DynamicResource Keep.BgRaised}" BorderBrush="{DynamicResource Keep.BorderDim}" BorderThickness="1" CornerRadius="10" Padding="8,3" Margin="0,0,6,6">
+                                                        <TextBlock Text="{Binding}" FontSize="12" Foreground="{DynamicResource Keep.TextMain}"/>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                        <!-- Save backups: the copies after each save, and the one kept before a save ran with other mods. -->
+                        <Border Style="{StaticResource Card}" Margin="0,0,0,10">
+                            <StackPanel>
+                                <TextBlock Text="Save backups" FontSize="17" FontWeight="SemiBold"/>
+                                <Button Content="Restore save backup" Style="{StaticResource Ghost}" HorizontalAlignment="Left" Margin="0,10,0,0" Click="RestoreSaveBackup_Click" ToolTip="Puts back a save backup, either an automatic one made after each save or the copy kept before a save ran with other mods. The save as it is now is kept too."/>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </ScrollViewer>
+                <ScrollViewer x:Name="RealmPage" Visibility="Collapsed" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                    <Grid MinHeight="700" ClipToBounds="True">
+                        <Image Source="/Assets/realm-hero.png" Stretch="UniformToFill" HorizontalAlignment="Right" RenderOptions.BitmapScalingMode="HighQuality" VerticalAlignment="Center"/>
+                        <Border>
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                    <GradientStop Color="#E606120B" Offset="0"/>
+                                    <GradientStop Color="#990A1D12" Offset="0.42"/>
+                                    <GradientStop Color="#000A1D12" Offset="0.72"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                        </Border>
+                        <Border>
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                    <GradientStop Color="#00000000" Offset="0.6"/>
+                                    <GradientStop Color="#CC06110B" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                        </Border>
+                        <DockPanel Margin="36,30,36,24">
+                            <TextBlock DockPanel.Dock="Bottom" Text="Made by Coodsz, Community Manager of The Realm. Thanks for using the tool!" FontSize="13" Foreground="#FF9FB8A6" Margin="2,12,0,0" TextWrapping="Wrap"/>
+                            <UniformGrid DockPanel.Dock="Bottom" Columns="4" Margin="0,18,-14,0">
+                            <Border Margin="0,0,14,0" CornerRadius="8" BorderBrush="#FF4F8A62" BorderThickness="1" Height="132" ClipToBounds="True">
+                                <Grid>
+                                    <Image Source="/Assets/realm-tile-1.png" Stretch="UniformToFill" RenderOptions.BitmapScalingMode="HighQuality"/>
+                                    <Border><Border.Background><LinearGradientBrush StartPoint="0,0" EndPoint="0,1"><GradientStop Color="#00000000" Offset="0.45"/><GradientStop Color="#D0061109" Offset="1"/></LinearGradientBrush></Border.Background></Border>
+                                    <TextBlock Text="Meet the Realm" Foreground="#FFFFFFFF" FontWeight="Bold" FontSize="15" VerticalAlignment="Bottom" Margin="12,0,0,9"/>
+                                </Grid>
+                            </Border>
+                            <Border Margin="0,0,14,0" CornerRadius="8" BorderBrush="#FF4F8A62" BorderThickness="1" Height="132" ClipToBounds="True">
+                                <Grid>
+                                    <Image Source="/Assets/realm-tile-2.png" Stretch="UniformToFill" RenderOptions.BitmapScalingMode="HighQuality"/>
+                                    <Border><Border.Background><LinearGradientBrush StartPoint="0,0" EndPoint="0,1"><GradientStop Color="#00000000" Offset="0.45"/><GradientStop Color="#D0061109" Offset="1"/></LinearGradientBrush></Border.Background></Border>
+                                    <TextBlock Text="Weekly tournaments" Foreground="#FFFFFFFF" FontWeight="Bold" FontSize="15" VerticalAlignment="Bottom" Margin="12,0,0,9"/>
+                                </Grid>
+                            </Border>
+                            <Border Margin="0,0,14,0" CornerRadius="8" BorderBrush="#FF4F8A62" BorderThickness="1" Height="132" ClipToBounds="True">
+                                <Grid>
+                                    <Image Source="/Assets/realm-tile-3.png" Stretch="UniformToFill" RenderOptions.BitmapScalingMode="HighQuality"/>
+                                    <Border><Border.Background><LinearGradientBrush StartPoint="0,0" EndPoint="0,1"><GradientStop Color="#00000000" Offset="0.45"/><GradientStop Color="#D0061109" Offset="1"/></LinearGradientBrush></Border.Background></Border>
+                                    <TextBlock Text="Raise your banner" Foreground="#FFFFFFFF" FontWeight="Bold" FontSize="15" VerticalAlignment="Bottom" Margin="12,0,0,9"/>
+                                </Grid>
+                            </Border>
+                            <Border Margin="0,0,14,0" CornerRadius="8" BorderBrush="#FF4F8A62" BorderThickness="1" Height="132" ClipToBounds="True">
+                                <Grid>
+                                    <Image Source="/Assets/realm-tile-4.png" Stretch="UniformToFill" RenderOptions.BitmapScalingMode="HighQuality"/>
+                                    <Border><Border.Background><LinearGradientBrush StartPoint="0,0" EndPoint="0,1"><GradientStop Color="#00000000" Offset="0.45"/><GradientStop Color="#D0061109" Offset="1"/></LinearGradientBrush></Border.Background></Border>
+                                    <TextBlock Text="Hunt bounties" Foreground="#FFFFFFFF" FontWeight="Bold" FontSize="15" VerticalAlignment="Bottom" Margin="12,0,0,9"/>
+                                </Grid>
+                            </Border>
+                            </UniformGrid>
+                            <StackPanel MaxWidth="660" HorizontalAlignment="Left">
+                                <Image Source="/Assets/realm-emblem.png" Width="64" Height="64" HorizontalAlignment="Left"/>
+                                <TextBlock Text="LIKE THE TOOL?" Foreground="{DynamicResource Keep.GoldInk}" FontSize="14" FontWeight="Bold" Margin="0,12,0,0"/>
+                                <TextBlock Text="Join my custom modded server" FontFamily="Palatino Linotype" FontSize="46" Foreground="#FFFFFFFF" TextWrapping="Wrap" Margin="0,2,0,8"/>
+                                <TextBlock FontSize="17" Foreground="#FFD3E6D8" TextWrapping="Wrap" Margin="0,0,0,16"><Run Text="Ride into "/><Run Text="The Realm Bannerlord" Foreground="{DynamicResource Keep.GoldInk}" FontWeight="SemiBold"/><Run Text=", a living modded campaign with new battles every week."/></TextBlock>
+                                <WrapPanel>
+                                    <Border Background="{DynamicResource Keep.GoldInk}" BorderBrush="{DynamicResource Keep.LinkHover}" BorderThickness="1" CornerRadius="14" Padding="11,5" Margin="0,0,7,7"><TextBlock FontSize="14" FontWeight="SemiBold"><Run Text="🌱 " FontFamily="Segoe UI Emoji, Segoe UI Symbol" Foreground="#FF10261A"/><Run Text="New players welcome" Foreground="#FF10261A"/></TextBlock></Border>
+                                    <Border Background="#CC0F2A1C" BorderBrush="#FF3F7A52" BorderThickness="1" CornerRadius="14" Padding="11,5" Margin="0,0,7,7"><TextBlock FontSize="14"><Run Text="⚔ " FontFamily="Segoe UI Emoji, Segoe UI Symbol" Foreground="{DynamicResource Keep.GoldInk}"/><Run Text="Events every Saturday" Foreground="#FFE6EFE8"/></TextBlock></Border>
+                                    <Border Background="#CC0F2A1C" BorderBrush="#FF3F7A52" BorderThickness="1" CornerRadius="14" Padding="11,5" Margin="0,0,7,7"><TextBlock FontSize="14"><Run Text="💰 " FontFamily="Segoe UI Emoji, Segoe UI Symbol" Foreground="{DynamicResource Keep.GoldInk}"/><Run Text="Win denars every week" Foreground="#FFE6EFE8"/></TextBlock></Border>
+                                    <Border Background="#CC0F2A1C" BorderBrush="#FF3F7A52" BorderThickness="1" CornerRadius="14" Padding="11,5" Margin="0,0,7,7"><TextBlock FontSize="14"><Run Text="🏁 " FontFamily="Segoe UI Emoji, Segoe UI Symbol" Foreground="{DynamicResource Keep.GoldInk}"/><Run Text="Races &amp; bounties" Foreground="#FFE6EFE8"/></TextBlock></Border>
+                                    <Border Background="#CC0F2A1C" BorderBrush="#FF3F7A52" BorderThickness="1" CornerRadius="14" Padding="11,5" Margin="0,0,7,7"><TextBlock FontSize="14"><Run Text="🤝 " FontFamily="Segoe UI Emoji, Segoe UI Symbol" Foreground="{DynamicResource Keep.GoldInk}"/><Run Text="Easy to find a clan" Foreground="#FFE6EFE8"/></TextBlock></Border>
+                                    <Border Background="#CC0F2A1C" BorderBrush="#FF3F7A52" BorderThickness="1" CornerRadius="14" Padding="11,5" Margin="0,0,7,7"><TextBlock FontSize="14"><Run Text="🏰 " FontFamily="Segoe UI Emoji, Segoe UI Symbol" Foreground="{DynamicResource Keep.GoldInk}"/><Run Text="Clans &amp; rivalries" Foreground="#FFE6EFE8"/></TextBlock></Border>
+                                    <Border Background="#CC0F2A1C" BorderBrush="#FF3F7A52" BorderThickness="1" CornerRadius="14" Padding="11,5" Margin="0,0,7,7"><TextBlock FontSize="14"><Run Text="🎪 " FontFamily="Segoe UI Emoji, Segoe UI Symbol" Foreground="{DynamicResource Keep.GoldInk}"/><Run Text="Host your own events" Foreground="#FFE6EFE8"/></TextBlock></Border>
+                                    <Border Background="#CC0F2A1C" BorderBrush="#FF3F7A52" BorderThickness="1" CornerRadius="14" Padding="11,5" Margin="0,0,7,7"><TextBlock FontSize="14"><Run Text="🗺 " FontFamily="Segoe UI Emoji, Segoe UI Symbol" Foreground="{DynamicResource Keep.GoldInk}"/><Run Text="Europe 1100 map" Foreground="#FFE6EFE8"/></TextBlock></Border>
+                                    <Border Background="#CC0F2A1C" BorderBrush="#FF3F7A52" BorderThickness="1" CornerRadius="14" Padding="11,5" Margin="0,0,7,7"><TextBlock FontSize="14"><Run Text="🛡 " FontFamily="Segoe UI Emoji, Segoe UI Symbol" Foreground="{DynamicResource Keep.GoldInk}"/><Run Text="Friendly staff &amp; help desk" Foreground="#FFE6EFE8"/></TextBlock></Border>
+                                    <Border Background="#CC0F2A1C" BorderBrush="#FF3F7A52" BorderThickness="1" CornerRadius="14" Padding="11,5" Margin="0,0,7,7"><TextBlock FontSize="14"><Run Text="🏛 " FontFamily="Segoe UI Emoji, Segoe UI Symbol" Foreground="{DynamicResource Keep.GoldInk}"/><Run Text="Hall of Fame" Foreground="#FFE6EFE8"/></TextBlock></Border>
+                                </WrapPanel>
+                                <Button x:Name="RealmRewardButton" ToolTip="Shows your reward code for The Realm Discord server." Click="RealmReward_Click" Cursor="Hand" Margin="0,8,0,0" HorizontalAlignment="Left" Padding="14,9">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border x:Name="B" CornerRadius="8" Background="{DynamicResource Keep.SuccessSoft}" BorderBrush="{DynamicResource Keep.GoldInk}" BorderThickness="1.5" Padding="{TemplateBinding Padding}"><ContentPresenter/></Border>
+                                            <ControlTemplate.Triggers><Trigger Property="IsMouseOver" Value="True"><Setter TargetName="B" Property="Background" Value="{DynamicResource Keep.AccentSoft}"/></Trigger></ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                    <TextBlock FontSize="15"><Run Text="🎁 " FontFamily="Segoe UI Emoji, Segoe UI Symbol" Foreground="{DynamicResource Keep.GoldInk}"/><Run Text="New player? Get a free starting reward" Foreground="#FFFFFFFF" FontWeight="SemiBold"/><Run Text="  (click me)" Foreground="{DynamicResource Keep.GoldInk}"/></TextBlock>
+                                </Button>
+                                <Border x:Name="RealmRewardPanel" Visibility="Collapsed" Margin="0,8,0,0" Padding="14,10" CornerRadius="8" Background="#E00F2A1C" BorderBrush="{DynamicResource Keep.GoldInk}" BorderThickness="1" MaxWidth="640" HorizontalAlignment="Left">
+                                    <StackPanel>
+                                        <TextBlock Text="Welcome to The Realm!" FontFamily="Palatino Linotype" FontSize="18" Foreground="{DynamicResource Keep.GoldInk}"/>
+                                        <TextBlock Text="New players get a unique starting reward in game. To claim it, join our Discord, open a ticket in #open-a-ticket, pick “Coodsz Tools Reward”, and paste your reward code below. One code per Steam account." FontSize="14" Foreground="#FFE6EFE8" TextWrapping="Wrap" Margin="0,4,0,0"/>
+                                        <DockPanel Margin="0,10,0,0">
+                                            <Button DockPanel.Dock="Right" Style="{StaticResource Ghost}" Content="Copy code" Click="RealmRewardCopy_Click" ToolTip="Copies your reward code so you can paste it in the Discord ticket." Margin="8,0,0,0" Padding="14,6" Cursor="Hand"/>
+                                            <TextBox x:Name="RealmRewardCodeBox" ToolTip="Your reward code. One code per Steam account." IsReadOnly="True" FontFamily="Consolas" FontSize="17" FontWeight="Bold" Foreground="{DynamicResource Keep.GoldInk}" Background="#FF08170F" BorderBrush="#FF3F7A52" BorderThickness="1" Padding="8,5" VerticalContentAlignment="Center"/>
+                                        </DockPanel>
+                                        <TextBlock x:Name="RealmRewardHint" FontSize="13" Foreground="#FFBCD6C3" TextWrapping="Wrap" Margin="0,6,0,0"/>
+                                    </StackPanel>
+                                </Border>
+                                <StackPanel Orientation="Horizontal" Margin="0,14,0,0">
+                                    <Button x:Name="RealmJoinButton" ToolTip="Opens the invite to The Realm Discord server in your browser." Content="Join The Realm on Discord" Click="RealmJoin_Click" Cursor="Hand" Padding="24,12" FontSize="17" FontWeight="Bold" Foreground="#FFFFFFFF" BorderBrush="#FF9FE0B0" BorderThickness="1">
+                                        <Button.Template>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border x:Name="B" CornerRadius="6" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+                                                    <Border.Background><LinearGradientBrush StartPoint="0,0" EndPoint="0,1"><GradientStop x:Name="Top" Color="#FF3F8F57" Offset="0"/><GradientStop Color="#FF23663A" Offset="1"/></LinearGradientBrush></Border.Background>
+                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </Border>
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="B" Property="BorderBrush" Value="{DynamicResource Keep.GoldInk}"/></Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Button.Template>
+                                    </Button>
+                                    <Button Style="{StaticResource Ghost}" Content="Copy invite link" Click="RealmCopy_Click" ToolTip="Copies the invite link to The Realm Discord server." Margin="10,0,0,0" Padding="16,10" Cursor="Hand"/>
+                                </StackPanel>
+                                <TextBlock x:Name="RealmStatus" FontSize="13" Foreground="#FFBCD6C3" TextWrapping="Wrap" Margin="0,8,0,0"/>
+                            </StackPanel>
+                        </DockPanel>
+                    </Grid>
+                </ScrollViewer>
+                <!-- Settings: every group in a card. The page title is in the header. -->
+                <ScrollViewer x:Name="SettingsPage" Visibility="Collapsed" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                    <StackPanel VerticalAlignment="Top">
+                        <Border Style="{StaticResource Card}" Margin="0,0,0,12">
+                            <TextBlock Text="Open a section to read what each setting does. Save settings writes the host files. The running server keeps its current values until you restart it." FontFamily="Segoe UI" Foreground="{DynamicResource Keep.TextDim}" FontSize="14" TextWrapping="Wrap"/>
+                        </Border>
+                        <!-- Join: the address, password, UDP port and Steam lobby; Save settings and Start server write them. -->
+                        <Border Style="{StaticResource Card}" Margin="0,0,0,12">
+                            <StackPanel>
+                                <TextBlock Text="Join" Style="{StaticResource SectionTitle}" FontSize="20"/>
+                                <WrapPanel Margin="0,10,0,0">
+                                    <StackPanel Margin="0,0,16,8">
+                                        <TextBlock Text="Address" Foreground="{DynamicResource Keep.TextDim}" FontSize="12" Margin="0,0,0,4"/>
+                                        <TextBox x:Name="ServerAddressBox" Width="220" Height="34" LostFocus="ServerAddress_LostFocus" ToolTip="Clear this or type the address friends should use."/>
+                                    </StackPanel>
+                                    <StackPanel Margin="0,0,16,8">
+                                        <TextBlock Text="Password" Foreground="{DynamicResource Keep.TextDim}" FontSize="12" Margin="0,0,0,4"/>
+                                        <TextBox x:Name="PasswordBox" ToolTip="Friends must type this password to join. Leave it blank for no password." Width="160" Height="34"/>
+                                    </StackPanel>
+                                    <StackPanel Margin="0,0,16,8">
+                                        <TextBlock Text="UDP port" Foreground="{DynamicResource Keep.TextDim}" FontSize="12" Margin="0,0,0,4"/>
+                                        <TextBox Width="90" Height="34" Text="4200" IsReadOnly="True" ToolTip="The UDP port friends connect on. It is fixed at 4200."/>
+                                    </StackPanel>
+                                    <CheckBox x:Name="SteamBox" ToolTip="Also lists the server through Steam so friends can join with your Steam name. Used when the server starts." Content="Advertise through Steam" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Bottom" Margin="0,0,0,10"/>
+                                </WrapPanel>
+                                <TextBlock Foreground="{DynamicResource Keep.TextDim}" FontSize="13" TextWrapping="Wrap" Text="Leave Advertise through Steam off unless friends join through Steam with your Steam name. Everyone else joins on UDP port 4200."/>
+                            </StackPanel>
+                        </Border>
+                        <Expander Style="{StaticResource SettingFold}" IsExpanded="True" AutomationProperties.AutomationId="SettingTime">
+                            <Expander.Header>
+                                <StackPanel>
+                                    <TextBlock Text="Game speed" FontFamily="Palatino Linotype" FontSize="20" Foreground="{DynamicResource Keep.TextMain}"/>
+                                    <TextBlock Text="2x speed on the campaign map. Press Save settings, then restart the server so the new speed applies." FontFamily="Segoe UI" FontSize="15" Foreground="{DynamicResource Keep.TextDim}" TextWrapping="Wrap" Margin="0,4,28,0"/>
+                                </StackPanel>
+                            </Expander.Header>
+                            <StackPanel VerticalAlignment="Top">
+                                <Border BorderBrush="{DynamicResource Keep.BorderDim}" BorderThickness="0,0,0,1" Padding="0,14">
+                                    <DockPanel LastChildFill="True">
+                                        <CheckBox x:Name="FastForwardBox" ToolTip="On lets the host and every player use fast forward. Click Save settings and restart the server to use it." DockPanel.Dock="Right" Content="On" FontFamily="Segoe UI" FontSize="16" FontWeight="SemiBold" Foreground="{DynamicResource Keep.TextMain}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="16,0,0,0" AutomationProperties.AutomationId="FastForwardBox"/>
+                                        <StackPanel VerticalAlignment="Center">
+                                            <TextBlock Text="Host and players can fast forward" FontFamily="Segoe UI" FontSize="16" FontWeight="SemiBold" Foreground="{DynamicResource Keep.TextMain}" TextWrapping="Wrap"/>
+                                            <TextBlock Text="On means the fast forward button works for you and for every player. Off means you and every player stay at normal speed." FontFamily="Segoe UI" FontSize="15" Foreground="{DynamicResource Keep.TextDim}" TextWrapping="Wrap" Margin="0,2,0,0"/>
+                                        </StackPanel>
+                                    </DockPanel>
+                                </Border>
+                                <Border BorderBrush="{DynamicResource Keep.BorderDim}" BorderThickness="0,0,0,1" Padding="0,14">
+                                    <DockPanel LastChildFill="True">
+                                        <CheckBox x:Name="BattleSpeedLimitBox" ToolTip="On keeps time at normal speed while any player is in a battle. Click Save settings and restart the server to use it." DockPanel.Dock="Right" Content="On" FontFamily="Segoe UI" FontSize="16" FontWeight="SemiBold" Foreground="{DynamicResource Keep.TextMain}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="16,0,0,0" AutomationProperties.AutomationId="BattleSpeedLimitBox"/>
+                                        <StackPanel VerticalAlignment="Center">
+                                            <TextBlock Text="Stay at normal speed during a player battle" FontFamily="Segoe UI" FontSize="16" FontWeight="SemiBold" Foreground="{DynamicResource Keep.TextMain}" TextWrapping="Wrap"/>
+                                            <TextBlock Text="On means fast forward stops while any player is in a battle. Off means time can speed up during those battles." FontFamily="Segoe UI" FontSize="15" Foreground="{DynamicResource Keep.TextDim}" TextWrapping="Wrap" Margin="0,2,0,0"/>
+                                        </StackPanel>
+                                    </DockPanel>
+                                </Border>
+                                <Button Style="{StaticResource Primary}" Content="Save settings" HorizontalAlignment="Left" Margin="0,14,0,0" Click="SaveSettings_Click" AutomationProperties.AutomationId="SaveGameSpeed" ToolTip="Saves every setting on this page. Restart the server to use them."/>
+                            </StackPanel>
+                        </Expander>
+                        <Expander Style="{StaticResource SettingFold}" IsExpanded="True" AutomationProperties.AutomationId="SettingHost">
+                            <Expander.Header>
+                                <StackPanel>
+                                    <TextBlock Text="Host" FontFamily="Palatino Linotype" FontSize="20" Foreground="{DynamicResource Keep.TextMain}"/>
+                                    <TextBlock Text="How often the campaign is saved, and whether the server writes a log." FontFamily="Segoe UI" FontSize="15" Foreground="{DynamicResource Keep.TextDim}" TextWrapping="Wrap" Margin="0,4,28,0"/>
+                                </StackPanel>
+                            </Expander.Header>
+                            <StackPanel VerticalAlignment="Top">
+                                <Border BorderBrush="{DynamicResource Keep.BorderDim}" BorderThickness="0,0,0,1" Padding="0,14">
+                                    <DockPanel LastChildFill="True">
+                                        <TextBox x:Name="AutosaveBox" ToolTip="Minutes between autosaves, from 0 to 1440. 0 turns autosave off." DockPanel.Dock="Right" Width="140" Height="36" FontSize="16" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="16,0,0,0" Background="{DynamicResource Keep.BgInput}" Foreground="{DynamicResource Keep.TextMain}" BorderBrush="{DynamicResource Keep.BorderDim}" CaretBrush="{DynamicResource Keep.TextMain}" Padding="8,6" AutomationProperties.AutomationId="AutosaveBox"/>
+                                        <StackPanel VerticalAlignment="Center">
+                                            <TextBlock Text="Autosave minutes" FontFamily="Segoe UI" FontSize="16" FontWeight="SemiBold" Foreground="{DynamicResource Keep.TextMain}" TextWrapping="Wrap"/>
+                                            <TextBlock Text="How many minutes pass before the server writes the campaign again. 0 turns autosave off. Use a whole number from 0 to 1440." FontFamily="Segoe UI" FontSize="15" Foreground="{DynamicResource Keep.TextDim}" TextWrapping="Wrap" Margin="0,2,0,0"/>
+                                        </StackPanel>
+                                    </DockPanel>
+                                </Border>
+                                <Border BorderBrush="{DynamicResource Keep.BorderDim}" BorderThickness="0,0,0,1" Padding="0,14">
+                                    <DockPanel LastChildFill="True">
+                                        <CheckBox x:Name="LogFileBox" ToolTip="On makes the server write a log you can read later." DockPanel.Dock="Right" Content="On" FontFamily="Segoe UI" FontSize="16" FontWeight="SemiBold" Foreground="{DynamicResource Keep.TextMain}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="16,0,0,0"/>
+                                        <StackPanel VerticalAlignment="Center">
+                                            <TextBlock Text="Write server log" FontFamily="Segoe UI" FontSize="16" FontWeight="SemiBold" Foreground="{DynamicResource Keep.TextMain}" TextWrapping="Wrap"/>
+                                            <TextBlock Text="Keeps a log of what the host does. Leave this on if you want to read the server log later." FontFamily="Segoe UI" FontSize="15" Foreground="{DynamicResource Keep.TextDim}" TextWrapping="Wrap" Margin="0,2,0,0"/>
+                                        </StackPanel>
+                                    </DockPanel>
+                                </Border>
+                                <Button Style="{StaticResource Primary}" Content="Save settings" HorizontalAlignment="Left" Margin="0,14,0,0" Click="SaveSettings_Click" AutomationProperties.AutomationId="SaveSettings" ToolTip="Saves every setting on this page. Restart the server to use them."/>
+                            </StackPanel>
+                        </Expander>
+                        <StackPanel x:Name="GameplayPanel" VerticalAlignment="Top"/>
+                        <!-- Advanced (closed): server rules, the Coop Server Tool's controls and defaults (MainWindow.ServerRules.cs). The defaults need no setup. -->
+                        <Expander Style="{StaticResource SettingFold}" AutomationProperties.AutomationId="SettingServerRules">
+                            <Expander.Header>
+                                <StackPanel>
+                                    <TextBlock Text="Advanced: server rules" FontFamily="Palatino Linotype" FontSize="20" Foreground="{DynamicResource Keep.TextMain}"/>
+                                    <TextBlock Text="Who may use coop.unstuck, pausing the game while a player joins, freezing the skill XP of offline players, and protecting player kingdoms from AI wars. The defaults work without setup." FontFamily="Segoe UI" FontSize="15" Foreground="{DynamicResource Keep.TextDim}" TextWrapping="Wrap" Margin="0,4,28,0"/>
+                                </StackPanel>
+                            </Expander.Header>
+                            <StackPanel VerticalAlignment="Top">
+                                <Border BorderBrush="{DynamicResource Keep.BorderDim}" BorderThickness="0,0,0,1" Padding="0,14">
+                                    <DockPanel LastChildFill="True">
+                                        <ComboBox x:Name="UnstuckBox" Style="{StaticResource SettingChoice}" Width="300" Height="36" DockPanel.Dock="Right" VerticalAlignment="Center" Margin="16,0,0,0" ToolTip="Who may use coop.unstuck. Press Save settings to keep it." AutomationProperties.AutomationId="UnstuckBox"/>
+                                        <StackPanel VerticalAlignment="Center">
+                                            <TextBlock Text="Unstuck for players" FontFamily="Segoe UI" FontSize="16" FontWeight="SemiBold" Foreground="{DynamicResource Keep.TextMain}" TextWrapping="Wrap"/>
+                                            <TextBlock FontFamily="Segoe UI" FontSize="15" TextWrapping="Wrap" Margin="0,2,0,0"><Run Text="Allowed is Coop's own behaviour. The middle choice stops players from using unstuck to escape a fight: not as a prisoner, in a battle or siege, while their army fights, with enemies nearby, or again within 5 minutes. " Foreground="{DynamicResource Keep.TextDim}"/><Run Text="Host only leaves it to you: coop.unstuck with the player's id on the Console page." Foreground="{DynamicResource Keep.TextMain}"/></TextBlock>
+                                        </StackPanel>
+                                    </DockPanel>
+                                </Border>
+                                <Border BorderBrush="{DynamicResource Keep.BorderDim}" BorderThickness="0,0,0,1" Padding="0,14">
+                                    <DockPanel LastChildFill="True">
+                                        <CheckBox x:Name="PauseOnJoinBox" IsChecked="True" DockPanel.Dock="Right" Content="On" FontFamily="Segoe UI" FontSize="16" FontWeight="SemiBold" Foreground="{DynamicResource Keep.TextMain}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="16,0,0,0" AutomationProperties.AutomationId="PauseOnJoinBox" ToolTip="Pauses the game while a player joins or loads, and puts your speed back when they are on the map. It lets go after 3 minutes, and a player who was on the map once never pauses it again this session."/>
+                                        <StackPanel VerticalAlignment="Center">
+                                            <TextBlock Text="Pause the game while a player joins" FontFamily="Segoe UI" FontSize="16" FontWeight="SemiBold" Foreground="{DynamicResource Keep.TextMain}" TextWrapping="Wrap"/>
+                                            <TextBlock Text="Pauses the game while a player joins or loads, and puts your speed back when they are on the map. It lets go after 3 minutes, and a player who was on the map once never pauses it again this session." FontFamily="Segoe UI" FontSize="15" Foreground="{DynamicResource Keep.TextDim}" TextWrapping="Wrap" Margin="0,2,0,0"/>
+                                        </StackPanel>
+                                    </DockPanel>
+                                </Border>
+                                <Border BorderBrush="{DynamicResource Keep.BorderDim}" BorderThickness="0,0,0,1" Padding="0,14">
+                                    <DockPanel LastChildFill="True">
+                                        <CheckBox x:Name="FreezeOfflineXpBox" IsChecked="True" DockPanel.Dock="Right" Content="On" FontFamily="Segoe UI" FontSize="16" FontWeight="SemiBold" Foreground="{DynamicResource Keep.TextMain}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="16,0,0,0" AutomationProperties.AutomationId="FreezeOfflineXpBox" ToolTip="Players who are offline gain no skill XP until they come back. Coop already freezes their gold and food."/>
+                                        <StackPanel VerticalAlignment="Center">
+                                            <TextBlock Text="Freeze the skill XP of offline players" FontFamily="Segoe UI" FontSize="16" FontWeight="SemiBold" Foreground="{DynamicResource Keep.TextMain}" TextWrapping="Wrap"/>
+                                            <TextBlock Text="Players who are offline gain no skill XP until they come back. Coop already freezes their gold and food." FontFamily="Segoe UI" FontSize="15" Foreground="{DynamicResource Keep.TextDim}" TextWrapping="Wrap" Margin="0,2,0,0"/>
+                                        </StackPanel>
+                                    </DockPanel>
+                                </Border>
+                                <Border BorderBrush="{DynamicResource Keep.BorderDim}" BorderThickness="0,0,0,1" Padding="0,14">
+                                    <DockPanel LastChildFill="True">
+                                        <ComboBox x:Name="KingdomProtectionBox" Style="{StaticResource SettingChoice}" Width="300" Height="36" DockPanel.Dock="Right" VerticalAlignment="Center" Margin="16,0,0,0" ToolTip="When AI kingdoms may start a war with a kingdom players are in. Press Save settings to keep it." AutomationProperties.AutomationId="KingdomProtectionBox"/>
+                                        <StackPanel VerticalAlignment="Center">
+                                            <TextBlock Text="Protect player kingdoms from AI wars" FontFamily="Segoe UI" FontSize="16" FontWeight="SemiBold" Foreground="{DynamicResource Keep.TextMain}" TextWrapping="Wrap"/>
+                                            <TextBlock FontFamily="Segoe UI" FontSize="15" TextWrapping="Wrap" Margin="0,2,0,0"><Run Text="Only while their players are offline is Coop's own protection. Always also covers kingdoms whose players are online, and vassals as well as rulers. " Foreground="{DynamicResource Keep.TextDim}"/><Run Text="Wars your players start, a player attacking first and rebellions still happen." Foreground="{DynamicResource Keep.TextMain}"/></TextBlock>
+                                        </StackPanel>
+                                    </DockPanel>
+                                </Border>
+                                <TextBlock Text="Saved in coodsz-server-tools.json next to server-config.json. The server uses the unstuck, XP and Always rules within a few seconds, and players need nothing. Switching between the other kingdom choices needs a server restart." TextWrapping="Wrap" Foreground="{DynamicResource Keep.TextDim}" FontSize="13" Margin="0,10,0,0"/>
+                                <Button Style="{StaticResource Primary}" Content="Save settings" HorizontalAlignment="Left" Margin="0,14,0,0" Click="SaveSettings_Click" AutomationProperties.AutomationId="SaveServerRules" ToolTip="Saves every setting on this page. Restart the server to use them."/>
+                            </StackPanel>
+                        </Expander>
+                        <!-- Advanced (closed): the mod settings players get (MainWindow.ModSettings.cs). MCM's provider does not run on the Realm of Thrones server, so the sync sends the server's own copy of the MCM files (ServerModSettings), which takes this PC's files it is missing. -->
+                        <Expander Style="{StaticResource SettingFold}" AutomationProperties.AutomationId="SettingModSettings">
+                            <Expander.Header>
+                                <StackPanel>
+                                    <TextBlock Text="Advanced: mod settings for players" FontFamily="Palatino Linotype" FontSize="20" Foreground="{DynamicResource Keep.TextMain}"/>
+                                    <TextBlock Text="Players who join with a Coodsz launcher use your MCM settings for the session, so every PC runs the mods the same way. Their own files are never changed." FontFamily="Segoe UI" FontSize="15" Foreground="{DynamicResource Keep.TextDim}" TextWrapping="Wrap" Margin="0,4,28,0"/>
+                                </StackPanel>
+                            </Expander.Header>
+                            <StackPanel VerticalAlignment="Top">
+                                <TextBlock x:Name="ModSettingsNote" Text="The server keeps its own copy of your MCM settings. Change a value here and players get it within a few seconds. Mods you did not change or import here follow your own game's MCM each time you open this page or start the server. The ones you changed stay as you set them until you click Back to this PC's values." FontFamily="Segoe UI" FontSize="15" Foreground="{DynamicResource Keep.TextMain}" TextWrapping="Wrap" Margin="0,8,0,0"/>
+                                <!-- No MCM files on the server or this PC yet: Import comes first, so a dedicated server host finds it. -->
+                                <Border x:Name="ModSettingsEmpty" Style="{StaticResource Card}" Margin="0,14,0,0" Visibility="Collapsed" AutomationProperties.AutomationId="ModSettingsEmpty">
+                                    <StackPanel HorizontalAlignment="Center">
+                                        <TextBlock Text="No mod settings yet" Style="{StaticResource SectionTitle}" FontSize="18" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="Import the mod settings a player sends you, a .zip or a folder. Or set the mods up in MCM in your own game, then open this page again." FontFamily="Segoe UI" FontSize="15" Foreground="{DynamicResource Keep.TextDim}" TextWrapping="Wrap" TextAlignment="Center" Margin="0,6,0,12"/>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <Button Style="{StaticResource Primary}" Content="Import mod settings" Click="ImportModSettingsZip_Click" Margin="0,0,8,0" AutomationProperties.AutomationId="ImportModSettingsEmpty" ToolTip="Pick the .zip a player sent you. Only the Global MCM files of mods this server has are taken."/>
+                                            <Button Style="{StaticResource Ghost}" Content="Import a folder" Click="ImportModSettingsFolder_Click" ToolTip="Pick the folder a player sent you, such as their Configs\ModSettings folder. Only the Global MCM files of mods this server has are taken."/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                                <Grid x:Name="ModSettingsEditor" Margin="0,14,0,0" Visibility="Collapsed">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="260"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <ListBox x:Name="ModSettingsMods" MaxHeight="420" SelectionChanged="ModSettingsMods_SelectionChanged" AutomationProperties.AutomationId="ModSettingsMods" Background="{DynamicResource Keep.BgInput}" Foreground="{DynamicResource Keep.TextMain}" BorderBrush="{DynamicResource Keep.BorderDim}"/>
+                                    <ScrollViewer Grid.Column="1" MaxHeight="420" Margin="16,0,0,0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                                        <StackPanel x:Name="ModSettingsValues"/>
+                                    </ScrollViewer>
+                                </Grid>
+                                <WrapPanel x:Name="ModSettingsButtons" Margin="0,14,0,0" Visibility="Collapsed">
+                                    <Button x:Name="ModSettingsSave" Style="{StaticResource Primary}" Content="Save" Margin="0,0,8,8" Click="SaveModSettings_Click" AutomationProperties.AutomationId="SaveModSettings" ToolTip="Saves this mod's values. Players get them within a few seconds."/>
+                                    <Button Style="{StaticResource Ghost}" Content="Back to this PC's values" Margin="0,0,8,8" Click="ResetModSettings_Click" ToolTip="Puts this mod's values back to the ones MCM saved in your own game on this PC."/>
+                                    <Button Style="{StaticResource Ghost}" Content="All mods back to this PC's values" Margin="0,0,8,8" Click="ResetAllModSettings_Click" ToolTip="Puts every mod back to the values MCM saved in your own game on this PC. Imported mods this PC has no file for are removed."/>
+                                    <Button Style="{StaticResource Ghost}" Content="Import mod settings" Margin="0,0,8,8" Click="ImportModSettingsZip_Click" AutomationProperties.AutomationId="ImportModSettings" ToolTip="Pick the .zip a player sent you. Only the Global MCM files of mods this server has are taken."/>
+                                    <Button Style="{StaticResource Ghost}" Content="Import a folder" Margin="0,0,8,8" Click="ImportModSettingsFolder_Click" ToolTip="Pick the folder a player sent you, such as their Configs\ModSettings folder. Only the Global MCM files of mods this server has are taken."/>
+                                </WrapPanel>
+                                <TextBlock x:Name="ModSettingsStatus" FontFamily="Segoe UI" FontSize="15" Foreground="{DynamicResource Keep.TextMain}" TextWrapping="Wrap" Margin="0,8,0,0" AutomationProperties.AutomationId="ModSettingsStatus"/>
+                                <TextBlock x:Name="ModSettingsWarning" FontFamily="Segoe UI" FontSize="15" Foreground="{DynamicResource Keep.Warning}" TextWrapping="Wrap" Margin="0,8,0,0" Visibility="Collapsed" AutomationProperties.AutomationId="ModSettingsWarning"/>
+                                <TextBlock Text="Settings a mod keeps per campaign are saved in the world and can only be changed in game." FontFamily="Segoe UI" FontSize="13" Foreground="{DynamicResource Keep.TextDim}" TextWrapping="Wrap" Margin="0,8,0,0"/>
+                            </StackPanel>
+                        </Expander>
+                        <!-- Advanced: the server folder and the Windows fixes. Unblock DLLs turns red when the log says Windows blocked a DLL. -->
+                        <Border Style="{StaticResource Card}" Margin="0,0,0,12">
+                            <StackPanel>
+                                <TextBlock Text="Advanced: server folder" Style="{StaticResource SectionTitle}" FontSize="18" Margin="0,0,0,8"/>
+                                <WrapPanel>
+                                    <Button Style="{StaticResource Ghost}" Content="Open server folder" ToolTip="Opens the server folder in File Explorer." Margin="0,0,6,6" Click="OpenFolder_Click"/>
+                                    <Button Style="{StaticResource Ghost}" Content="Choose Coop server" Margin="0,0,6,6" Click="PickCoopServer_Click" AutomationProperties.AutomationId="ChooseCoopServer" ToolTip="Pick the folder of the unpacked Coop server. The server runs from that folder."/>
+                                </WrapPanel>
+                            </StackPanel>
+                        </Border>
+                        <Border Style="{StaticResource Card}" Margin="0,0,0,12">
+                            <StackPanel>
+                                <TextBlock Text="Advanced: Windows" Style="{StaticResource SectionTitle}" FontSize="18" Margin="0,0,0,8"/>
+                                <WrapPanel>
+                                    <Button x:Name="UnblockButton" Style="{StaticResource Ghost}" Content="Unblock DLLs" Click="Unblock_Click" ToolTip="Clears the Windows download block on files in the server folder. This button turns red when the server log says Windows blocked a DLL." Margin="0,0,6,6"/>
+                                    <Button Style="{StaticResource Ghost}" Content="Fix antivirus" Click="FixAntivirus_Click" AutomationProperties.AutomationId="FixAntivirus" ToolTip="Shows the folders your antivirus should skip on this PC and opens Windows Security. It changes no setting itself." Margin="0,0,6,6"/>
+                                </WrapPanel>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </ScrollViewer>
+                <!-- Mods: the setup tools, one notice at a time, the toolbar, then the mod rows. The page title is in the header. -->
+                <ScrollViewer x:Name="ModulesPage" Visibility="Collapsed" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                    <StackPanel>
+                        <Border Style="{StaticResource Card}" Margin="0,0,0,12">
+                            <Border.Resources>
+                                <Style x:Key="BarPrimary" TargetType="Button" BasedOn="{StaticResource Keep.BtnPrimary}">
+                                    <Setter Property="Margin" Value="0,0,8,8"/>
+                                </Style>
+                                <Style x:Key="BarGhost" TargetType="Button" BasedOn="{StaticResource Keep.BtnGhost}">
+                                    <Setter Property="Margin" Value="0,0,8,8"/>
+                                </Style>
+                                <Style x:Key="BarDanger" TargetType="Button" BasedOn="{StaticResource Keep.BtnDanger}">
+                                    <Setter Property="Margin" Value="16,0,0,8"/>
+                                </Style>
+                                <!-- A notice line inside the page, the look of a Warn banner. -->
+                                <Style x:Key="ModsWarnLine" TargetType="Border">
+                                    <Setter Property="Margin" Value="0,0,0,8"/>
+                                    <Setter Property="Padding" Value="12,8"/>
+                                    <Setter Property="CornerRadius" Value="8"/>
+                                    <Setter Property="BorderThickness" Value="1"/>
+                                    <Setter Property="Background" Value="{StaticResource Keep.WarningSoft}"/>
+                                    <Setter Property="BorderBrush" Value="{StaticResource Keep.GoldInk}"/>
+                                </Style>
+                            </Border.Resources>
+                            <StackPanel>
+                                <!-- The setup tools: the setup itself is picked in the header (ModSetupBox). -->
+                                <DockPanel LastChildFill="True" Margin="0,0,0,8">
+                                    <Button x:Name="DeleteModSetupButton" DockPanel.Dock="Right" VerticalAlignment="Top" Content="Delete" Style="{StaticResource BarDanger}" Click="DeleteModSetup_Click" ToolTip="Deletes this setup from the server tool. The locked Realm of Thrones setup cannot be deleted."/>
+                                    <Button x:Name="RenameHostSetupButton" DockPanel.Dock="Right" Content="Rename" Style="{StaticResource BarGhost}" Margin="8,0,0,0" Click="RenameHostSetup_Click" ToolTip="Gives this setup a new name. Locked setups keep their name."/>
+                                    <Button x:Name="CopyHostSetupButton" DockPanel.Dock="Right" Content="Copy" Style="{StaticResource BarGhost}" Margin="8,0,0,0" Click="CopyHostSetup_Click" ToolTip="Makes a new setup with the same mods as this one. Copy a locked setup to change it."/>
+                                    <Button x:Name="NewHostSetupButton" DockPanel.Dock="Right" Content="New setup" Style="{StaticResource BarGhost}" Margin="8,0,0,0" Click="NewHostSetup_Click" ToolTip="Makes a new setup with only the Realm of Thrones core. Then click Add mods."/>
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,0,8">
+                                        <TextBlock Text="Mod setup" Style="{StaticResource SectionTitle}" FontSize="18" VerticalAlignment="Center"/>
+                                        <Border VerticalAlignment="Center" Margin="14,0,0,0" Padding="12,3" CornerRadius="12" Background="{DynamicResource Keep.SuccessSoft}" BorderBrush="{DynamicResource Keep.Success}" BorderThickness="1" ToolTip="Players need the same mods at the same versions to join.">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock x:Name="ModuleSummaryText" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource Keep.Success}" VerticalAlignment="Center"/>
+                                                <TextBlock Text="mods on" FontSize="14" FontWeight="SemiBold" Foreground="{DynamicResource Keep.Success}" VerticalAlignment="Center" Margin="6,0,0,0"/>
+                                            </StackPanel>
+                                        </Border>
+                                    </StackPanel>
+                                </DockPanel>
+                                <DockPanel x:Name="RenameHostSetupPanel" Visibility="Collapsed" LastChildFill="True" Margin="0,0,0,8">
+                                    <Button DockPanel.Dock="Right" Content="Cancel" Style="{StaticResource BarGhost}" Margin="8,0,0,0" Click="CancelRenameHostSetup_Click" ToolTip="Closes the rename box and keeps the old name."/>
+                                    <Button DockPanel.Dock="Right" Content="Save name" Style="{StaticResource BarPrimary}" ToolTip="Saves the new name for this setup." Margin="8,0,0,0" Click="SaveHostSetupName_Click"/>
+                                    <TextBox x:Name="HostSetupNameBox" Height="34" FontSize="15" VerticalContentAlignment="Center" Padding="8,0" Background="{DynamicResource Keep.BgInput}" Foreground="{DynamicResource Keep.TextMain}" BorderBrush="{DynamicResource Keep.BorderDim}" CaretBrush="{DynamicResource Keep.TextMain}" KeyDown="HostSetupNameBox_KeyDown" ToolTip="Type the new name of this setup."/>
+                                </DockPanel>
+                                <!-- One notice at a time: the running block beats the save hint, then the other lines (BannerStack.Priority). -->
+                                <ui:BannerStack x:Name="ModsNotices" MaxShown="1" Margin="0,0,0,4">
+                                    <ui:Banner x:Name="ModsRunningBanner" Kind="Warn" Visibility="Collapsed" Margin="0,0,0,8" ui:BannerStack.Priority="0"/>
+                                    <TextBlock x:Name="HostModsSaveHint" Text="You changed the mods. Click Save mods to keep the changes." Visibility="Collapsed" Margin="0,0,0,8" FontSize="15" FontWeight="SemiBold" TextWrapping="Wrap" Foreground="{DynamicResource Keep.Warning}" ui:BannerStack.Priority="1"/>
+                                    <TextBlock x:Name="ModSetupStatus" AutomationProperties.AutomationId="ModSetupStatus" Visibility="Collapsed" Margin="0,0,0,8" FontSize="15" FontWeight="SemiBold" TextWrapping="Wrap" Foreground="{DynamicResource Keep.TextDim}" ui:BannerStack.Priority="2"/>
+                                    <Border x:Name="ExtrasNotLoadedBar" Visibility="Collapsed" Style="{StaticResource ModsWarnLine}" ui:BannerStack.Priority="3">
+                                        <TextBlock x:Name="ExtrasNotLoadedText" TextWrapping="Wrap" Foreground="{DynamicResource Keep.Amber}" FontSize="15" FontWeight="SemiBold"/>
+                                    </Border>
+                                    <TextBlock x:Name="ShareModListHint" Text="Players need the same mods in the same order. Click Share mod list and send it to them." Visibility="Collapsed" Margin="0,0,0,8" FontSize="15" FontWeight="SemiBold" TextWrapping="Wrap" Foreground="{DynamicResource Keep.Amber}" ui:BannerStack.Priority="4"/>
+                                </ui:BannerStack>
+                                <!-- The toolbar, with the full mod list link at its end, before the grey line. -->
+                                <WrapPanel x:Name="ModuleToolbar">
+                                    <Button x:Name="AddHostModsButton" Content="Add mods" Style="{StaticResource Keep.BtnGold}" Margin="0,0,8,8" Click="AddHostMods_Click" ToolTip="Picks mods already on this PC, from the Steam Workshop or the game's Modules folder."/>
+                                    <Button x:Name="SaveHostModsButton" Content="Save mods" Style="{StaticResource BarPrimary}" Click="SaveHostMods_Click" ToolTip="Keeps the mod changes on this setup. Start server uses the saved list."/>
+                                    <Button x:Name="InstallHostModsButton" Content="Install mods" Style="{StaticResource BarPrimary}" Click="InstallHostMods_Click" ToolTip="Downloads the extra Workshop mods of this setup that are not on this PC yet, so Start server can copy them to the server."/>
+                                    <Button x:Name="ModsMoreButton" Style="{StaticResource BarGhost}" Content="More ▾" Click="ModsMore_Click" ToolTip="Import mod list, Share mod list and Auto sort.">
+                                        <Button.ContextMenu>
+                                            <ContextMenu Style="{StaticResource Keep.Menu}">
+                                                <MenuItem x:Name="ImportListItem" Header="Import mod list" Click="ImportModList_Click" ToolTip="Opens a mod list file a player shared from the client launcher."/>
+                                                <MenuItem Header="Share mod list" Click="ShareModList_Click" ToolTip="Saves this setup to a mod list file. Players click Import mod list in the client launcher."/>
+                                                <MenuItem x:Name="AutoSortHostButton" Header="Auto sort" Click="AutoSortHost_Click" ToolTip="Auto sort can move the Realm of Thrones group past extra mods. The four modules stay together."/>
+                                            </ContextMenu>
+                                        </Button.ContextMenu>
+                                    </Button>
+                                </WrapPanel>
+                                <TextBlock x:Name="ModWarning" AutomationProperties.AutomationId="ModWarning" Text="The Realm of Thrones core always loads as it is. Extra mods come from the mod setup below." Foreground="{DynamicResource Keep.TextDim}" FontSize="15" TextWrapping="Wrap" Margin="0,2,0,0" ToolTip="Realm of Thrones Coop Compat always loads last."/>
+                            </StackPanel>
+                        </Border>
+                        <ListBox x:Name="OrderList" Margin="0" Background="Transparent" BorderThickness="0" Foreground="{DynamicResource Keep.TextMain}" Padding="0"
+ ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+ ScrollViewer.CanContentScroll="False" VirtualizingPanel.IsVirtualizing="False"
+ ItemContainerStyle="{StaticResource ModuleRow}" HorizontalContentAlignment="Stretch">
+<ListBox.ItemsPanel>
+<ItemsPanelTemplate>
+    <StackPanel/>
+</ItemsPanelTemplate>
+</ListBox.ItemsPanel>
+<ListBox.ItemTemplate>
+<DataTemplate>
+    <!-- Fixed columns (ModRowLayout): the switch slot, the number, the name, the chip column and the button slot keep
+         their width on every row, so a core row without the switch and the buttons lines up with an extra mod row. -->
+    <Grid Background="Transparent" ToolTip="{Binding RowTip}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="32"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" Width="{x:Static ui:ModRowLayout.SwitchColumn}" VerticalAlignment="Center">
+            <CheckBox Style="{StaticResource Keep.Switch}" IsChecked="{Binding IsOn, Mode=OneWay}" IsEnabled="{Binding CanEdit}" Visibility="{Binding EditVisibility}" VerticalAlignment="Center" Cursor="Hand" Click="ToggleHostMod_Click" ToolTip="On loads this mod. Off keeps it on the setup without loading it."/>
+        </Border>
+        <Border Grid.Column="1" VerticalAlignment="Center">
+            <TextBlock Text="{Binding Number}" Width="32" FontFamily="Segoe UI" FontSize="15" Foreground="{DynamicResource Keep.GoldInk}" VerticalAlignment="Center"/>
+        </Border>
+        <Border Grid.Column="2" VerticalAlignment="Center" Margin="0,0,12,0">
+            <TextBlock Text="{Binding Name}" FontFamily="Segoe UI" FontSize="16" FontWeight="SemiBold" Foreground="{DynamicResource Keep.TextMain}" VerticalAlignment="Center" TextTrimming="CharacterEllipsis"/>
+        </Border>
+        <StackPanel Grid.Column="3" Width="{x:Static ui:ModRowLayout.ChipColumn}" VerticalAlignment="Center">
+            <WrapPanel>
+                <TextBlock Text="{Binding NoteText}" FontFamily="Segoe UI" FontSize="12" Foreground="{Binding NoteBrush}" Margin="0,0,8,0" VerticalAlignment="Center"/>
+                <!-- The list status chip from the Realm of Thrones list (an extra mod only), then this PC's own result. -->
+                <Border Background="{Binding BadgeBack}" CornerRadius="9" Padding="7,1" Margin="0,0,6,0" VerticalAlignment="Center" Visibility="{Binding BadgeVisibility}" ToolTip="{Binding BadgeNote}">
+                    <TextBlock Text="{Binding BadgeText}" FontFamily="Segoe UI" FontSize="11" FontWeight="SemiBold" Foreground="{Binding BadgeInk}"/>
+                </Border>
+                <Border Background="{Binding MineBackground}" BorderBrush="{Binding MineInk}" BorderThickness="1" CornerRadius="9" Padding="7,1" Margin="0,0,6,0" VerticalAlignment="Center" Opacity="{Binding MineOpacity}" Visibility="{Binding MineVisibility}" ToolTip="{Binding Mine.Tip}">
+                    <TextBlock Text="{Binding Mine.Text}" FontFamily="Segoe UI" FontSize="11" FontWeight="SemiBold" Foreground="{Binding MineInk}"/>
+                </Border>
+            </WrapPanel>
+            <!-- What players reported (ModReportUi.CountChips, from the Realm of Thrones list) and the small Report link (ModReportUi.RowLink),
+                 built in MainWindow.ReportChips. -->
+            <ContentControl Content="{Binding Reports}" VerticalAlignment="Center" Focusable="False" IsTabStop="False"/>
+        </StackPanel>
+        <Border Grid.Column="4" Width="{x:Static ui:ModRowLayout.EditButtonsColumn}" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Visibility="{Binding OrderActionsVisibility}">
+                <Button Content="▲" Style="{StaticResource Ghost}" MinHeight="28" Padding="9,1" Margin="4,0,0,0" FontSize="12" IsEnabled="{Binding CanMove}" Click="MoveHostModUp_Click" ToolTip="Move up"/>
+                <Button Content="▼" Style="{StaticResource Ghost}" MinHeight="28" Padding="9,1" Margin="4,0,0,0" FontSize="12" IsEnabled="{Binding CanMove}" Click="MoveHostModDown_Click" ToolTip="Move down"/>
+                <Button Content="✕" Style="{StaticResource Ghost}" MinHeight="28" Padding="9,1" Margin="4,0,0,0" FontSize="12" Visibility="{Binding EditVisibility}" IsEnabled="{Binding CanEdit}" Click="RemoveHostMod_Click" ToolTip="Remove from this setup. The mod stays installed."/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</DataTemplate>
+</ListBox.ItemTemplate>
+</ListBox>
+                    </StackPanel>
+                </ScrollViewer>
+                <!-- Logs: the server log in the dark frame of the Dashboard's log card, the buttons in a card under it. -->
+                <Grid x:Name="LogsPage" Visibility="Collapsed">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Border CornerRadius="8" BorderThickness="1" Padding="14,10" Background="{DynamicResource Keep.SidebarBack}" BorderBrush="{DynamicResource Keep.Line}">
+                        <DockPanel>
+                            <TextBlock Text="Live lines from the server. Commands stay on Console." FontSize="12" FontWeight="SemiBold" Foreground="{DynamicResource Keep.TextDim}" DockPanel.Dock="Top" Margin="0,0,0,8"/>
+                            <TextBox x:Name="LogBox" IsReadOnly="True" TextWrapping="NoWrap" AcceptsReturn="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Background="{DynamicResource Keep.SidebarBack}" Foreground="{DynamicResource Keep.TextMain}" BorderBrush="{DynamicResource Keep.BorderDim}" FontFamily="Consolas" FontSize="13"/>
+                        </DockPanel>
+                    </Border>
+                    <!-- My reports shows beside Send my logs once a report was sent (ReportRepliesUi.AddMyReports). -->
+                    <Border Grid.Row="1" Style="{StaticResource Card}" Margin="0,12,0,0">
+                        <WrapPanel>
+                            <Button Content="Open server logs"
+                                    HorizontalAlignment="Left"
+                                    Margin="0,0,8,8"
+                                    Padding="14,8"
+                                    FontFamily="Segoe UI"
+                                    FontWeight="SemiBold"
+                                    Background="{DynamicResource Keep.WarningSoft}"
+                                    Foreground="{DynamicResource Keep.GoldInk}"
+                                    BorderBrush="{DynamicResource Keep.GoldInk}"
+                                    BorderThickness="2"
+                                    Cursor="Hand"
+                                    Template="{StaticResource HoverButton}"
+                                    Click="OpenLogs_Click"
+                                    ToolTip="Opens the logs folder and selects the newest coop-server log plus a dated host-action copy for Discord."/>
+                            <Button x:Name="LogsSendLogsButton" Style="{StaticResource Ghost}" Content="Send my logs" Margin="0,0,8,8" Click="SendLogs_Click" ToolTip="Sending logs and reports is not set up yet for the Realm of Thrones tools."/>
+                            <ContentControl x:Name="LogsMyReportsSlot" Focusable="False" VerticalAlignment="Center" Margin="0,0,8,8"/>
+                        </WrapPanel>
+                    </Border>
+                </Grid>
+                <Grid x:Name="ConsolePage" Visibility="Collapsed">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <!-- The output card's chips, command box and buttons take about 150 to 180 on their own, so this row's minimum keeps room for the output box (BE #14). -->
+                        <RowDefinition Height="3*" MinHeight="280"/>
+                        <RowDefinition Height="Auto"/>
+                        <!-- The command browser's search box, Side pills and count line take about 130, so 175 still shows a line or two of commands. Both minimums together fit the 720 high window. -->
+                        <RowDefinition Height="2*" MinHeight="175"/>
+                    </Grid.RowDefinitions>
+                    <!-- The page title (Console) is in the header; the reference link and the state line sit in a card over the backdrop. -->
+                    <Border Style="{StaticResource Card}" Margin="0,0,0,8" Padding="14,10">
+                        <StackPanel>
+                            <TextBlock TextWrapping="Wrap" Foreground="{DynamicResource Keep.TextDim}" FontSize="15">
+                                <Run Text="What you send, the replies and the live server lines. Command reference: "/>
+                                <Hyperlink Click="OpenCommandReference_Click" Foreground="{DynamicResource Keep.GoldInk}" TextDecorations="Underline">https://bannerlordcoop.com/cheats?tab=all</Hyperlink><Run Text=". Some commands can crash this host."/>
+                            </TextBlock>
+                            <TextBlock x:Name="ConsoleHint" TextWrapping="Wrap" Foreground="{DynamicResource Keep.TextMain}" FontSize="15" Margin="0,6,0,0"/>
+                        </StackPanel>
+                    </Border>
+                    <!-- Live server output, the command box and the recent commands, in a card so the tick boxes read over the backdrop. -->
+                    <Border Grid.Row="1" Style="{StaticResource Card}" Padding="10">
+                        <DockPanel>
+                            <WrapPanel DockPanel.Dock="Bottom" x:Name="RecentCommands" Margin="0,6,0,0" Tag="coodsz:no-translate"/>
+                            <DockPanel DockPanel.Dock="Bottom" Margin="0,8,0,0">
+                                <Button DockPanel.Dock="Right" Style="{StaticResource Primary}" Content="Send" Click="Send_Click" ToolTip="Sends the command in the box to the server console. Enter does the same." AutomationProperties.AutomationId="SendCommand"/>
+                                <TextBox x:Name="CommandBox" ToolTip="Type a server console command, then press Enter or click Send." KeyDown="CommandBox_KeyDown" AutomationProperties.AutomationId="CommandBox"/>
+                            </DockPanel>
+                            <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Margin="0,8,0,0">
+                                <Button Style="{StaticResource Ghost}" Content="Clear" Margin="0" Click="ClearConsole_Click" ToolTip="Clears this console box. It does not touch the server log."/>
+                                <Button Style="{StaticResource Ghost}" Content="Copy" Margin="8,0,0,0" Click="CopyConsole_Click" ToolTip="Copies everything in this console box."/>
+                                <CheckBox x:Name="AutoScroll" Content="Auto scroll" IsChecked="True" VerticalAlignment="Center" Margin="16,0,0,0" ToolTip="Keeps the list scrolled to the newest line."/>
+                                <CheckBox x:Name="ConsoleServerLines" Content="Show server output" IsChecked="True" VerticalAlignment="Center" Margin="12,0,0,0" ToolTip="Shows the live server output in the list too, not only what you send."/>
+                            </StackPanel>
+                            <RichTextBox x:Name="HistoryBox" IsReadOnly="True" IsUndoEnabled="False" VerticalScrollBarVisibility="Auto" Background="{DynamicResource Keep.SidebarBack}" Foreground="{DynamicResource Keep.TextMain}" BorderBrush="{DynamicResource Keep.BorderDim}" FontFamily="Consolas" FontSize="13" AutomationProperties.AutomationId="HistoryBox">
+                                <FlowDocument Background="{DynamicResource Keep.SidebarBack}" PagePadding="0" FontFamily="Consolas" FontSize="13"/>
+                            </RichTextBox>
+                        </DockPanel>
+                    </Border>
+                    <GridSplitter Grid.Row="2" Height="8" HorizontalAlignment="Stretch" VerticalAlignment="Center" Background="Transparent" Cursor="SizeNS" ResizeBehavior="PreviousAndNext"/>
+                    <!-- Every Coop command from bannerlordcoop.com/cheats, shared with the Coop Server Tool (CoodszHost\Shared\CoopCommandBrowser.xaml) -->
+                    <ui:CoopCommandBrowser x:Name="CommandBrowser" Grid.Row="3"/>
+                </Grid>
+                <!-- Cheats: player cards, category chips and one form per cheat. -->
+                <local:CoopCheatsPage x:Name="CoopCheats" Visibility="Collapsed"/>
+                <!-- Encyclopedia: the note, then one row per link of RotEncyclopedia (ShowEncyclopedia in MainWindow.Frame.cs). -->
+                <ScrollViewer x:Name="EncyclopediaPage" Visibility="Collapsed" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                    <StackPanel MaxWidth="760" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Border Style="{StaticResource Card}" Margin="0,0,0,12">
+                            <TextBlock x:Name="EncyclopediaNote" FontFamily="Segoe UI" Foreground="{DynamicResource Keep.TextDim}" FontSize="14" TextWrapping="Wrap"/>
+                        </Border>
+                        <Border Style="{StaticResource Card}">
+                            <StackPanel>
+                                <StackPanel x:Name="EncyclopediaList"/>
+                                <TextBlock x:Name="EncyclopediaStatus" FontFamily="Segoe UI" Foreground="{DynamicResource Keep.TextDim}" FontSize="14" TextWrapping="Wrap" Visibility="Collapsed" Tag="coodsz:no-translate"/>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </ScrollViewer>
+                <!-- Guides: the tool's own help pages (TaomGuidesPage, filled the first time it opens). -->
+                <ContentControl x:Name="GuidesPage" Visibility="Collapsed"/>
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Window>

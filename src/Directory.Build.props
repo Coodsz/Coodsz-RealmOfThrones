@@ -1,0 +1,14 @@
+<Project>
+
+  <!--
+    Every project under src. Windows and antivirus tools read the publisher and copyright from the exe, and
+    the product version a player sees stays the plain version, without the "+commit" the SDK adds by default.
+    Each tool csproj sets its own Description.
+  -->
+  <PropertyGroup>
+    <Company>Coodsz</Company>
+    <Copyright>Copyright (c) 2026 Coodsz</Copyright>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+  </PropertyGroup>
+
+</Project>

@@ -1,0 +1,35 @@
+{
+  "id": "getting-started",
+  "title": "Getting started",
+  "summary": "Get your game ready for Realm of Thrones Coop.",
+  "sections": [
+    {
+      "heading": "What you need",
+      "steps": [
+        "Bannerlord 1.4.8 on Steam for Windows, with the War Sails DLC.",
+        "Realm of Thrones 8.1.2 from Nexus Mods in the game's Modules folder. The tools never contain it.",
+        "Harmony, ButterLib and UIExtenderEx from the Steam Workshop, and MCM from Nexus Mods.",
+        "Realm of Thrones Coop Compat and the Realm of Thrones build of Coop come with the launcher."
+      ],
+      "tip": "Official Coop 0.1.8 for Bannerlord 1.5.7 is currently available only on GitHub. The RoT tools include the Coop build for Bannerlord 1.4.8."
+    },
+    {
+      "heading": "Before you join",
+      "steps": [
+        "Close Bannerlord.",
+        "Ask the host for their mod list. On the Mods page, click Import mod list and pick that file.",
+        "On Play, click Check mods. Connect gets Harmony, ButterLib and UIExtenderEx from the Steam Workshop when one is missing.",
+        "MCM and the Realm of Thrones core are not downloaded for you. Get them from Nexus Mods."
+      ]
+    },
+    {
+      "heading": "Your own Coop",
+      "steps": [
+        "Connect puts the launcher's Realm of Thrones build of Coop into the game's Modules folder as Modules\\Coop.",
+        "If you had another Coop there, it asks first, sets it aside in the game folder and puts it back when you close the launcher.",
+        "Nothing of yours is deleted.",
+        "Do not put your own Coop in Modules\\Coop by hand while you use the launcher."
+      ]
+    }
+  ]
+}
