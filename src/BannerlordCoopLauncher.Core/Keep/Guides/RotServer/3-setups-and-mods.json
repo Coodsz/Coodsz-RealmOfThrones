@@ -1,0 +1,32 @@
+{
+  "id": "setups-and-mods",
+  "title": "Setups and mods",
+  "summary": "Host Plain Realm of Thrones or your own setup with extra mods.",
+  "sections": [
+    {
+      "heading": "Setups",
+      "steps": [
+        "Plain Realm of Thrones is the locked setup. It is exactly Realm of Thrones and its helper mods, in a fixed order.",
+        "To add mods, click New setup or Copy on the Mods page.",
+        "Every player must load the same extra mods, even interface mods.",
+        "Click Prepare server again after you change the mods."
+      ]
+    },
+    {
+      "heading": "The More menu on the Mods page",
+      "steps": [
+        "Share mod list saves this setup to a file for your players.",
+        "Import mod list makes a setup from a file a player shared.",
+        "Auto sort can move the Realm of Thrones group past extra mods. The four modules stay together."
+      ]
+    },
+    {
+      "heading": "War Sails",
+      "steps": [
+        "War Sails is always on, because Realm of Thrones needs it.",
+        "Realm of Thrones needs the War Sails DLC on every player's PC.",
+        "The server copies the War Sails files it needs from your own game, so keep the game installed on this PC."
+      ]
+    }
+  ]
+}

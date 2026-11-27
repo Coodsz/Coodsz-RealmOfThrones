@@ -1,0 +1,34 @@
+{
+  "id": "kingdom-size",
+  "title": "Kingdom size",
+  "summary": "Max clans per kingdom, so one kingdom cannot take every clan on the server.",
+  "sections": [
+    {
+      "heading": "Setting a limit",
+      "steps": [
+        "Open the Settings page and find Max clans per kingdom in the Kingdoms group.",
+        "Type the most clans one kingdom may have. The ruling clan counts too. 0 means no limit.",
+        "Tick Count mercenaries to count mercenary clans as well, so a full kingdom cannot hire more.",
+        "Press Save settings. The server picks it up within a few seconds, even while it runs."
+      ]
+    },
+    {
+      "heading": "What a full kingdom cannot do",
+      "steps": [
+        "Players cannot join it as vassals, and with Count mercenaries not as mercenaries either.",
+        "Its ruler cannot recruit more lords. The player sees why when the barter is refused.",
+        "AI clans do not choose to join it or defect to it.",
+        "Clans already in the kingdom stay. New kingdoms, rebellions and marriages work as before."
+      ]
+    },
+    {
+      "heading": "The settings file",
+      "steps": [
+        "The limit is kept in coodsz-server-tools.json next to server-config.json, in Documents, Mount and Blade II Bannerlord, CoopData, DedicatedServer.",
+        "It holds maxClansPerKingdom and countMercenaries. You can also edit it by hand.",
+        "Each refusal is one line in the server log, starting with Coodsz Server Tools."
+      ],
+      "tip": "Pick a number a little above the biggest kingdom at the start, so every kingdom can still grow a bit."
+    }
+  ]
+}

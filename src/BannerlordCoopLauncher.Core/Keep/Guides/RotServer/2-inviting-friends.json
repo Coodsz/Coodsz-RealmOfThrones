@@ -1,0 +1,46 @@
+{
+  "id": "inviting-friends",
+  "title": "Inviting friends",
+  "summary": "Get your friends into your Realm of Thrones server.",
+  "sections": [
+    {
+      "heading": "Send your mod list",
+      "steps": [
+        "On the Mods page, open More and click Share mod list.",
+        "Send the file to your players. They click Import mod list in the client launcher before they join."
+      ],
+      "tip": "Every player needs the same mods as the server, so send the file again after you change the setup."
+    },
+    {
+      "heading": "Join with your address",
+      "steps": [
+        "Give players your IP address and UDP port 4200. That is the recommended way.",
+        "Forward UDP port 4200 on your router.",
+        "Open the port on my router automatically and Allow through firewall on the Dashboard help when friends cannot reach you.",
+        "Do not give friends any port other than 4200."
+      ]
+    },
+    {
+      "heading": "Steam lobby",
+      "steps": [
+        "Leave Advertise through Steam off unless friends join through Steam with your Steam name. Everyone else joins on UDP port 4200.",
+        "To use it, tick Advertise through Steam on the Settings page before you click Start server.",
+        "Keep Steam running and give friends your Steam profile name."
+      ]
+    },
+    {
+      "heading": "Password",
+      "steps": [
+        "Type a password under Join on the Settings page if you want one.",
+        "Give players that same password. An empty password is fine."
+      ]
+    },
+    {
+      "heading": "The first join",
+      "steps": [
+        "A player's first join takes several minutes while their game compiles shaders and prepares the map.",
+        "The server waits longer than normal for a joining player, so do not kick them."
+      ]
+    }
+  ]
+}

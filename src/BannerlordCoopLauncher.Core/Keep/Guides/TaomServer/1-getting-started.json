@@ -1,0 +1,56 @@
+{
+  "id": "getting-started",
+  "title": "Getting started",
+  "summary": "Host your first TAOM Coop server.",
+  "sections": [
+    {
+      "heading": "What you need",
+      "steps": [
+        "Bannerlord 1.4.8, TAOM 2.0.29.5 and Bannerlord Coop from the Steam Workshop (3770450698), set up like a player.",
+        "TAOM.CoopCompat 0.3.25 needs Coop 0.1.6, and Steam now has Coop 0.1.7.",
+        "So hosting needs a Coop 0.1.6 dedicated server. Get it from Coop's GitHub release or the archived files on Nexus Mods.",
+        "Unpack it with 7-Zip, then click Choose Coop 0.1.6 server on the Saves page and pick that folder. Prepare server shows both links.",
+        "The TAOM.CoopCompat 0.3.25 HOST-OPERATOR zip is built into the server tool, so there is nothing to download for it.",
+        "While the Workshop has Coop 0.1.6, the tool finds its dedicated server by itself."
+      ],
+      "tip": "Use the TAOM client launcher first, so TAOM and Coop are installed the right way."
+    },
+    {
+      "heading": "Bannerlord 1.5.7 (new)",
+      "steps": [
+        "On Bannerlord 1.5.7 the tool hosts TAOM on the Coop v0.1.8 dedicated server. Coop 0.1.8 is not on the Steam Workshop.",
+        "Download BannerlordCoop-DedicatedServer-Win64-v0.1.8.7z. The link is in manifest.json on Coop's v0.1.8 GitHub release.",
+        "Unpack it with 7-Zip into a folder of its own.",
+        "Click Prepare server on the Saves page and pick that folder. It copies your own TAOM into the server. After a TAOM update, click Prepare server again.",
+        "Extra mods and a few server buttons don't work on a 1.5.7 server yet. The tool says so."
+      ]
+    },
+    {
+      "heading": "Make a campaign",
+      "steps": [
+        "Open Bannerlord, start a new TAOM campaign in single player and save it. This tool does not make one.",
+        "Back in the tool, pick that save under Pick that save.",
+        "If it says Single player copy, click Name server copy. Your Documents save stays as it is.",
+        "Old TAOM 2.0.27 campaigns do not load on 2.0.29.5, so start a new 2.0.29.5 campaign."
+      ]
+    },
+    {
+      "heading": "Start the server",
+      "steps": [
+        "Click Prepare server once. It builds the host folder. If the folder is already there, skip this.",
+        "Click Start server.",
+        "The first time, read the Coop server terms and click I accept.",
+        "Wait until the status says Server online. A gold bar shows the progress while it starts."
+      ],
+      "tip": "The first start of a new campaign builds the map cache and can take up to an hour. Do not stop the server while it does."
+    },
+    {
+      "heading": "Next time",
+      "steps": [
+        "The same campaign stays ready. Pick the Server copy and click Start server.",
+        "Stop server saves the world first, then closes the server.",
+        "Press What's new under the language button to see what changed in the last few versions."
+      ]
+    }
+  ]
+}

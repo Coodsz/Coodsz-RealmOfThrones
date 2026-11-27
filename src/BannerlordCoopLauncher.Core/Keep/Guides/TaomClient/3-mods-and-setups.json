@@ -1,0 +1,52 @@
+{
+  "id": "mods-and-setups",
+  "title": "Mods and setups",
+  "summary": "Play TAOM with extra mods, the same ones as your host.",
+  "sections": [
+    {
+      "heading": "Setups",
+      "steps": [
+        "Plain TAOM is locked. It loads only the TAOM core, the same as the host's plain server.",
+        "TAOM plus is a locked set of mods tested in Coop with TAOM. Install mods gets them for you.",
+        "For your own mods, open the Settings page, click New setup or Copy, give it a name and click Rename.",
+        "Delete removes only the setup. Its mods stay installed."
+      ]
+    },
+    {
+      "heading": "Add mods",
+      "steps": [
+        "Click Add mods and pick mods from the Workshop or the game's Modules folder.",
+        "Drag a mod, or use the arrows, to move it. Extra mods go before or after the TAOM core, never inside it.",
+        "Turn a mod's switch off to keep it on the setup without loading it. The ✕ removes it from the setup and leaves it installed.",
+        "Click Save mods to keep the changes. Connect uses the saved list.",
+        "Install mods downloads the Workshop mods of the setup you do not have yet."
+      ],
+      "tip": "The host has to load the same extra mods, or the server turns the join down."
+    },
+    {
+      "heading": "The More menu on the Mods page",
+      "steps": [
+        "Auto sort orders the extra mods from what each mod says it needs. The TAOM core does not move.",
+        "Share mod list saves a file the host and your friends can import.",
+        "Import mod list makes the setup from that file and downloads the Workshop mods you are missing.",
+        "Mod list shows the TAOM mod list with a search, and Add to setup puts a mod in your setup."
+      ]
+    },
+    {
+      "heading": "Badges",
+      "steps": [
+        "Each mod shows its TAOM list badge, like Tested safe, Risky or Known broken. Hover it for the note.",
+        "Next to it you see your own result, like Worked for you or Crashed for you.",
+        "Mods no list knows show Unknown, not tested. A known broken mod asks before it is added."
+      ]
+    },
+    {
+      "heading": "Done for you",
+      "steps": [
+        "Before every launch, mods that ask for Harmony, ButterLib, UIExtenderEx or MCM are fixed to use TAOM.Dependencies. They go back when the game closes.",
+        "If the game was closed by force, More and then Undo dependency fix puts those mods back.",
+        "Blocked DLLs are unblocked by themselves before every launch."
+      ]
+    }
+  ]
+}

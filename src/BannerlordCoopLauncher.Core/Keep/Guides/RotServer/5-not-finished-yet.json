@@ -1,0 +1,31 @@
+{
+  "id": "not-finished-yet",
+  "title": "Not finished yet",
+  "summary": "What is off or still being tested in this first version.",
+  "sections": [
+    {
+      "heading": "Off in Coop",
+      "steps": [
+        "Enlistment, duels, the White Walker start and ravens are off.",
+        "Dragons are not tested in Coop yet.",
+        "Changing the storyline wars is off too. The game says so when a player tries."
+      ]
+    },
+    {
+      "heading": "Still being tested",
+      "steps": [
+        "Sieges are still being tested. In some tests the siege menu showed only Leave, with no way to start the assault.",
+        "One big battle at Casterly Rock stopped near the end.",
+        "A few Realm of Thrones details, like militia sizes, may show the old state on a player's PC until Coop sends them."
+      ]
+    },
+    {
+      "heading": "If something goes wrong",
+      "steps": [
+        "If Prepare server or Start server finds problems, the status line shows the first one. The rest are in the log.",
+        "Click Send my logs in the sidebar or on the Logs page. You see every file first, then you get a short code. Post only that code on Discord.",
+        "Click Open server logs on the Logs page to find the log files."
+      ]
+    }
+  ]
+}

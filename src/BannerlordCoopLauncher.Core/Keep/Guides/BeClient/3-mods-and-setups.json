@@ -1,0 +1,43 @@
+{
+  "id": "mods-and-setups",
+  "title": "Mods and setups",
+  "summary": "Play Burning Empires with extra mods, the same ones as your host.",
+  "sections": [
+    {
+      "heading": "Setups",
+      "steps": [
+        "Burning Empires is locked. It loads Burning Empires with Elephants, its Coop compat, Harmony, ButterLib, UIExtenderEx and MCM.",
+        "For your own mods, open the Settings page, click New setup or Copy, give it a name and click Rename.",
+        "Delete removes only the setup. Its mods stay installed."
+      ]
+    },
+    {
+      "heading": "Add mods",
+      "steps": [
+        "Click Add mods and pick mods from the Workshop or the game's Modules folder.",
+        "Drag a mod, or use the arrows, to move it. Extra mods go before Coop or after Burning Empires, never inside the core.",
+        "Turn a mod's switch off to keep it on the setup without loading it. The ✕ removes it from the setup and leaves it installed.",
+        "Click Save mods to keep the changes. Connect uses the saved list.",
+        "Install mods downloads the Workshop mods of the setup you do not have yet."
+      ],
+      "tip": "The host has to load the same extra mods, or the server turns the join down."
+    },
+    {
+      "heading": "The More menu on the Mods page",
+      "steps": [
+        "Auto sort orders the extra mods from what each mod says it needs. The Burning Empires core does not move.",
+        "Share mod list saves a file the host and your friends can import.",
+        "Import mod list makes the setup from that file and downloads the Workshop mods you are missing. A mod list from another overhaul is turned down.",
+        "Mod list shows the Burning Empires mod list with a search, and Add to setup puts a mod in your setup."
+      ]
+    },
+    {
+      "heading": "Badges",
+      "steps": [
+        "Each mod shows its Burning Empires list badge, like Tested safe, Risky or Known broken. Hover it for the note.",
+        "Next to it you see your own result, like Worked for you or Crashed for you.",
+        "Mods no list knows show Unknown, not tested. A known broken mod asks before it is added."
+      ]
+    }
+  ]
+}

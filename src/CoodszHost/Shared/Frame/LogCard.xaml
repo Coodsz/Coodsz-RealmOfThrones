@@ -1,0 +1,15 @@
+<UserControl x:Class="Coodsz.Ui.LogCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- A dark card of the newest log lines in a mono font (Push in LogCard.xaml.cs). Warnings amber, errors red. -->
+    <Border x:Name="Frame" CornerRadius="8" BorderThickness="1" Padding="14,10">
+        <DockPanel LastChildFill="True">
+            <DockPanel DockPanel.Dock="Top" LastChildFill="False" Margin="0,0,0,6">
+                <TextBlock x:Name="Heading" DockPanel.Dock="Left" FontSize="11" FontWeight="SemiBold" VerticalAlignment="Center" Text="Recent server output"/>
+                <Button x:Name="OpenButton" DockPanel.Dock="Right" Style="{DynamicResource Keep.BtnLink}" Content="Open full log" Click="Open_Click" ToolTip="Opens the page with every log line."/>
+                <Button x:Name="CopyButton" DockPanel.Dock="Right" Style="{DynamicResource Keep.BtnLink}" Content="Copy" Click="Copy_Click" ToolTip="Copies the lines in this card."/>
+            </DockPanel>
+            <ItemsControl x:Name="Lines" Focusable="False" FontFamily="Consolas" FontSize="11.5"/>
+        </DockPanel>
+    </Border>
+</UserControl>

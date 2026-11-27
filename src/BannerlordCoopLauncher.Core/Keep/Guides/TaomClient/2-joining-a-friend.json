@@ -1,0 +1,36 @@
+{
+  "id": "joining-a-friend",
+  "title": "Joining a friend",
+  "summary": "Connect to your friend's TAOM server.",
+  "sections": [
+    {
+      "heading": "Direct",
+      "steps": [
+        "Click Direct.",
+        "Type the host's address in Address. A 192.168 address only works on the same Wi Fi.",
+        "Type the port the host set. It is UDP 4200 unless the host changed it.",
+        "Type the password, or leave it empty when the server has none. Show lets you see it.",
+        "Pick the same mod setup as the host, then click Connect."
+      ],
+      "tip": "Check server tests if a server answers on that address. No reply does not always mean the server is stopped."
+    },
+    {
+      "heading": "Steam lobby",
+      "steps": [
+        "Steam has to run on both PCs. A Steam lobby needs no port forwarding.",
+        "Click Steam lobby and type the host's Steam profile name, the name friends see in Steam, not the login name.",
+        "Click Connect. The launcher looks for the lobby and starts the game."
+      ],
+      "tip": "The first start of a new TAOM campaign can take up to an hour, so the lobby can take that long to show up."
+    },
+    {
+      "heading": "While it joins",
+      "steps": [
+        "Connect turns green when the game is found, the mods are ready and the address or Steam name looks right.",
+        "The launcher starts Bannerlord and watches the Coop log. The activity log on the Logs and help page says Connected when the game joins.",
+        "When the server runs on this PC, the launcher fills in 127.0.0.1 for you.",
+        "The ? next to Steam lobby and Direct opens a short guide for each way to join."
+      ]
+    }
+  ]
+}

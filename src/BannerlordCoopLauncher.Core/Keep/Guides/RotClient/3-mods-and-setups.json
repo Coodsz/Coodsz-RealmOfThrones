@@ -1,0 +1,37 @@
+{
+  "id": "mods-and-setups",
+  "title": "Mods and setups",
+  "summary": "Play Realm of Thrones with extra mods, the same ones as your host.",
+  "sections": [
+    {
+      "heading": "Setups",
+      "steps": [
+        "Plain Realm of Thrones is the locked setup with only Realm of Thrones and its helper mods.",
+        "For extra mods, click New setup or Copy on the Mods page.",
+        "The host must load the same extra mods."
+      ]
+    },
+    {
+      "heading": "Add mods",
+      "steps": [
+        "Click Add mods and pick mods from the Workshop or the game's Modules folder.",
+        "Click Save mods to keep the changes. Connect uses the saved list.",
+        "Install mods downloads the Workshop mods of the setup you do not have yet."
+      ]
+    },
+    {
+      "heading": "The More menu on the Mods page",
+      "steps": [
+        "Share mod list saves the mods of this setup to a file for the host or a friend.",
+        "Auto sort can move the Realm of Thrones group past extra mods. The four modules stay together."
+      ]
+    },
+    {
+      "heading": "War Sails",
+      "steps": [
+        "Realm of Thrones needs the War Sails DLC on every player's PC.",
+        "War Sails is always on, because Realm of Thrones needs it."
+      ]
+    }
+  ]
+}

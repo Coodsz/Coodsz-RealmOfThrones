@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BannerlordCoopLauncher.Core\BannerlordCoopLauncher.Core.csproj" />
+    <!-- The setup model (TaomSetup, TaomExtraMod, ExtraSlot), the mod facts and the import result come from
+         the TAOM library unchanged, as in the Burning Empires library. -->
+    <ProjectReference Include="..\TaomCoop.Core\TaomCoop.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- The built in Realm of Thrones mod list (RotCompatList.BuiltIn), used when the online one cannot be read. -->
+    <EmbeddedResource Include="Compat\rot-mod-compat.json" LogicalName="RealmOfThrones.Compat.rot-mod-compat.json" />
+  </ItemGroup>
+
+</Project>

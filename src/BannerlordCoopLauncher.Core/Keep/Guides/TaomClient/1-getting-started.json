@@ -1,0 +1,45 @@
+{
+  "id": "getting-started",
+  "title": "Getting started",
+  "summary": "Get the launcher ready to join a TAOM server.",
+  "sections": [
+    {
+      "heading": "What you need (1.4.8 only)",
+      "steps": [
+        "Bannerlord 1.4.8 on Steam.",
+        "Subscribe to Bannerlord Coop on the Steam Workshop (3770450698).",
+        "TAOM.CoopCompat 0.3.25 needs Coop 0.1.6, and Steam now has Coop 0.1.7.",
+        "Get BannerlordCoop-v0.1.6.zip from Coop's GitHub v0.1.6 release and unzip it into the game's Modules folder, so SubModule.xml sits in Modules\\Coop.",
+        "That Coop loads before the Workshop one. While TAOM needs it, Get Coop 0.1.6 on the Play page opens that release.",
+        "Download TAOM 2.0.29.5 from ModDB and keep it zipped. The TAOM.CoopCompat 0.3.25 CLIENT zip is built into the launcher."
+      ],
+      "tip": "The TAOM zip is big, about 18 GB. The launcher finds it anywhere on your PC, so Downloads is fine."
+    },
+    {
+      "heading": "Set up the game (1.4.8 only)",
+      "steps": [
+        "Close Bannerlord first.",
+        "Click Check mods. It looks for every module of your setup and does not download anything.",
+        "On the Settings page, click Install or repair TAOM. It installs TAOM and TAOM.CoopCompat, or repairs them when they match.",
+        "Use Workshop Coop 0.1.6 on the Settings page moves other Coop copies out of Modules. With a newer Workshop Coop it stops, unless your own 0.1.6 is in Modules."
+      ]
+    },
+    {
+      "heading": "Set up the game (1.5.7)",
+      "steps": [
+        "Download BannerlordCoop-v0.1.8.zip from Coop's GitHub release and unzip it into Bannerlord's Modules folder.",
+        "Install TAOM 2.0.41 or newer, then click Install or repair TAOM. It installs matching bundled TAOM.CoopCompat for 2.0.41 or 2.0.42.",
+        "Close Bannerlord, click Check mods, then click Connect using the address and port from your host."
+      ]
+    },
+    {
+      "heading": "Good to know",
+      "steps": [
+        "Pick your language with the 🌐 button at the bottom of the sidebar.",
+        "Older TAOM 2.0.27 campaigns do not load on 2.0.29.5, so the host has to start a new campaign.",
+        "When an update is out, a bar at the top shows Install update.",
+        "Press What's new next to the language button to see what changed in the last few versions."
+      ]
+    }
+  ]
+}

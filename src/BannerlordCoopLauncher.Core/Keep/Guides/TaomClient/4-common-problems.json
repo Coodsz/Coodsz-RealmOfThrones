@@ -1,0 +1,42 @@
+{
+  "id": "common-problems",
+  "title": "Common problems",
+  "summary": "Quick fixes when the game does not start, join or run well.",
+  "sections": [
+    {
+      "heading": "The game crashes on start",
+      "steps": [
+        "Try Safe mode. It joins once with Plain TAOM and does not change your setups.",
+        "If Safe mode works, click Find the crashing mod. It starts the game with half of your extra mods at a time until one is left.",
+        "Answer if the game reached the main menu each time. Then turn the mod it names off and click Save mods.",
+        "Still crashing? Click Check mods, then Install or repair TAOM."
+      ]
+    },
+    {
+      "heading": "The server turns the join down",
+      "steps": [
+        "If it says a mod does not match the server, you and the host have different mods or versions.",
+        "Pick the same setup as the host. Share mod list and Import mod list help you match.",
+        "If it says the server password is wrong, ask the host for the password again.",
+        "If it says it could not finish joining, check the address and that UDP 4200 is open on the host."
+      ],
+      "tip": "The launcher warns you when you join a host with other mods than last time."
+    },
+    {
+      "heading": "Choppy game or long loading",
+      "steps": [
+        "Choppy after you connect? Close Bannerlord, turn Low FPS fix on, then click Connect again.",
+        "Graphics look wrong? Close Bannerlord, open the Settings page and click Clear shader cache.",
+        "The game builds the shaders again on the next start, so that start is slower. Saves are not touched."
+      ]
+    },
+    {
+      "heading": "Get help",
+      "steps": [
+        "Click Send my logs on the Play page or on Logs and help. You see every file first, then you get a short code like CR-7KQ2M. Saves are left out.",
+        "Post only that code in Discord, not the log files.",
+        "If Windows blocked a DLL, click Connect again. If it comes back, open the Settings page and click Unblock DLLs."
+      ]
+    }
+  ]
+}

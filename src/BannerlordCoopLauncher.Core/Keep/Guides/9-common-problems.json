@@ -1,0 +1,38 @@
+{
+  "id": "common-problems",
+  "title": "Common problems",
+  "summary": "Quick fixes for the things that go wrong most often.",
+  "sections": [
+    {
+      "heading": "The server does not start",
+      "steps": [
+        "Open the Logs page. The red lines tell you what went wrong.",
+        "Press Unblock DLLs on Settings, under Advanced: Windows, if the log says Windows blocked a DLL.",
+        "Press Set server folder if Coodsz Coop Server Tool found the wrong server."
+      ]
+    },
+    {
+      "heading": "Friends cannot join or get kicked",
+      "steps": [
+        "Check they have the same mods, in the same order, and the same map.",
+        "Check the password.",
+        "Read Inviting friends for the router port and the firewall."
+      ]
+    },
+    {
+      "heading": "The server crashes",
+      "steps": [
+        "Tick Restart the server if it crashes on the Dashboard, so it comes back by itself.",
+        "If the save crashes on load, the server starts once more with the deeper save fixes. Still broken? Press Stop server, then Run Rescue save on the Logs page."
+      ]
+    },
+    {
+      "heading": "Asking for help",
+      "steps": [
+        "Press Send my logs on the left. You see every file first, then you get a short code like CR-7KQ2M.",
+        "Post only that code in the Coodsz Discord, not the log files. Your saves and your password are not in the report."
+      ],
+      "tip": "Streamer mode hides addresses, Steam ids and the password, so screenshots are safe to share."
+    }
+  ]
+}

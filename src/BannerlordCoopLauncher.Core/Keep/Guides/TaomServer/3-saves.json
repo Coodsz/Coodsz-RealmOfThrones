@@ -1,0 +1,35 @@
+{
+  "id": "saves",
+  "title": "Saves",
+  "summary": "How the server saves your campaign.",
+  "sections": [
+    {
+      "heading": "Saving",
+      "steps": [
+        "Save game saves while the server keeps running. Players stay connected.",
+        "Stop server and Restart save first, and wait until the save is really written.",
+        "Restart warns the players 30 and 10 seconds before.",
+        "Autosave minutes on the Settings page sets the autosave. 0 turns it off."
+      ]
+    },
+    {
+      "heading": "Picking a save",
+      "steps": [
+        "Pick that save shows each save as Server copy, Single player copy or Other folder.",
+        "Browse save picks a save from another folder.",
+        "The server only loads a Server copy. For a Single player copy, click Name server copy first.",
+        "Delete server copy removes the server copy. Your Documents save stays as it is.",
+        "A save from another TAOM version shows a warning and asks before Start."
+      ],
+      "tip": "Under the save you see the character, level, campaign day and the mods written in the save."
+    },
+    {
+      "heading": "Last good save",
+      "steps": [
+        "Use it only when the log says your hero has no party to rejoin.",
+        "It puts back the newest save from before that happened and starts the server.",
+        "While the hero has no party, the tool does not save over your world."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "id": "host-rules",
+  "title": "Host rules and mod settings",
+  "summary": "Run the server, set its rules and pick the MCM settings your players get.",
+  "sections": [
+    {
+      "heading": "While the server runs",
+      "steps": [
+        "Save game keeps the server up and players connected. Stop server and Restart save first.",
+        "Last good save puts back the newest save from before your hero lost their party and starts again.",
+        "Kick player, Ban player and Unban player are on the Dashboard."
+      ]
+    },
+    {
+      "heading": "Story choices",
+      "steps": [
+        "Realm of Thrones asks questions during its story, like the sieges. Every player sees them with a timer.",
+        "The first player to answer decides for everyone. If nobody answers in 60 seconds, the default goes ahead.",
+        "The world waits for the answer."
+      ]
+    },
+    {
+      "heading": "Server rules",
+      "steps": [
+        "On the Settings page, open the server rules part (its heading starts with Advanced). The defaults work without setup.",
+        "Pause the game while a player joins is on. It puts your speed back when they are on the map.",
+        "Freeze the skill XP of offline players is on. Coop already freezes their gold and food.",
+        "Unstuck for players picks who may use coop.unstuck.",
+        "Protect player kingdoms from AI wars picks when AI kingdoms may start a war with a kingdom players are in.",
+        "Click Save settings to keep a change."
+      ]
+    },
+    {
+      "heading": "Mod settings for players",
+      "steps": [
+        "Players who join with a Coodsz launcher use your MCM settings for the session, so every PC runs the mods the same way. Their own files are never changed.",
+        "On the Settings page, open the mod settings for players part (its heading starts with Advanced), pick a mod, change a value and click Save.",
+        "Players get the new value within a few seconds, with no restart.",
+        "No mod settings yet? Click Import mod settings and pick the .zip a player sent you, or set the mods up in MCM in your own game.",
+        "Back to this PC's values puts a mod back to the values MCM saved in your own game."
+      ],
+      "tip": "Settings a mod keeps per campaign are saved in the world and can only be changed in game."
+    }
+  ]
+}

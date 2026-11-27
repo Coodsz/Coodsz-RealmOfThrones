@@ -1,0 +1,40 @@
+{
+  "id": "inviting-friends",
+  "title": "Inviting friends",
+  "summary": "Let your friends join your Burning Empires server.",
+  "sections": [
+    {
+      "heading": "Send the invite",
+      "steps": [
+        "Look at Addresses your friends can use on the Dashboard. Each address has a Copy button.",
+        "Click Copy invite. It puts a short message for Discord on your clipboard, without the password.",
+        "Tell friends the password yourself, if you set one under Give this to friends."
+      ]
+    },
+    {
+      "heading": "How friends join",
+      "steps": [
+        "Friends use the Coodsz Burning Empires Client Launcher.",
+        "They click Direct, type your address and UDP port 4200, then Connect.",
+        "They pick the same setup as you, or the server turns the join down."
+      ],
+      "tip": "On the same Wi Fi, friends use your 192.168 address. On this PC you can join with 127.0.0.1."
+    },
+    {
+      "heading": "If friends cannot reach you",
+      "steps": [
+        "Tick Open the port on my router automatically. It opens UDP 4200 while the server runs.",
+        "Click Allow through firewall to add the Windows Firewall rule.",
+        "Radmin VPN or Hamachi also work. Friends use the address the VPN gives you.",
+        "For a Steam lobby, tick Advertise through Steam. Friends then type your Steam profile name."
+      ]
+    },
+    {
+      "heading": "Players",
+      "steps": [
+        "Online players shows who is on. Refresh updates the list.",
+        "Kick player, Ban player and Unban player are under that list."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--
+        The Realm of Thrones tools' own Keep colours: black, green and red (theme D). Both RoT csproj files link this file
+        as Keep\KeepColors.xaml in place of CoodszHost\Keep\KeepColors.xaml, so the other tools keep theirs. It has every
+        key of the shared file (ToolFrameTests checks), plus the RoT only keys at the bottom. Green is for go, links, card
+        title accents and the selected page; red for the brand edge, small card headings, Join on Discord and danger;
+        warnings stay amber. Red text is never darker than #E0564E (4.5:1 on the cards).
+    -->
+    <!-- Window colours (MainWindow.xaml) -->
+    <SolidColorBrush x:Key="Keep.BgDeep" Color="#FF08090A"/>
+    <SolidColorBrush x:Key="Keep.BgPanel" Color="#FF111312"/>
+    <SolidColorBrush x:Key="Keep.BgRaised" Color="#FF1A1E1C"/>
+    <SolidColorBrush x:Key="Keep.BgHover" Color="#FF232A26"/>
+    <SolidColorBrush x:Key="Keep.BgInput" Color="#FF0B0D0C"/>
+    <SolidColorBrush x:Key="Keep.BorderDim" Color="#FF36423A"/>
+    <SolidColorBrush x:Key="Keep.BorderInput" Color="#FF262E29"/>
+    <SolidColorBrush x:Key="Keep.BorderHover" Color="#FF6CCB8A"/>
+    <SolidColorBrush x:Key="Keep.TextMain" Color="#FFE8ECE8"/>
+    <SolidColorBrush x:Key="Keep.TextDim" Color="#FF9AA59C"/>
+    <SolidColorBrush x:Key="Keep.TextFaint" Color="#FF9AA59C" Opacity="0.7"/>
+    <!-- A soft green, so Starting and Joining (Info) still differ from Ready (Success). -->
+    <SolidColorBrush x:Key="Keep.Accent" Color="#FF8CC9A8"/>
+    <SolidColorBrush x:Key="Keep.AccentHover" Color="#FF6CCB8A"/>
+    <SolidColorBrush x:Key="Keep.AccentSoft" Color="#FF1F6B3C"/>
+    <SolidColorBrush x:Key="Keep.OnAccent" Color="#FFF1F7F2"/>
+    <SolidColorBrush x:Key="Keep.Success" Color="#FF6CCB8A"/>
+    <SolidColorBrush x:Key="Keep.SuccessSoft" Color="#FF14281B"/>
+    <SolidColorBrush x:Key="Keep.Warning" Color="#FFE3B341"/>
+    <SolidColorBrush x:Key="Keep.WarningSoft" Color="#FF2E2611"/>
+    <SolidColorBrush x:Key="Keep.Red" Color="#FFE0564E"/>
+    <SolidColorBrush x:Key="Keep.RedSoft" Color="#FF3A1517"/>
+    <SolidColorBrush x:Key="Keep.Badge" Color="#CC000000"/>
+    <SolidColorBrush x:Key="Keep.Picture" Color="#FF0B0D0C"/>
+
+    <!-- The Card style of the Server page. -->
+    <SolidColorBrush x:Key="Keep.Frame" Color="#FF36423A"/>
+    <SolidColorBrush x:Key="Keep.PanelGradient" Color="#F2111312"/>
+    <!-- The Primary button (Copy invite, Turn on 2x speed). -->
+    <SolidColorBrush x:Key="Keep.GoldButton" Color="#FF1F6B3C"/>
+    <SolidColorBrush x:Key="Keep.GoldButtonHover" Color="#FF27804A"/>
+    <LinearGradientBrush x:Key="Keep.HealthBar" StartPoint="0,0" EndPoint="1,0">
+        <GradientStop Color="#FF8A2A2C" Offset="0"/>
+        <GradientStop Color="#FFE0564E" Offset="1"/>
+    </LinearGradientBrush>
+
+    <!-- The window frame (sidebar, header, chips, banners). -->
+    <SolidColorBrush x:Key="Keep.SidebarBack" Color="#FF050606"/>
+    <SolidColorBrush x:Key="Keep.Line" Color="#FF262E29"/>
+    <SolidColorBrush x:Key="Keep.NavText" Color="#FFC3CCC5"/>
+    <SolidColorBrush x:Key="Keep.NavSelected" Color="#FF141A16"/>
+    <SolidColorBrush x:Key="Keep.NavSelectedLine" Color="#FF3A2224"/>
+    <!-- Green: card title icons, links, the selected page word. -->
+    <SolidColorBrush x:Key="Keep.GoldInk" Color="#FF6CCB8A"/>
+    <SolidColorBrush x:Key="Keep.Amber" Color="#FFE3B341"/>
+    <SolidColorBrush x:Key="Keep.OrangeInk" Color="#FFF08A4B"/>
+    <SolidColorBrush x:Key="Keep.WarningLine" Color="#FF6B5A24"/>
+    <SolidColorBrush x:Key="Keep.WarningInk" Color="#FFF0D488"/>
+    <SolidColorBrush x:Key="Keep.AmberSoft" Color="#FF332A12"/>
+    <SolidColorBrush x:Key="Keep.InfoSoft" Color="#FF13241E"/>
+    <SolidColorBrush x:Key="Keep.BadSoft" Color="#FF2A1012"/>
+    <SolidColorBrush x:Key="Keep.FocusRing" Color="#FF6CCB8A"/>
+    <SolidColorBrush x:Key="Keep.GoFill" Color="#FF23804A"/>
+    <SolidColorBrush x:Key="Keep.GoFillHover" Color="#FF2B9457"/>
+    <SolidColorBrush x:Key="Keep.StopFill" Color="#FFB3262B"/>
+    <SolidColorBrush x:Key="Keep.StopFillHover" Color="#FFC42E33"/>
+    <!-- Join on Discord (Keep.BtnSolidGold): a red fill with light words. -->
+    <SolidColorBrush x:Key="Keep.SolidFill" Color="#FFB3262B"/>
+    <SolidColorBrush x:Key="Keep.SolidFillHover" Color="#FFC42E33"/>
+    <SolidColorBrush x:Key="Keep.OnSolid" Color="#FFFFF2F1"/>
+    <!-- The Danger buttons (Ban player, Delete). -->
+    <SolidColorBrush x:Key="Keep.OnDanger" Color="#FFFBE3E1"/>
+    <SolidColorBrush x:Key="Keep.DangerLine" Color="#FF8A2A2C"/>
+    <SolidColorBrush x:Key="Keep.DangerHover" Color="#FF4A1C1E"/>
+    <SolidColorBrush x:Key="Keep.LinkHover" Color="#FFA6E3B9"/>
+    <SolidColorBrush x:Key="Keep.RowHoverLine" Color="#FF4A5A4F"/>
+    <!-- ToolAccent.Apply sets both from FrameRules at start: the black banner of the brand mark. -->
+    <SolidColorBrush x:Key="Keep.ToolAccent" Color="#FF141416"/>
+    <SolidColorBrush x:Key="Keep.ToolAccentInk" Color="#FFE0564E"/>
+
+    <!-- Realm of Thrones only. -->
+    <!-- The selected page edge, the Join my server strip and the edge of the brand mark (ToolAccent keeps it). -->
+    <SolidColorBrush x:Key="Keep.ToolEdge" Color="#FFC42E33"/>
+    <!-- The small words over a card (NEXT STEP, Game, Join). -->
+    <SolidColorBrush x:Key="Keep.CardHeading" Color="#FFE0564E"/>
+    <!-- The sidebar brand mark: a dark wine banner that shows on the black sidebar, with the red edge and crown. -->
+    <SolidColorBrush x:Key="Keep.BrandFill" Color="#FF4A2428"/>
+    <!-- The calm notes under a box (an address's note, Ready.), a soft green next to the dim grey. -->
+    <SolidColorBrush x:Key="Keep.Teal" Color="#FF8CC9A8"/>
+    <!-- The sidebar footer: Language and What's new on a dark green, Donate in red (UiLanguage). -->
+    <SolidColorBrush x:Key="Keep.SideGoldBack" Color="#FF12261A"/>
+    <SolidColorBrush x:Key="Keep.DonateBack" Color="#FF3A1517"/>
+    <SolidColorBrush x:Key="Keep.DonateInk" Color="#FFFBE3E1"/>
+    <SolidColorBrush x:Key="Keep.DonateLine" Color="#FFE0564E"/>
+
+</ResourceDictionary>

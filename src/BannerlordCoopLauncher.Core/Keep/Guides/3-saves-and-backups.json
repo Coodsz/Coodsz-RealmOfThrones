@@ -1,0 +1,32 @@
+{
+  "id": "saves-and-backups",
+  "title": "Saves and backups",
+  "summary": "Keep your campaign safe and get it back when something breaks.",
+  "sections": [
+    {
+      "heading": "Saving",
+      "steps": [
+        "Press Save game on the Dashboard any time. The server saves the campaign right away.",
+        "Set Autosave interval (minutes) on Settings so it saves by itself.",
+        "Save before you stop or restart, so nobody loses progress."
+      ]
+    },
+    {
+      "heading": "Backups",
+      "steps": [
+        "Press Backup now on the Dashboard or on Saves. It zips this world's save into the Save Backups folder.",
+        "To go back, pick the save on Saves and press Load backup.",
+        "Open save folder on Saves shows where the saves are."
+      ]
+    },
+    {
+      "heading": "When a save breaks",
+      "steps": [
+        "Press Stop server first.",
+        "Start server fixes known save problems by itself and shows what it fixed. Run Rescue save on the Logs page runs every fix once.",
+        "Last good save puts back the newest save from before a hero lost their party."
+      ],
+      "tip": "Make a backup before you try new mods. It takes a second and can save your whole campaign."
+    }
+  ]
+}

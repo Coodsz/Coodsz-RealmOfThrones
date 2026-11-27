@@ -1,0 +1,31 @@
+{
+  "id": "game-speed",
+  "title": "Game speed",
+  "summary": "Fast forward on the map and the battle speed limit.",
+  "sections": [
+    {
+      "heading": "On the Dashboard",
+      "steps": [
+        "The Game speed card says if 2x speed and the battle speed limit are on.",
+        "The Turn on 2x speed button lets the host and players fast forward on the campaign map. It reads Turn off 2x speed once it is on.",
+        "Battle speed limit puts time back to normal speed while any player is in a battle.",
+        "Players change the speed with the map time buttons, or the keys 1, 2 and 3."
+      ]
+    },
+    {
+      "heading": "Burning Empires speed",
+      "steps": [
+        "The server sets the time speed for everyone. Burning Empires' own time multiplier is turned off in Coop.",
+        "Ctrl+Space speed up does nothing in Coop. The normal Space pause still works."
+      ]
+    },
+    {
+      "heading": "When it takes effect",
+      "steps": [
+        "The buttons save right away.",
+        "A running server keeps its old speed until it restarts. Click Restart server on the card."
+      ],
+      "tip": "The same choices are in the Game speed group at the top of the Settings page."
+    }
+  ]
+}

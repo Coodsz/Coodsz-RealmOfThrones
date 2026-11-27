@@ -1,0 +1,63 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>RealmOfThronesLauncher</RootNamespace>
+    <AssemblyName>Coodsz Realm of Thrones Client Launcher</AssemblyName>
+    <Product>Coodsz Realm of Thrones Client Launcher</Product>
+    <AssemblyTitle>Coodsz Realm of Thrones Client Launcher</AssemblyTitle>
+    <Description>Coodsz Realm of Thrones Client Launcher: sets up Realm of Thrones Coop and joins a server</Description>
+    <ApplicationIcon>..\..\assets\icons\coodsz-rot-client.ico</ApplicationIcon>
+    <Version>0.1.4</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RealmOfThrones.Core\RealmOfThrones.Core.csproj" />
+    <ProjectReference Include="..\TaomCoop.Core\TaomCoop.Core.csproj" />
+    <ProjectReference Include="..\BannerlordCoopLauncher.Core\BannerlordCoopLauncher.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- The Server Tool's dark stone picture behind the pages (Backdrop.Apply in App.xaml.cs). -->
+    <Resource Include="..\RealmOfThronesHost\Assets\rot-backdrop-ember-green.png" Link="Assets\rot-backdrop-ember-green.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\BannerlordCoopLauncher\UiLanguage.cs" Link="UiLanguage.cs" />
+    <Compile Include="..\BannerlordCoopLauncher\GameAlreadyOpen.cs" Link="GameAlreadyOpen.cs" />
+    <Compile Include="..\BannerlordCoopLauncher\WindowPlacement.cs" Link="WindowPlacement.cs" />
+    <Compile Include="..\BannerlordCoopLauncher\NewBadges.cs" Link="NewBadges.cs" />
+    <Compile Include="..\BannerlordCoopLauncher\JoinGuideWindow.cs" Link="JoinGuideWindow.cs" />
+    <Compile Include="..\BannerlordCoopLauncher\AntivirusWindow.cs" Link="AntivirusWindow.cs" />
+    <Compile Include="..\BannerlordCoopLauncher\JoinCheckWindow.cs" Link="JoinCheckWindow.cs" />
+    <!-- The Connect prompt when the server needs mods this PC does not have turned on. -->
+    <Compile Include="..\BannerlordCoopLauncher\ServerModsWindow.cs" Link="ServerModsWindow.cs" />
+    <!-- The Send my logs button (CrashReportUi) and what it needs. Nothing is sent until RotRelease.ReportsReady. -->
+    <Compile Include="..\BannerlordCoopLauncher\ModReportWindow.cs" Link="ModReportWindow.cs" />
+    <Compile Include="..\BannerlordCoopLauncher\CrashReportWindow.cs" Link="CrashReportWindow.cs" />
+    <Compile Include="..\BannerlordCoopLauncher\ReportReplyWindow.cs" Link="ReportReplyWindow.cs" />
+    <!-- Add mods uses the same picker as Coodsz Coop and Friends. -->
+    <Compile Include="..\BannerlordCoopLauncher\CustomModWindow.cs" Link="CustomModWindow.cs" />
+    <!-- The question before Connect sets another Coop aside, the same window as the TAOM launcher (CoopParking). -->
+    <Compile Include="..\TaomCoopLauncher\SetAsideCoopWindow.cs" Link="SetAsideCoopWindow.cs" />
+    <!-- Player text the server tool and this launcher share (what is off in the first version, the version note). -->
+    <Compile Include="..\RealmOfThronesHost\RotUiText.cs" Link="RotUiText.cs" />
+    <!-- The Guides page, the same one as in the TAOM and Burning Empires tools. -->
+    <Compile Include="..\TaomCoopHost\TaomGuidesPage.cs" Link="TaomGuidesPage.cs" />
+  </ItemGroup>
+
+  <!-- The shared window frame (sidebar, header, chips, banners) and the Keep look it uses: docs/design/redesign/build-plan.md 1.1. -->
+  <!-- App.xaml merges the two Keep files (redesign wave 7). -->
+  <ItemGroup>
+    <!-- The Realm of Thrones colours from the Server Tool (black, green and red), under the shared file's name. -->
+    <Page Include="..\RealmOfThronesHost\Keep\KeepColors.Rot.xaml" Link="Keep\KeepColors.xaml" />
+    <Page Include="..\CoodszHost\Keep\KeepTheme.xaml" Link="Keep\KeepTheme.xaml" />
+    <Page Include="..\CoodszHost\Shared\Frame\*.xaml" Link="Shared\Frame\%(Filename)%(Extension)" />
+    <Compile Include="..\CoodszHost\Shared\Frame\*.cs" Link="Shared\Frame\%(Filename)%(Extension)" />
+  </ItemGroup>
+
+</Project>

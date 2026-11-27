@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BannerlordCoopLauncher.Core\BannerlordCoopLauncher.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- The built in TAOM compatibility list, used when the online one cannot be read. -->
+    <EmbeddedResource Include="Compat\taom-mod-compat.json" LogicalName="TaomCoop.Compat.taom-mod-compat.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- The settings sync's own value rules, so the mod settings page counts what the sync sends (ServerModSettings.SyncedNames).
+         The Realm of Thrones library and the launcher's tests use this copy too. -->
+    <Compile Include="..\..\compat\CoodszSettingsSync\src\Shared\SettingsWire.cs" Link="SettingsSync\SettingsWire.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- The Coop.Core.dll restore tests pass a pin of their own (CoopStaging.RestoreQualifiedDll). -->
+    <InternalsVisibleTo Include="BannerlordCoopLauncher.Tests" />
+  </ItemGroup>
+
+</Project>

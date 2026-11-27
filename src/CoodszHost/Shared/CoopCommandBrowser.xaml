@@ -1,0 +1,122 @@
+<UserControl x:Class="Coodsz.Ui.CoopCommandBrowser"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Foreground="{StaticResource Keep.TextMain}" FontFamily="Segoe UI">
+    <!--
+        Every Coop command from bannerlordcoop.com/cheats (the embedded catalog, CoopCommandCatalog):
+        the categories on the left, the searchable list, and the picked command's form with one box per
+        value, the line they make and the How to use guide. The Console page of Coodsz Coop Server Tool, the AD1259
+        server tool and the TAOM server tool (linked there from this folder). The colours are the Keep.
+        brushes, so each tool shows it in its own colours.
+    -->
+    <UserControl.Resources>
+        <Style x:Key="ConsoleItem" TargetType="ListBoxItem">
+            <Setter Property="Padding" Value="10,6"/>
+            <Setter Property="Margin" Value="0,0,0,2"/>
+            <Setter Property="Foreground" Value="{StaticResource Keep.TextMain}"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border x:Name="Bd" Background="Transparent" BorderBrush="Transparent" BorderThickness="1" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Bd" Property="Background" Value="{StaticResource Keep.BgHover}"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="Bd" Property="Background" Value="{StaticResource Keep.AccentSoft}"/>
+                                <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource Keep.Accent}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ConsoleCategoryItem" TargetType="ListBoxItem" BasedOn="{StaticResource ConsoleItem}">
+            <Setter Property="Padding" Value="12,8"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="MinHeight" Value="38"/>
+        </Style>
+    </UserControl.Resources>
+
+    <Border Style="{StaticResource Keep.Card}" Padding="12">
+        <Grid x:Name="ConsoleBrowser" SizeChanged="ConsoleBrowser_SizeChanged">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="270"/>
+                <ColumnDefinition Width="3*" MinWidth="260"/>
+                <ColumnDefinition x:Name="ConsoleDetailColumn" Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition x:Name="ConsoleDetailRow" Height="0"/>
+            </Grid.RowDefinitions>
+            <DockPanel Grid.RowSpan="2" Margin="0,0,12,0">
+                <TextBlock DockPanel.Dock="Top" Text="Categories" Style="{StaticResource Keep.Label}" Margin="0,0,0,6"/>
+                <ListBox x:Name="ConsoleCategories" Tag="coodsz:no-translate" Background="{StaticResource Keep.BgInput}" BorderBrush="{StaticResource Keep.BorderDim}" Foreground="{StaticResource Keep.TextMain}"
+                         ItemContainerStyle="{StaticResource ConsoleCategoryItem}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ConsoleCategory_Changed">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <DockPanel>
+                                <TextBlock DockPanel.Dock="Right" Text="{Binding Count}" Foreground="{StaticResource Keep.TextDim}" Margin="12,0,0,0" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding Name}" TextTrimming="CharacterEllipsis" VerticalAlignment="Center"/>
+                            </DockPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </DockPanel>
+            <DockPanel Grid.Column="1">
+                <TextBox DockPanel.Dock="Top" x:Name="ConsoleSearch" Style="{StaticResource Keep.Text}" Margin="0,0,0,8" TextChanged="ConsoleSearch_Changed" ToolTip="Finds commands by name or by what they do."/>
+                <WrapPanel DockPanel.Dock="Top" Margin="0,0,0,2">
+                    <RadioButton Style="{StaticResource Keep.Pill}" GroupName="ConsoleSide" Tag="" IsChecked="True" Content="Any side" Checked="ConsoleSide_Checked" Margin="0,0,6,6" ToolTip="Shows server, both and client commands."/>
+                    <RadioButton Style="{StaticResource Keep.Pill}" GroupName="ConsoleSide" Tag="SERVER" Content="Server" Checked="ConsoleSide_Checked" Margin="0,0,6,6" ToolTip="Shows the commands that run only on the server."/>
+                    <RadioButton Style="{StaticResource Keep.Pill}" GroupName="ConsoleSide" Tag="BOTH" Content="Both" Checked="ConsoleSide_Checked" Margin="0,0,6,6" ToolTip="Shows the commands that run on the server and in a player's game."/>
+                    <RadioButton Style="{StaticResource Keep.Pill}" GroupName="ConsoleSide" Tag="CLIENT" Content="Client" Checked="ConsoleSide_Checked" Margin="0,0,6,6" ToolTip="Shows the commands a player types in their own game."/>
+                </WrapPanel>
+                <TextBlock DockPanel.Dock="Top" x:Name="ConsoleCount" Foreground="{StaticResource Keep.TextDim}" Margin="0,0,0,4" Tag="coodsz:no-translate"/>
+                <ListBox x:Name="ConsoleCommands" Tag="coodsz:no-translate" Background="{StaticResource Keep.BgInput}" BorderBrush="{StaticResource Keep.BorderDim}" Foreground="{StaticResource Keep.TextMain}"
+                         ItemContainerStyle="{StaticResource ConsoleItem}" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                         VirtualizingPanel.IsVirtualizing="True" SelectionChanged="ConsoleCommand_Selected">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Border Background="{StaticResource Keep.AccentSoft}" CornerRadius="2" Padding="5,0" Margin="0,0,8,0" VerticalAlignment="Center">
+                                        <TextBlock Text="{Binding SideName}" FontSize="12" Foreground="{StaticResource Keep.TextMain}"/>
+                                    </Border>
+                                    <TextBlock Text="{Binding Name}" FontFamily="Consolas" FontSize="14.5"/>
+                                </StackPanel>
+                                <TextBlock Text="{Binding Description}" FontSize="13" Foreground="{StaticResource Keep.TextDim}" TextTrimming="CharacterEllipsis" Margin="0,2,0,0"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </DockPanel>
+            <ScrollViewer x:Name="ConsoleDetailHost" Grid.Column="2" Margin="14,0,0,0" VerticalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <TextBlock x:Name="ConsolePickHint" Text="Pick a command on the left to fill in its values." Foreground="{StaticResource Keep.TextDim}" TextWrapping="Wrap"/>
+                    <StackPanel x:Name="ConsoleDetail" Visibility="Collapsed">
+                        <TextBlock x:Name="ConsoleDetailName" FontFamily="Consolas" FontSize="16" FontWeight="SemiBold" TextWrapping="Wrap" Tag="coodsz:no-translate"/>
+                        <TextBlock x:Name="ConsoleDetailInfo" Foreground="{StaticResource Keep.TextDim}" TextWrapping="Wrap" Margin="0,4,0,0" Tag="coodsz:no-translate"/>
+                        <TextBlock x:Name="ConsoleDetailUsage" FontFamily="Consolas" Foreground="{StaticResource Keep.Warning}" TextWrapping="Wrap" Margin="0,6,0,0" Tag="coodsz:no-translate"/>
+                        <Border x:Name="ConsoleClientNote" Style="{StaticResource Keep.Note}" Margin="0,10,0,0" Visibility="Collapsed">
+                            <TextBlock x:Name="ConsoleClientText" TextWrapping="Wrap" Foreground="{StaticResource Keep.Warning}" Tag="coodsz:no-translate"/>
+                        </Border>
+                        <StackPanel x:Name="ConsoleParams" Margin="0,10,0,0" Tag="coodsz:no-translate"/>
+                        <TextBlock Text="Command" Style="{StaticResource Keep.Label}" Margin="0,8,0,4"/>
+                        <TextBox x:Name="ConsoleBuilt" Style="{StaticResource Keep.Text}" IsReadOnly="True" FontFamily="Consolas" TextWrapping="Wrap" Tag="coodsz:no-translate"
+                                 ToolTip="The command these values make."/>
+                        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                            <Button x:Name="ConsoleRunButton" Style="{StaticResource Keep.Gold}" Content="Run" MinWidth="90" Margin="0,0,8,0" Click="ConsoleRun_Click" ToolTip="Sends this command to the running server."/>
+                            <Button Style="{StaticResource Keep.Button}" Content="Put in box" Click="ConsolePutInBox_Click" ToolTip="Puts this command in the command box, so you can change it before you send it."/>
+                        </StackPanel>
+                        <TextBlock x:Name="ConsoleDetailProblem" Foreground="{StaticResource Keep.Warning}" TextWrapping="Wrap" Margin="0,8,0,0" Tag="coodsz:no-translate"/>
+                        <StackPanel x:Name="ConsoleGuide" Margin="0,16,0,0" Tag="coodsz:no-translate"/>
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Border>
+</UserControl>

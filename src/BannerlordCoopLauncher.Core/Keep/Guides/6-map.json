@@ -1,0 +1,51 @@
+{
+  "id": "map",
+  "title": "The Map",
+  "summary": "See where everyone is in the running campaign.",
+  "sections": [
+    {
+      "heading": "Before you start",
+      "steps": [
+        "The Map works while the server is running. Press Start server first.",
+        "Coodsz Coop Server Tool adds its own server tools on every Start. The Map reads the campaign through them.",
+        "Nothing on the Map changes the game. It only shows what the server says."
+      ]
+    },
+    {
+      "heading": "What you see",
+      "steps": [
+        "The land is the real campaign map, read from the server once each time it starts.",
+        "Towns, castles and villages have the colour of their kingdom. A red circle is a battle or a siege.",
+        "Every player is always on the map. Army leaders and other lords show when their box is ticked.",
+        "The Map reads the parties every few seconds while the page is open. Read now reads it right away."
+      ],
+      "tip": "Until the land is read, the map is plain parchment. The towns and kingdoms are still there."
+    },
+    {
+      "heading": "Layers and moving around",
+      "steps": [
+        "Tick or untick Towns, Castles, Villages, Armies, Lords and Territory above the map.",
+        "Press Kingdoms to see each kingdom's colour and what the marks mean.",
+        "Use the mouse wheel or the + and − buttons to zoom. Drag the map to move it.",
+        "Names show up as you zoom in. Player names always show."
+      ]
+    },
+    {
+      "heading": "Finding someone",
+      "steps": [
+        "Type a player, lord or settlement in the search box and pick it. The map goes there.",
+        "The Players list on the side says what each player is doing and how many troops they have.",
+        "Click a party or a settlement for its card. It has Centre the map, Open profile and Open in Encyclopedia."
+      ]
+    },
+    {
+      "heading": "Show on map",
+      "steps": [
+        "In a player profile, press Show on map to jump to that player's party.",
+        "In the Encyclopedia, press Show on map on a hero or a settlement.",
+        "A hero with no party right now, like a prisoner, cannot be shown."
+      ],
+      "tip": "Streamer mode shows players as Player 1, Player 2 on the map, so you can stream it."
+    }
+  ]
+}

@@ -16,6 +16,10 @@ Made for Realm of Thrones 8.1.2 (modules 8.1.8, map 8.1.8.2), Bannerlord 1.4.8 w
 
 Get the latest Coodsz-Realm-of-Thrones-Tools zip from [Releases](https://github.com/Coodsz/Coodsz-RealmOfThrones/releases/latest). It holds both programs. Unzip it before you open a tool. The instructions file in the release explains every step.
 
+## Contribute
+
+Fork this repository to change the Client Launcher, Server Tool or tests. See [CONTRIBUTING.md](CONTRIBUTING.md) for the Windows build commands and review checklist.
+
 ## Which mods work
 
 See [MODS.md](MODS.md) for the mod list. The tools show it next to each mod.
@@ -37,5 +41,4 @@ Click **Report** next to a mod on the Mods page of the Coodsz Realm of Thrones C
 ## Credits
 
 - Bannerlord Coop by the Bannerlord Coop team.
-- Code from CoopKeep by aderimo (MIT) is adapted for the report form.
 - Tools and compat patch made by Coodsz.

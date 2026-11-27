@@ -1,0 +1,45 @@
+{
+  "id": "joining-a-friend",
+  "title": "Joining a friend",
+  "summary": "Connect to your host's Realm of Thrones server.",
+  "sections": [
+    {
+      "heading": "Pick how to join",
+      "steps": [
+        "Direct is the host's IP address and UDP port 4200.",
+        "Steam lobby only works if the host turned on Steam. Use the host's Steam profile name, with Steam running on both PCs.",
+        "Type the password if the host gave you one. Leave it empty when the server has no password."
+      ]
+    },
+    {
+      "heading": "Connect",
+      "steps": [
+        "Pick the same setup as the host.",
+        "Click Connect while Bannerlord is closed.",
+        "Keep the launcher open while you play.",
+        "When Bannerlord closes, close the launcher. It takes its Coop out and puts yours back."
+      ]
+    },
+    {
+      "heading": "The first join",
+      "steps": [
+        "The first join after you install or change mods can take several minutes while the game prepares the map and compiles shaders. Do not close the game.",
+        "The game can look frozen. Wait for it."
+      ]
+    },
+    {
+      "heading": "Story choices",
+      "steps": [
+        "Realm of Thrones asks questions during its story, like the sieges. Every player sees them with a timer.",
+        "The first player to answer decides for everyone. If nobody answers in 60 seconds, the default goes ahead."
+      ]
+    },
+    {
+      "heading": "The host's settings",
+      "steps": [
+        "On the server you use the host's MCM settings, so every PC runs the mods the same way. Your own files are never changed.",
+        "Realm of Thrones' music and markers keep your own choice."
+      ]
+    }
+  ]
+}
