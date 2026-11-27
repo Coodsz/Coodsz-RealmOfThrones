@@ -2,6 +2,12 @@
 
 Fork this repository, create a branch and open a pull request into `main`. Describe what changed and how you tested it. Include the exact commit you tested. Maintainers handle merges and releases. The [review policy](AGENTS.md#independent-review) applies to code and documentation.
 
+## Claim an issue
+
+Before starting a fix, check the issue's assignee and recent comments. If nobody has claimed it, comment that you're working on it and briefly describe your approach. If someone is already working on it, coordinate with them first.
+
+When your PR resolves a public issue in this repository, put `Fixes #123` in the PR description, replacing 123 with the issue number. GitHub closes the issue when the PR merges into `main`. For partial progress, use `Refs #123` to keep the issue open.
+
 ## Build and test
 
 Use Windows x64 with the .NET 8 SDK and Windows Desktop targeting support. Restore uses public NuGet packages. Run these commands from the root of a fresh checkout. The tests use synthetic data and require no game installation.
