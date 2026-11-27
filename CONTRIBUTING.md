@@ -20,9 +20,13 @@ dotnet test tests/RoT.Contributor.Tests/RoT.Contributor.Tests.csproj -c Release
 
 These are unsigned development builds without the game modules or Coop archives used to host and join. Use the [official release](https://github.com/Coodsz/Coodsz-RealmOfThrones/releases/latest) to play. It targets Steam Bannerlord 1.4.8 with War Sails, the full Nexus RoT 8.1.2 package (modules 8.1.8, map 8.1.8.2), and RoT Coop 0.1.8+01846e13. See the [player instructions](Coodsz-RealmOfThrones-Instructions.txt) for dependencies.
 
-## PR checklist
+## How PRs are reviewed
 
-- Build both tools and run the tests above. State what you could verify and what still needs a player or host test.
+Keep each PR focused on one change. This repository accepts changes to the RoT tool source and tests as well as the player guide. For tool code, follow the [shared code review checklist](https://github.com/Coodsz/Coodsz-Coop-Tools/blob/master/CONTRIBUTING.md) and the checks below. Keep changes to player or host behavior in draft until tested in game.
+
+For guide or list edits alone, check the wording, links and affected entries. These edits do not need a game test.
+
+- For code changes, build both tools and run the tests above. State what you could verify and what still needs a player or host test.
 - Add a regression test for a behavior fix. Keep new UI text in all nine languages under `src/BannerlordCoopLauncher.Core/Localization/Languages`.
 - Preserve file encodings and CRLF. Leave generated compatibility records to the existing bot.
 - Keep game and mod assets, binary payloads, private logs, credentials and signing files out of commits.
