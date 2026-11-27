@@ -22,7 +22,7 @@ These are unsigned development builds without the game modules or Coop archives 
 
 ## How PRs are reviewed
 
-Keep each PR focused on one change. This repository accepts changes to the RoT tool source and tests as well as the player guide. For tool code, follow the [shared code style guidelines](https://github.com/Coodsz/Coodsz-Coop-Tools/blob/master/CONTRIBUTING.md#how-the-code-should-look) and use this repository's build and test commands above. Keep changes to player or host behavior in draft until tested in game.
+Keep each PR focused on one change. This repository accepts changes to the RoT tool source and tests as well as the player guide. For tool code, follow the [shared code style guidelines](https://github.com/Coodsz/Coodsz-Coop-Tools/blob/master/CONTRIBUTING.md#how-the-code-should-look). Keep changes to player or host behavior in draft until tested in game.
 
 - For code changes, build both tools and run the tests above. State what you could verify and what still needs a player or host test.
 - Add a regression test for a behavior fix. Keep new UI text in all nine languages under `src/BannerlordCoopLauncher.Core/Localization/Languages`.
@@ -30,7 +30,7 @@ Keep each PR focused on one change. This repository accepts changes to the RoT t
 - Keep game and mod assets, binary payloads, private logs, credentials and signing files out of commits.
 - Submit your original code under the [MIT license](LICENSE.txt). Keep third-party notices intact and identify the license of any proposed third-party material.
 
-For documentation-only edits, check the wording and links. These edits do not need a game test.
+For edits to documentation only, check the wording and links. These edits do not need a game test.
 
 ## Report a problem
 
