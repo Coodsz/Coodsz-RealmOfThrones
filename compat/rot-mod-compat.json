@@ -16,8 +16,8 @@
     { "id": "ROT_Map", "name": "Realm of Thrones Map", "workshopId": "", "tag": "safe", "source": "coodsz-notes", "checked": "2026-11-15", "note": "Part of Realm of Thrones from Nexus Mods, version 8.1.8.2. Its folder is named ROT-Map. It is part of the core and always loads." },
     { "id": "ROT-Dragon", "name": "Realm of Thrones Dragon", "workshopId": "", "tag": "safe", "source": "coodsz-notes", "checked": "2026-11-15", "note": "Part of Realm of Thrones from Nexus Mods, modules version 8.1.8. It is part of the core and always loads." },
     { "id": "RealmOfThrones.CoopCompat", "name": "Realm of Thrones Coop Compat", "workshopId": "", "tag": "safe", "source": "coodsz-notes", "checked": "2026-11-15", "note": "Made by Coodsz. Comes with the tools and always loads last." },
-    { "id": "BannerFix", "name": "Banner Fix", "workshopId": "", "nexusId": "4600", "tag": "reported", "source": "coodsz-notes", "checked": "2026-11-15", "note": "On a Realm of Thrones singleplayer mod list from the Realm of Thrones Discord (modules 8.1.7). Not tested in Coop yet. Banner looks only. Load it before Raise your Banner." },
-    { "id": "RaiseYourBanner", "name": "Raise your Banner", "workshopId": "", "tag": "reported", "source": "coodsz-notes", "checked": "2026-11-15", "note": "On a Realm of Thrones singleplayer mod list from the Realm of Thrones Discord (modules 8.1.7). Not tested in Coop yet. Load Banner Fix before it." },
+    { "id": "BannerFix", "name": "Banner Fix", "workshopId": "", "nexusId": "4600", "tag": "reported", "source": "coodsz-notes", "checked": "2026-11-15", "note": "On a Realm of Thrones singleplayer mod list from the Realm of Thrones Discord (modules 8.1.7). Not tested in Coop yet. Banner looks only. Load it before Raise your Banner.", "works": 1, "broken": 0, "lastReport": "2026-11-25" },
+    { "id": "RaiseYourBanner", "name": "Raise your Banner", "workshopId": "", "tag": "reported", "source": "coodsz-notes", "checked": "2026-11-15", "note": "On a Realm of Thrones singleplayer mod list from the Realm of Thrones Discord (modules 8.1.7). Not tested in Coop yet. Load Banner Fix before it.", "works": 1, "broken": 0, "lastReport": "2026-11-25" },
     { "id": "RaiseYourTorch", "name": "Raise your Torch", "workshopId": "", "tag": "reported", "source": "coodsz-notes", "checked": "2026-11-15", "note": "On a Realm of Thrones singleplayer mod list from the Realm of Thrones Discord (modules 8.1.7). Not tested in Coop yet. Battle looks only." },
     { "id": "WarSailsBannerSails", "name": "War Sails Banner Sails", "workshopId": "", "tag": "reported", "source": "coodsz-notes", "checked": "2026-11-15", "note": "On a Realm of Thrones singleplayer mod list from the Realm of Thrones Discord (modules 8.1.7). Not tested in Coop yet. Needs War Sails. Ship looks only." },
     { "id": "AliveScenes", "name": "Alive Scenes", "workshopId": "", "nexusId": "8138", "tag": "reported", "source": "coodsz-notes", "checked": "2026-11-15", "note": "On a Realm of Thrones singleplayer mod list from the Realm of Thrones Discord (modules 8.1.7). Not tested in Coop yet. In normal Coop the host and every player need the same version." },
@@ -91,8 +91,10 @@
   ],
   "community": [
     { "id": "DaysOfFood", "name": "Days of Food", "works": 1, "broken": 0, "lastReport": "2026-11-24" },
+    { "id": "HairAddons", "name": "DLX Hair Layers", "works": 1, "broken": 0, "lastReport": "2026-11-24" },
     { "id": "New_Hair", "name": "DLX Hair Layers - Hairstyles by zeroas136977", "works": 1, "broken": 0, "lastReport": "2026-11-24" },
     { "id": "HideHelmetToggle", "name": "Hide Helmet Toggle", "works": 1, "broken": 0, "lastReport": "2026-11-24" },
+    { "id": "NoMoreStuckProjectilesRedux", "name": "NoMoreStuckProjectilesRedux", "works": 1, "broken": 0, "lastReport": "2026-11-25" },
     { "id": "VoiceActingPatch", "name": "Voice Acting Patch (FishAudio)", "works": 1, "broken": 0, "lastReport": "2026-11-24" }
   ]
 }
